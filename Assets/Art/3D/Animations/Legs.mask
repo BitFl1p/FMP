@@ -1,0 +1,263 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Legs
+  m_Mask: 00000000000000000000000001000000010000000100000001000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Bone.041
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.003
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.003/Bone.002
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.003/Bone.002/Bone.001
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.003/Bone.002/Bone.001/Bone.001_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.003/Bone.002/Bone.001/Cube.012
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.003/Bone.002/Cube.013
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.003/Cube.002
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.005
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.005/Bone.006
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.005/Bone.006/Bone.007
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.005/Bone.006/Bone.007/Bone.007_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.005/Bone.006/Bone.007/Cube.011
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.005/Bone.006/Cube.010
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.005/Cube.005
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.009
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.009/Bone.010
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.009/Bone.010/Bone.011
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.009/Bone.010/Bone.011/Bone.011_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.009/Bone.010/Bone.011/Cube.008
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.009/Bone.010/Cube.009
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.009/Cube.004
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.013
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.013/Bone.014
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.013/Bone.014/Bone.015
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.013/Bone.014/Bone.015/Bone.015_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.013/Bone.014/Bone.015/Cube.007
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.013/Bone.014/Cube.006
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone.013/Cube.003
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Cube.001
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Cylinder.011
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Icosphere.005
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Cylinder.002
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Icosphere.001
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Cylinder.006
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.004/Icosphere.002
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.020
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.020/Bone.021
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.020/Bone.021/Bone.022
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.020/Bone.021/Bone.022/Bone.022_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.020/Bone.021/Bone.022/Cube.015
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.020/Bone.021/Cube.014
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.020/Cube.025
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.023
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.023/Bone.024
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.023/Bone.024/Bone.025
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.023/Bone.024/Bone.025/Bone.025_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.023/Bone.024/Bone.025/Cube.016
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.023/Bone.024/Cube.017
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.023/Cube.022
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.026
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.026/Bone.027
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.026/Bone.027/Bone.028
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.026/Bone.027/Bone.028/Bone.028_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.026/Bone.027/Bone.028/Cube.019
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.026/Bone.027/Cube.018
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.026/Cube.023
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.029
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.029/Bone.030
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.029/Bone.030/Bone.031
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.029/Bone.030/Bone.031/Bone.031_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.029/Bone.030/Bone.031/Cube.020
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.029/Bone.030/Cube.021
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Bone.029/Cube.024
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Cube.026
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Cylinder.007
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.019/Icosphere.003
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Cylinder.013
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Icosphere.006
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Cylinder.012
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.016/Icosphere.004
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Bone.032
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Bone.032/Bone.032_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Bone.032/Cube.033
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Bone.032/Cube.034
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Bone.032/Cube.035
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Bone.032/Cylinder.018
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Bone.032/Cylinder.019
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Cylinder
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cube
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.001
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.003
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.004
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.005
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.008
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.009
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.010
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.020
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.021
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.022
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.023
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.024
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cylinder.025
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Bone.033
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Bone.033/Bone.033_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Bone.033/Cube.029
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Cube.027
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Cube.028
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Cylinder.016
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Icosphere.010
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Cylinder.015
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Icosphere.009
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Bone.037
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Bone.037/Bone.037_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Bone.037/Cube.030
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Cube.031
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Cube.032
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Cylinder.017
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Icosphere.007
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Cylinder.014
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Icosphere.008
+    m_Weight: 1
