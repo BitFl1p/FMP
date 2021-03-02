@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class ThirdPersonMovement : MonoBehaviour
 {
+    public float offset = 50;
+    public CinemachineFreeLook vcam;
     Vector3 velocity, moveDir = Vector3.zero;
     public float gravity = -9.81f, speed = 6, turnSmoothTime = 0.1f, jumpHeight = 10;
     public Transform cam;
@@ -11,6 +13,7 @@ public class ThirdPersonMovement : MonoBehaviour
     float turnSmoothVelocity, horizontal, vertical;
     public bool grounded;
     Animator anim;
+    public Transform hip;
 
     private void Start()
     {
@@ -19,6 +22,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Update()
     {
+        anim.SetBool("Grounded", grounded);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         //you do not understand the GRAVITY of the situation
@@ -34,6 +38,7 @@ public class ThirdPersonMovement : MonoBehaviour
             }
 
         }
+        
         
     }
     private void FixedUpdate()
@@ -57,8 +62,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
         }
         
-        anim.SetFloat("SpeedX", horizontal);
-        anim.SetFloat("SpeedY", vertical);
+        anim.SetFloat("SpeedX", horizontal, Time.deltaTime * 2f, Time.deltaTime);
+        anim.SetFloat("SpeedY", vertical, Time.deltaTime * 2f, Time.deltaTime);
+        Aim();
+    }
+    void Aim()
+    {
+        hip.localEulerAngles = new Vector3(0, 180, vcam.m_YAxis.Value * 90 - offset);
+        /*Quaternion rot = hip.localRotation;
+        rot.eulerAngles = new Vector3(0.0f, vcam.m_YAxis.Value * 180, 0.0f);
+        hip.localRotation = rot;*/
     }
 
 }

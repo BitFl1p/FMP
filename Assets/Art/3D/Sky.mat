@@ -144,8 +144,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SunDisk: 2
-    - _SunSize: 0.1
-    - _SunSizeConvergence: 5
+    - _SunSize: 0.05
+    - _SunSizeConvergence: 10
     - _Surface: 0
     - _UVSec: 0
     - _WorkflowMode: 1

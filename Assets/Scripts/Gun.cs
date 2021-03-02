@@ -2,14 +2,16 @@
 
 public class Gun : MonoBehaviour
 {
+    public GameObject bullet;
     public ParticleSystem muzzle;
-    public Transform bullet;
+    public float speed;
     public Transform firePoint;
-    public float fireRate = 1;
+    public float fireRate = 0;
     public int damage = 1;
     float timer;
     void Update()
     {
+        //Time.timeScale = 0.1f;
         timer += Time.deltaTime;
         if(timer >= fireRate)
         {
@@ -22,18 +24,10 @@ public class Gun : MonoBehaviour
     }
     void FireGun()
     {
+        if (muzzle != null) { muzzle.Play(); }
+        Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+
         //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
-        Ray ray = new Ray(firePoint.position, firePoint.forward);
-        RaycastHit hitInfo;
-        if(muzzle != null) { muzzle.Play(); }
-        if(bullet != null) { Transform bul = Instantiate(bullet).transform; bul.transform.position = firePoint.position; bul.transform.rotation = firePoint.rotation; }
-        if (Physics.Raycast(ray, out hitInfo, 100))
-        {
-            Health health = hitInfo.collider.GetComponent<Health>();
-            if(health != null)
-            {
-                health.TakeDamage(damage);
-            }
-        }
+        
     }
 }
