@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Orb
+  - Player2D
   layers:
   - Default
   - TransparentFX
