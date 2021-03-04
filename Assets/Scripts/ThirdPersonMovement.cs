@@ -20,7 +20,8 @@ public class ThirdPersonMovement : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-    void Update()
+    
+    private void FixedUpdate()
     {
         anim.SetBool("Grounded", grounded);
         Cursor.lockState = CursorLockMode.Locked;
@@ -38,12 +39,6 @@ public class ThirdPersonMovement : MonoBehaviour
             }
 
         }
-        
-        
-    }
-    private void FixedUpdate()
-    {
-        
         //schmovement
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
@@ -58,8 +53,12 @@ public class ThirdPersonMovement : MonoBehaviour
             moveDir = (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward);
 
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-            
+            anim.SetBool("Schmove", true);
 
+        }
+        else
+        {
+            anim.SetBool("Schmove", false);
         }
         
         anim.SetFloat("SpeedX", horizontal, Time.deltaTime * 2f, Time.deltaTime);

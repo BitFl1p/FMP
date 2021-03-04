@@ -22,13 +22,11 @@ public class Bullet : MonoBehaviour
     public Vector3 lastPos;
     bool start;
 
-    void Update()
-    {
-        
-
-    }
+    
     private void LateUpdate()
     {
+
+        
         if (start)
         {
             speed = speed * 100;
@@ -39,24 +37,11 @@ public class Bullet : MonoBehaviour
             start = false;
         }
         lastPos = transform.position;
-        /*Ray ray = new Ray(transform.position, lastPos);
-        RaycastHit hitInfo;
-        if (Physics.Raycast(ray, out hitInfo, speed))
-        {
-            Health health = hitInfo.collider.GetComponent<Health>();
-            if (health != null)
-            {
-                health.TakeDamage(damage);
-                Destroy(gameObject);
-            }
-            if (hitInfo.collider != null)
-            {
-                Destroy(gameObject);
-            }
-        }*/
+        
     }
     private void OnCollisionEnter(Collision other)
     {
+
         Health health = other.collider.GetComponent<Health>();
         if (health != null)
         {
