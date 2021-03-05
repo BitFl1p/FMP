@@ -2,7 +2,8 @@
 
 public class Gun : MonoBehaviour
 {
-    public GameObject bullet;
+
+    public GameObject bullet,explode;
     public ParticleSystem muzzle;
     public float speed;
     public Transform firePoint;
@@ -31,6 +32,9 @@ public class Gun : MonoBehaviour
                     case 2:
                         FireBoomer();
                         break;
+                    case 3:
+                        FireExploder();
+                        break;
 
 
                 }
@@ -40,18 +44,18 @@ public class Gun : MonoBehaviour
     }
     void FirePistol()
     {
-        
-        if (muzzle != null) { muzzle.Play(); }
+
+        muzzle?.Play();
         Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
-        //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
+        
 
     }
     void FireShotgun()
     {
 
-        if (muzzle != null) { muzzle.Play(); }
-        for(int i = 0; i <= 6; i++) 
+        muzzle?.Play();
+        for (int i = 0; i <= 6; i++) 
             Instantiate(bullet).GetComponent<Bullet>().SetData
                 (
                     damage, 
@@ -67,11 +71,18 @@ public class Gun : MonoBehaviour
     void FireBoomer()
     {
 
-        if (muzzle != null) { muzzle.Play(); }
+        muzzle?.Play();
         Instantiate(bullet).GetComponent<Boomerang>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
-        //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
+        
 
+    }
+    void FireExploder()
+    {
+        muzzle?.Play();
+        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position,explode);
+        anim.SetBool("Shoot", true);
+        
     }
     Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x + (firePoint.forward.x * Random.Range(-0.1f, 0.1f)), firePoint.forward.y + (firePoint.forward.y * Random.Range(-0.3f, 0.3f)), firePoint.forward.z + (firePoint.forward.z * Random.Range(-0.1f, 0.1f))).normalized; }
 }

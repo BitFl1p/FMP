@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class ExplodeBullet : MonoBehaviour
 {
-    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
+    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, GameObject explode)
     {
+        this.explode = explode.GetComponent<Explode>();
         this.damage = damage;
         this.rotation = rotation;
         this.direction = direction;
@@ -13,7 +14,7 @@ public class Bullet : MonoBehaviour
         this.pos = pos;
         start = true;
     }
-
+    public Explode explode;
     public int damage;
     public Quaternion rotation;
     public Vector3 direction;
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
     public Vector3 lastPos;
     bool start;
 
-    
+
     private void LateUpdate()
     {
 
@@ -41,9 +42,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-
-        Health health = other.collider.GetComponent<Health>();
-        health?.TakeDamage(damage);
+        Instantiate(explode).Wee(damage, transform.position);
         Destroy(gameObject);
     }
 }
