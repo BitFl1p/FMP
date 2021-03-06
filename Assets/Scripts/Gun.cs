@@ -2,7 +2,9 @@
 
 public class Gun : MonoBehaviour
 {
-
+    float reloadCount;
+    public float reloadTime;
+    public ParticleSystem[] steam;
     public GameObject bullet,explode;
     public ParticleSystem muzzle;
     public float speed;
@@ -11,14 +13,25 @@ public class Gun : MonoBehaviour
     public int damage = 1;
     float timer;
     public Animator anim;
-    public int wepNum;
+    public int wepNum, clipSize;
+    int ammo;
+    bool reload, steaming;
+    void Start()
+    {
+        ammo = clipSize;
+    }
     void Update()
     {
         anim.SetInteger("WepNum", wepNum);
         if(done)
         {
+            if (ammo <= 0 && !(reloadTime <= 0))
+            {
+                reload = true;
+                Reload(reloadTime);
+            }
             anim.SetBool("Shoot", false);
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire1") && !reload)
             {
                 done = false;
                 switch (wepNum)
@@ -38,8 +51,27 @@ public class Gun : MonoBehaviour
 
 
                 }
+                ammo--;
+                
             }
             
+
+        }
+    }
+    void Reload(float reloadTime)
+    {
+        if (!steaming)
+        {
+            reloadCount = reloadTime;
+            foreach (ParticleSystem current in steam) { current.Play(); }
+            steaming = true;
+        }
+        reloadCount -= Time.deltaTime;
+        if (reloadCount <= 0)
+        {
+            steaming = false;
+            reload = false;
+            ammo = clipSize;
         }
     }
     void FirePistol()

@@ -10,7 +10,7 @@ public class GroundCheck : MonoBehaviour
     {
         if (player2D != null) transform.position = player2D.transform.position; else transform.position = player3D.transform.position;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Ground") { if(player2D != null) { player2D.isGrounded = true; } if (player3D != null) { player3D.grounded = true; } }
     }

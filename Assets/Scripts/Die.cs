@@ -2,15 +2,16 @@
 
 public class Die : MonoBehaviour
 {
-    public float timer, count;
+    float count;
+    public float timer;
     private void OnEnable()
     {
         count = timer;
     }
     private void Update()
     {
-        timer -= Time.deltaTime;
-        if(timer <= 0)
+        count -= Time.deltaTime;
+        if (count <= 0)
         {
             Destroy(gameObject);
         }
