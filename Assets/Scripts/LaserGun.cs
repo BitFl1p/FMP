@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class LaserGun : MonoBehaviour
 {
+    public Slider ammoSlider;
     public ParticleSystem[] steam;
     public Laser laser;
     public Animator anim;
@@ -13,7 +13,8 @@ public class LaserGun : MonoBehaviour
     public float maxFire;
     void Update()
     {
-
+        ammoSlider.maxValue = maxFire;
+        ammoSlider.value = fireCount;
         anim.SetInteger("WepNum", wepNum);
         
         if (Input.GetButton("Fire1")&&!cooling)

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
+    public Slider ammoSlider;
     float reloadCount;
     public float reloadTime;
     public ParticleSystem[] steam;
@@ -22,6 +24,8 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
+        ammoSlider.maxValue = clipSize;
+        ammoSlider.value = ammo;
         anim.SetInteger("WepNum", wepNum);
         if(done)
         {
