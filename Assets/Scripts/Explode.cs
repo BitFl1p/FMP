@@ -10,10 +10,10 @@ public class Explode : MonoBehaviour
     public void Wee(int damage, Vector3 pos)
     {
         transform.position = pos;
-        Debug.Log("exist");
+        
         part1.Play();
         part2.Play();
-        Debug.Log("exist");
+        
         Collider[] nearby = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider thisGuy in nearby)
         {

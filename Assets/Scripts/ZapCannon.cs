@@ -1,31 +1,41 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class LaserGun : MonoBehaviour
+public class ZapCannon : MonoBehaviour
 {
+    public Transform firePoint;
+    public bool done;
     public Slider ammoSlider;
     public ParticleSystem[] steam;
-    public Laser laser;
+    public BigBall laser;
     public Animator anim;
     public int wepNum = 4, damage = 5;
     float fireCount;
     bool cooling = false, animPlaying = false;
-    public float maxFire;
+    public float maxFire, speed;
+    
+    
     void Update()
     {
         ammoSlider.maxValue = maxFire;
-        ammoSlider.value = maxFire - fireCount;
+        ammoSlider.value = fireCount;
         anim.SetInteger("WepNum", wepNum);
-        
-        if (Input.GetButton("Fire1")&&!cooling)
+
+        if (Input.GetButton("Fire1") && !cooling && done)
         {
-            anim.SetBool("Shoot", true);
-            laser.gameObject.SetActive(true);
-            laser.damage = damage;
             fireCount += Time.deltaTime;
+            firePoint.localScale = Vector3.one * fireCount;
+            
             if (fireCount >= maxFire)
             {
+                BigBall ball = Instantiate(laser);
+                ball.SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+                anim.SetBool("Shoot", true);
+                fireCount += Time.deltaTime;
                 cooling = true;
+                done = false;
             }
         }
         else
@@ -53,6 +63,6 @@ public class LaserGun : MonoBehaviour
                 cooling = false;
             }
         }
-        
+
     }
 }
