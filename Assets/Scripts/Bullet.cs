@@ -22,11 +22,11 @@ public class Bullet : MonoBehaviour
     public Vector3 lastPos;
     bool start;
 
-    
+
     private void LateUpdate()
     {
 
-        
+
         if (start)
         {
             speed = speed * 100;

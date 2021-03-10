@@ -40,7 +40,7 @@ public class BigBall : MonoBehaviour
         transform.position += direction * speed;
         lastPos = transform.position;
         transform.rotation.SetLookRotation(direction);
-        if (count >= 3) { Instantiate(explode); Destroy(gameObject); }
+        if (count >= 3) { GetComponent<Die>().Deth(); }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -48,5 +48,6 @@ public class BigBall : MonoBehaviour
         health?.TakeDamage(damage);
         count++;
     }
+    
     
 }

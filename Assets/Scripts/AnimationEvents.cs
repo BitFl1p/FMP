@@ -17,6 +17,5 @@ public class AnimationEvents : MonoBehaviour
     public void ZapDone()
     {
         zap.done = true;
-
     }
 }

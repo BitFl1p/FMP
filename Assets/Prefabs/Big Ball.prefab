@@ -28,7 +28,7 @@ Transform:
   m_LocalRotation: {x: -0.00000008940697, y: -0.000000029802322, z: 0.000000029802322,
     w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.3333333, y: 3.333333, z: 3.333333}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 6822644170563491396}
   m_RootOrder: 0
@@ -4793,13 +4793,14 @@ GameObject:
   - component: {fileID: 6822644170563491396}
   - component: {fileID: 94931195068723295}
   - component: {fileID: 3213022122546949832}
+  - component: {fileID: 1003851509171292534}
   m_Layer: 0
   m_Name: Big Ball
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6822644170563491396
 Transform:
   m_ObjectHideFlags: 0
@@ -4809,7 +4810,7 @@ Transform:
   m_GameObject: {fileID: 7668463463586923021}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -1, z: 44.93}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 7099970220442415855}
   - {fileID: 6051761161869298946}
@@ -4848,6 +4849,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.54
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1003851509171292534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668463463586923021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320baa3d393c09c42adafa751380f49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 10
 --- !u!1 &8962686910448611897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4875,7 +4889,7 @@ Transform:
   m_GameObject: {fileID: 8962686910448611897}
   m_LocalRotation: {x: -0.00000005960465, y: -0, z: 0.000000029802326, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.3333333, y: 3.3333333, z: 3.333333}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 6822644170563491396}
   m_RootOrder: 1
