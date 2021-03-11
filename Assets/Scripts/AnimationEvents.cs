@@ -6,6 +6,7 @@ public class AnimationEvents : MonoBehaviour
 {
     public ZapCannon zap;
     public Gun[] gun;
+    public AutoGun sentry;
     public void GunDone()
     {
         foreach (Gun goon in gun)
@@ -17,5 +18,9 @@ public class AnimationEvents : MonoBehaviour
     public void ZapDone()
     {
         zap.done = true;
+    }
+    public void SentryDone()
+    {
+        sentry.done = true;
     }
 }

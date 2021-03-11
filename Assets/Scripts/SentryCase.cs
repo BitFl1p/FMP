@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class SentryCase : MonoBehaviour
 {
     public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
     {
@@ -13,18 +13,22 @@ public class Bullet : MonoBehaviour
         this.pos = pos;
         start = true;
     }
-
-    public int damage;
+    public GameObject sentry;
     public Quaternion rotation;
     public Vector3 direction;
     public float speed;
     public Vector3 pos;
     public Vector3 lastPos;
     bool start;
-
-
+    Animator anim;
+    public int damage;
+    private void OnEnable()
+    {
+        anim = GetComponent<Animator>();
+    }
     private void LateUpdate()
     {
+        anim.SetBool("dying", false);
         if (start)
         {
             speed = speed * 100;
@@ -34,26 +38,22 @@ public class Bullet : MonoBehaviour
             transform.rotation = rotation;
             start = false;
         }
-        RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos,(transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
+        RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
         foreach (RaycastHit hit in hits)
         {
-            if(hit.collider.isTrigger == false)
+            if (hit.collider.isTrigger == false)
             {
-                if (hit.collider.gameObject.GetComponent<Health>() != null)
-                {
-                    hit.collider.gameObject.GetComponent<Health>().TakeDamage(damage);
-                }
-                Destroy(gameObject);
+                
+                GameObject yeet = Instantiate(sentry);
+                yeet.transform.position = transform.position;
+                yeet.GetComponent<AutoGun>().damage = damage;
+                anim.SetBool("dying", true);
+
+                GetComponent<Die>().Deth();
             }
         }
         lastPos = transform.position;
         transform.rotation.SetLookRotation(GetComponent<Rigidbody>().velocity);
     }
-    private void OnCollisionEnter(Collision other)
-    {
-
-        Health health = other.collider.GetComponent<Health>();
-        health?.TakeDamage(damage);
-        Destroy(gameObject);
-    }
+    
 }

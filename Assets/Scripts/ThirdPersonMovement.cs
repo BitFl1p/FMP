@@ -80,6 +80,9 @@ public class ThirdPersonMovement : MonoBehaviour
         } else if(value < 0)
         {
             value += speed;
+        } else if (value == 0)
+        {
+            value = 0;
         }
         return value;
     }

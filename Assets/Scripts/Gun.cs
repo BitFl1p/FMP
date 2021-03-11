@@ -24,15 +24,21 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
-        ammoSlider.maxValue = clipSize;
-        ammoSlider.value = ammo;
+        
+        
         anim.SetInteger("WepNum", wepNum);
         if(done)
         {
             if (ammo <= 0 && !(reloadTime <= 0))
             {
+                ammoSlider.value = ammoSlider.maxValue;
                 reload = true;
                 Reload(reloadTime);
+            }
+            else
+            {
+                ammoSlider.maxValue = clipSize;
+                ammoSlider.value = ammo;
             }
             anim.SetBool("Shoot", false);
             if (Input.GetButton("Fire1") && !reload)
@@ -51,6 +57,9 @@ public class Gun : MonoBehaviour
                         break;
                     case 3:
                         FireExploder();
+                        break;
+                    case 6:
+                        ThrowSentry();
                         break;
 
 
@@ -119,6 +128,10 @@ public class Gun : MonoBehaviour
         Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position,explode);
         anim.SetBool("Shoot", true);
         
+    }
+    void ThrowSentry()
+    {
+        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
     }
     Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x + (firePoint.forward.x * Random.Range(-0.1f, 0.1f)), firePoint.forward.y + (firePoint.forward.y * Random.Range(-0.3f, 0.3f)), firePoint.forward.z + (firePoint.forward.z * Random.Range(-0.1f, 0.1f))).normalized; }
 }

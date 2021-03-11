@@ -23,7 +23,7 @@ public class ZapCannon : MonoBehaviour
         ammoSlider.maxValue = maxFire;
         ammoSlider.value = fireCount;
         anim.SetInteger("WepNum", wepNum);
-        firePoint.localScale = Vector3.one * fireCount*3;
+        firePoint.localScale = Vector3.one * 8f * (fireCount / maxFire) ;
 
         if (Input.GetButton("Fire1") && !cooling && done)
         {
@@ -35,7 +35,7 @@ public class ZapCannon : MonoBehaviour
                 fired = true;
                 BigBall ball = Instantiate(laser);
                 ball.SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
-
+                
                 anim.SetBool("Shoot", true);
                 fireCount -= Time.deltaTime;
                 cooling = true;
