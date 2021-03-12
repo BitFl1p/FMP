@@ -43,13 +43,13 @@ public class SentryCase : MonoBehaviour
         {
             if (hit.collider.isTrigger == false)
             {
+                GetComponent<Rigidbody>().velocity = new Vector3(0,1,0);
+                GetComponent<Rigidbody>().isKinematic = true;
+                transform.position = new Vector3(transform.position.x, transform.position.y +1, transform.position.z);
                 
-                GameObject yeet = Instantiate(sentry);
-                yeet.transform.position = transform.position;
-                yeet.GetComponent<AutoGun>().damage = damage;
-                anim.SetBool("dying", true);
+                anim.SetBool("Dying", true);
 
-                GetComponent<Die>().Deth();
+                
             }
         }
         lastPos = transform.position;

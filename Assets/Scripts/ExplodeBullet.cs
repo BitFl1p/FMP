@@ -37,12 +37,19 @@ public class ExplodeBullet : MonoBehaviour
             transform.rotation = rotation;
             start = false;
         }
+        RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos,(transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
+        foreach (RaycastHit hit in hits)
+        {
+            if(hit.collider.isTrigger == false)
+            {
+                Instantiate(explode).Wee(damage, transform.position);
+                Destroy(gameObject);
+                Destroy(gameObject);
+            }
+        }
+        
         lastPos = transform.position;
         transform.rotation.SetLookRotation(GetComponent<Rigidbody>().velocity);
     }
-    private void OnCollisionEnter(Collision other)
-    {
-        Instantiate(explode).Wee(damage, transform.position);
-        Destroy(gameObject);
-    }
+    
 }

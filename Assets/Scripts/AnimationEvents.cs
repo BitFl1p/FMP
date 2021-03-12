@@ -23,4 +23,13 @@ public class AnimationEvents : MonoBehaviour
     {
         sentry.done = true;
     }
+    public void SpawnSentry()
+    {
+        Instantiate(sentry).transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z); ;
+        
+    }
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }
