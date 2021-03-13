@@ -131,7 +131,8 @@ public class Gun : MonoBehaviour
     }
     void ThrowSentry()
     {
-        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
+        Instantiate(bullet).GetComponent<SentryCase>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        anim.SetBool("Shoot", true);
     }
     Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x + (firePoint.forward.x * Random.Range(-0.1f, 0.1f)), firePoint.forward.y + (firePoint.forward.y * Random.Range(-0.3f, 0.3f)), firePoint.forward.z + (firePoint.forward.z * Random.Range(-0.1f, 0.1f))).normalized; }
 }

@@ -12,29 +12,41 @@ public class AutoGun : MonoBehaviour
     public bool done = true;
     public int damage = 1;
     public Animator anim;
+    public Explode explosion;
+    bool detected;
 
 
     private void Update()
     {
-        if(done) anim.SetBool("Shoot", false);
+        if (done) anim.SetBool("Shoot", false); //anim.enabled = false;
     }
     void Shoot()
     {
-
+        
         muzzle?.Play();
         Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
-
-
+        
     }
     private void OnTriggerStay(Collider other)
     {
-        if (done&&other.gameObject.GetComponent<Health>() != null)
+        if (other.gameObject.GetComponent<Health>() != null)
         {
-            anim.SetBool("Shoot", false);
+
             head.LookAt(FindObjectOfType<Health>().transform.position);
-            done = false;
-            Shoot();
+            if (done)
+            {
+                anim.SetBool("Shoot", false);
+                done = false;
+                Shoot();
+            }
+            
         }       
+    }
+    
+    public void Explode()
+    {
+        Instantiate(explosion).Wee(damage,transform.position); ;
+        Destroy(gameObject);
     }
 }

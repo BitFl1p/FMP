@@ -18,10 +18,10 @@ public class Explode : MonoBehaviour
         foreach(Collider thisGuy in nearby)
         {
             Rigidbody rb = thisGuy.GetComponent<Rigidbody>();
-            if (rb != null) { rb.AddExplosionForce(power, transform.position, radius, upForce, ForceMode.Impulse); }
+            if (rb != null&&thisGuy.GetComponent<AutoGun>() == null) { rb.AddExplosionForce(power, transform.position, radius, upForce, ForceMode.Impulse); }
             
             Health health = thisGuy.GetComponent<Health>();
-            if (health != null) { health.TakeDamage(damage); }
+            if (health != null && thisGuy.GetComponent<AutoGun>() == null) { health.TakeDamage(damage); }
         }
         
     }

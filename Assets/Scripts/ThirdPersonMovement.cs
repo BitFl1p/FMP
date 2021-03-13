@@ -74,13 +74,13 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     float GoTowardsZero(float value, float speed)
     {
-        if (value > 0)
+        if (value > speed)
         {
             value -= speed;
-        } else if(value < 0)
+        } else if(value < -speed)
         {
             value += speed;
-        } else if (value == 0)
+        } else
         {
             value = 0;
         }
