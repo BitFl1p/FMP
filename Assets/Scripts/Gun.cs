@@ -24,25 +24,26 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
-        
-        
+
+        if (ammo <= 0 && !(reloadTime <= 0))
+        {
+            ammoSlider.value = ammoSlider.maxValue;
+            reload = true;
+            Reload(reloadTime);
+        }
+        else
+        {
+            ammoSlider.maxValue = clipSize;
+            ammoSlider.value = ammo;
+        }
         anim.SetInteger("WepNum", wepNum);
         if(done)
         {
-            if (ammo <= 0 && !(reloadTime <= 0))
-            {
-                ammoSlider.value = ammoSlider.maxValue;
-                reload = true;
-                Reload(reloadTime);
-            }
-            else
-            {
-                ammoSlider.maxValue = clipSize;
-                ammoSlider.value = ammo;
-            }
+            
             anim.SetBool("Shoot", false);
             if (Input.GetButton("Fire1") && !reload)
             {
+                ammo--;
                 done = false;
                 switch (wepNum)
                 {
@@ -64,7 +65,7 @@ public class Gun : MonoBehaviour
 
 
                 }
-                ammo--;
+                
                 
             }
             
