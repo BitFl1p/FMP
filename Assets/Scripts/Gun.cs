@@ -47,21 +47,11 @@ public class Gun : MonoBehaviour
                 done = false;
                 switch (wepNum)
                 {
-                    case 0:
-                        FirePistol();
-                        break;
-                    case 1:
-                        FireShotgun();
-                        break;
-                    case 2:
-                        FireBoomer();
-                        break;
-                    case 3:
-                        FireExploder();
-                        break;
-                    case 6:
-                        ThrowSentry();
-                        break;
+                    case 0: FirePistol(); break;
+                    case 1: FireShotgun(); break;
+                    case 2: FireBoomer(); break;
+                    case 3: FireExploder(); break;
+                    case 6: ThrowSentry(); break;
 
 
                 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Gun2D : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class Gun2D : MonoBehaviour
     public float reloadTime;
     public ParticleSystem[] steam;
     public GameObject bullet, explode;
-    public ParticleSystem muzzle;
     public float speed;
     public Transform firePoint;
     public bool done = true;
@@ -18,6 +18,7 @@ public class Gun2D : MonoBehaviour
     public int wepNum, clipSize;
     int ammo;
     bool reload, steaming;
+
     void Start()
     {
         ammo = clipSize;
@@ -25,10 +26,13 @@ public class Gun2D : MonoBehaviour
     }
     void Update()
     {
-
-        if (ammo <= 0 && !(reloadTime <= 0))
+        if(clipSize <= 0)
         {
             ammoSlider.value = ammoSlider.maxValue;
+        }
+        if (ammo <= 0 && !(reloadTime <= 0))
+        {
+            ammoSlider.value = 0;
             reload = true;
             Reload(reloadTime);
         }
@@ -37,24 +41,19 @@ public class Gun2D : MonoBehaviour
             ammoSlider.maxValue = clipSize;
             ammoSlider.value = ammo;
         }
-        anim.SetInteger("WepNum", wepNum);
+
         if (done)
         {
 
             anim.SetBool("Shoot", false);
-            if (Input.GetButton("Fire1") && !reload)
+            if (Input.GetKey(KeyCode.C) && !reload)
             {
                 ammo--;
                 done = false;
                 switch (wepNum)
                 {
-                    case 0:
-                        //FirePistol();
-                        Debug.LogError("Not Implemented");
-                        break;
-                    case 1:
-                        FireShotgun();
-                        break;
+                    case 0: FirePistol(); break;
+                    case 1: FireShotgun(); break;
                     case 2:
                         //FireBoomer();
                         Debug.LogError("Not Implemented");
@@ -96,7 +95,6 @@ public class Gun2D : MonoBehaviour
     void FirePistol()
     {
 
-        muzzle?.Play();
         Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
 
@@ -105,16 +103,7 @@ public class Gun2D : MonoBehaviour
     void FireShotgun()
     {
 
-        muzzle?.Play();
-        for (int i = 0; i <= 6; i++)
-            Instantiate(bullet).GetComponent<Bullet>().SetData
-                (
-                    damage,
-                    firePoint.rotation,
-                    InaccuracyCalc(),
-                    speed,
-                    firePoint.position
-                );
+        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position);
 
         anim.SetBool("Shoot", true);
 
@@ -122,7 +111,6 @@ public class Gun2D : MonoBehaviour
     void FireBoomer()
     {
 
-        muzzle?.Play();
         Instantiate(bullet).GetComponent<Boomerang>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
 
@@ -130,7 +118,6 @@ public class Gun2D : MonoBehaviour
     }
     void FireExploder()
     {
-        muzzle?.Play();
         Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
         anim.SetBool("Shoot", true);
 
@@ -140,5 +127,5 @@ public class Gun2D : MonoBehaviour
         Instantiate(bullet).GetComponent<SentryCase>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
     }
-    Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x + (firePoint.forward.x * Random.Range(-0.1f, 0.1f)), firePoint.forward.y + (firePoint.forward.y * Random.Range(-0.3f, 0.3f)), firePoint.forward.z + (firePoint.forward.z * Random.Range(-0.1f, 0.1f))).normalized; }
+    Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x, UnityEngine.Random.Range(-0.1f, 0.1f), firePoint.forward.z).normalized; }
 }

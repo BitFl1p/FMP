@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnimationEvents : MonoBehaviour
 {
+    public Gun2D gun2D;
     public ZapCannon zap;
     public Gun[] gun;
     public AutoGun sentry;
@@ -31,5 +32,9 @@ public class AnimationEvents : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+    }
+    public void Gun2DDone()
+    {
+        gun2D.done = true;
     }
 }
