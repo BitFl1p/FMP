@@ -8,6 +8,8 @@ TagManager:
   - Orb
   - Player2D
   - Bullet
+  - 2D
+  - OuterWall
   layers:
   - Default
   - TransparentFX

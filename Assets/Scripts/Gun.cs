@@ -116,7 +116,7 @@ public class Gun : MonoBehaviour
     void FireExploder()
     {
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position,explode);
+        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position,explode, null);
         anim.SetBool("Shoot", true);
         
     }

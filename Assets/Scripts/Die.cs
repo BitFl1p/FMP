@@ -29,5 +29,10 @@ public class Die : MonoBehaviour
             Destroy(gameObject);
         }
 
+        
+    }
+    public void QuickDie()
+    {
+        Destroy(gameObject);
     }
 }

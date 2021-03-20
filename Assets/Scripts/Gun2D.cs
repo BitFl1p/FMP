@@ -4,6 +4,7 @@ using System;
 
 public class Gun2D : MonoBehaviour
 {
+    public string axis;
     public Slider ammoSlider;
     float reloadCount;
     public float reloadTime;
@@ -58,10 +59,7 @@ public class Gun2D : MonoBehaviour
                         //FireBoomer();
                         Debug.LogError("Not Implemented");
                         break;
-                    case 3:
-                        //FireExploder();
-                        Debug.LogError("Not Implemented");
-                        break;
+                    case 3: FireExploder(); break;
                     case 6:
                         //ThrowSentry();
                         Debug.LogError("Not Implemented");
@@ -118,7 +116,7 @@ public class Gun2D : MonoBehaviour
     }
     void FireExploder()
     {
-        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
+        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode, axis);
         anim.SetBool("Shoot", true);
 
     }

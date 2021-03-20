@@ -49,11 +49,5 @@ public class Bullet : MonoBehaviour
         lastPos = transform.position;
         transform.rotation.SetLookRotation(GetComponent<Rigidbody>().velocity);
     }
-    private void OnCollisionEnter(Collision other)
-    {
-
-        Health health = other.collider.GetComponent<Health>();
-        health?.TakeDamage(damage);
-        Destroy(gameObject);
-    }
+    
 }
