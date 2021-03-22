@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
+    public string axis;
     public Slider ammoSlider;
     float reloadCount;
     public float reloadTime;
@@ -108,7 +109,7 @@ public class Gun : MonoBehaviour
     {
 
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<Boomerang>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Instantiate(bullet).GetComponent<Boomerang>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, gameObject);
         anim.SetBool("Shoot", true);
         
 
@@ -116,7 +117,7 @@ public class Gun : MonoBehaviour
     void FireExploder()
     {
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position,explode, null);
+        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position,explode, axis);
         anim.SetBool("Shoot", true);
         
     }

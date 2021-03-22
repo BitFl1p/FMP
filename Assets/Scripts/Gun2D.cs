@@ -55,10 +55,7 @@ public class Gun2D : MonoBehaviour
                 {
                     case 0: FirePistol(); break;
                     case 1: FireShotgun(); break;
-                    case 2:
-                        //FireBoomer();
-                        Debug.LogError("Not Implemented");
-                        break;
+                    case 2: FireBoomer(); break;
                     case 3: FireExploder(); break;
                     case 6:
                         //ThrowSentry();
@@ -109,7 +106,7 @@ public class Gun2D : MonoBehaviour
     void FireBoomer()
     {
 
-        Instantiate(bullet).GetComponent<Boomerang>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Instantiate(bullet).GetComponent<Boomerang>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, gameObject);
         anim.SetBool("Shoot", true);
 
 
