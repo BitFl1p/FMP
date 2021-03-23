@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    internal void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
+    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
     {
         this.damage = damage;
         this.rotation = rotation;
@@ -14,21 +14,16 @@ public class Projectile : MonoBehaviour
         start = true;
     }
 
-    internal int damage;
-    internal Quaternion rotation;
-    internal Vector3 direction;
-    internal float speed;
-    internal Vector3 pos;
-    internal Vector3 lastPos;
-    internal bool start;
-    internal bool destroy = false;
+    public int damage;
+    public Quaternion rotation;
+    public Vector3 direction;
+    public float speed;
+    public Vector3 pos;
+    public Vector3 lastPos;
+    bool start;
+
 
     private void LateUpdate()
-    {
-        Shoot();
-        Aim();
-    }
-    internal void Shoot()
     {
         if (start)
         {
@@ -39,27 +34,20 @@ public class Projectile : MonoBehaviour
             transform.rotation = rotation;
             start = false;
         }
-        RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
+        RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos,(transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
         foreach (RaycastHit hit in hits)
         {
-            
-            if (hit.collider.isTrigger == false)
+            if(hit.collider.isTrigger == false)
             {
-                destroy = true;
                 if (hit.collider.gameObject.GetComponent<Health>() != null)
                 {
                     hit.collider.gameObject.GetComponent<Health>().TakeDamage(damage);
                 }
+                Destroy(gameObject);
             }
         }
-        
         lastPos = transform.position;
-        
-
-    }
-
-    internal virtual void Aim()
-    {
         transform.rotation.SetLookRotation(GetComponent<Rigidbody>().velocity);
     }
+    
 }
