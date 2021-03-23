@@ -5,13 +5,11 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public GameObject vCam3D, player3D, vCam2D, player2D, endPortal;
+    public bool goes2D;
     
-    
-    
-
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E) && other.tag == "Player")
+        if (Input.GetKeyDown(KeyCode.E) && other.tag == "Player" && goes2D)
         {
 
             vCam2D.SetActive(true);
@@ -21,7 +19,7 @@ public class Portal : MonoBehaviour
             vCam3D.SetActive(false);
         }
 
-        else if (Input.GetKeyDown(KeyCode.V) && other.tag == "Player2D")
+        else if (Input.GetKeyDown(KeyCode.V) && other.tag == "Player2D" && !goes2D)
         {
             vCam3D.SetActive(true);
             player3D.SetActive(true);

@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320baa3d393c09c42adafa751380f49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quickdie: 1
   timer: 5
 --- !u!96 &3876872229257799311
 TrailRenderer:
@@ -174,14 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
-  explode2D: {fileID: 3989689114614670918, guid: b2b1c807f92be3a41b6c0ae759170717,
-    type: 3}
-  damage: 0
-  rotation: {x: 0, y: 0, z: 0, w: 0}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 0
-  pos: {x: 0, y: 0, z: 0}
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!212 &3572460752154342870
 SpriteRenderer:
   m_ObjectHideFlags: 0

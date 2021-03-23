@@ -2,6 +2,7 @@
 
 public class Die : MonoBehaviour
 {
+    public bool quickdie;
     float count;
     public float timer;
     private void OnEnable()
@@ -13,7 +14,8 @@ public class Die : MonoBehaviour
         count -= Time.deltaTime;
         if (count <= 0)
         {
-            Deth();
+            if (quickdie) QuickDie();
+            else Deth();
         }
     }
     public void Deth()

@@ -10882,7 +10882,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f3f42b5ef6dfb6e4e8c5b73c8146e13f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1704797463832693568, guid: f3f42b5ef6dfb6e4e8c5b73c8146e13f,
         type: 3}
@@ -11097,7 +11097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &333813391
 Transform:
   m_ObjectHideFlags: 0
@@ -16484,7 +16484,7 @@ MonoBehaviour:
   - {fileID: 3306139}
   - {fileID: 1260342530}
   bullet: {fileID: 8515441175932896336, guid: 8d779aa71a01a9643b41914ac3f5aeba, type: 3}
-  explode: {fileID: 8628073515292322938, guid: dd22ccd6cc6dc8b45a1ab73dcc9c2059, type: 3}
+  explode: {fileID: 0}
   muzzle: {fileID: 1533351026}
   speed: 5
   firePoint: {fileID: 1533351024}
@@ -22937,13 +22937,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755396592}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0.65328157, y: 0.27059793, z: 0.65328157, w: -0.27059793}
   m_LocalPosition: {x: 0.822, y: -0.151, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1861412655}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 225, y: -90, z: 0}
 --- !u!1 &758695805
 GameObject:
   m_ObjectHideFlags: 0
@@ -28915,6 +28915,7 @@ MonoBehaviour:
   vCam2D: {fileID: 1682590063}
   player2D: {fileID: 762350785}
   endPortal: {fileID: 937672566}
+  goes2D: 0
 --- !u!1 &937672566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1074837674832996295, guid: 2f58ddda041ee9d40afe45be3bc75c13,
@@ -62999,7 +63000,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7a8b8ca378bdc9e4a834b6052abb78c0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1496865070235971771, guid: 7a8b8ca378bdc9e4a834b6052abb78c0,
         type: 3}
@@ -74745,7 +74746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1861412655
 Transform:
   m_ObjectHideFlags: 0
@@ -74850,7 +74851,7 @@ MonoBehaviour:
   steam:
   - {fileID: 1007385873}
   bullet: {fileID: 7166699598178249574, guid: 2f499ef39965f994eae88536192b78fe, type: 3}
-  explode: {fileID: 3989689114614670916, guid: b2b1c807f92be3a41b6c0ae759170717, type: 3}
+  explode: {fileID: 0}
   speed: 1
   firePoint: {fileID: 755396593}
   done: 1

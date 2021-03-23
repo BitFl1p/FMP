@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320baa3d393c09c42adafa751380f49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quickdie: 1
   timer: 3
 --- !u!96 &7147542139953843266
 TrailRenderer:
