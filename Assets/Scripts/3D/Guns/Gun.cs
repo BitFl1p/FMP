@@ -92,15 +92,7 @@ public class Gun : MonoBehaviour
     {
 
         muzzle?.Play();
-        for (int i = 0; i <= 6; i++) 
-            Instantiate(bullet).GetComponent<Bullet>().SetData
-                (
-                    damage, 
-                    firePoint.rotation, 
-                    InaccuracyCalc(), 
-                    speed, 
-                    firePoint.position
-                );
+        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position);
 
         anim.SetBool("Shoot", true);
 
