@@ -4,13 +4,14 @@ using System;
 
 public class Gun2D : MonoBehaviour
 {
+    public GameObject player;
     public string axis;
     public Slider ammoSlider;
     float reloadCount;
     public float reloadTime;
     public ParticleSystem[] steam;
     public GameObject bullet;
-    public Explode explode;
+    public Explode2D explode;
     public float speed;
     public Transform firePoint;
     public bool done = true;
@@ -91,7 +92,7 @@ public class Gun2D : MonoBehaviour
     void FirePistol()
     {
 
-        Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Instantiate(bullet).GetComponent<Bullet2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
         anim.SetBool("Shoot", true);
 
 
@@ -99,7 +100,7 @@ public class Gun2D : MonoBehaviour
     void FireShotgun()
     {
 
-        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position);
+        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet2D>().SetData(damage, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position, axis);
 
         anim.SetBool("Shoot", true);
 
@@ -107,14 +108,14 @@ public class Gun2D : MonoBehaviour
     void FireBoomer()
     {
 
-        Instantiate(bullet).GetComponent<Boomerang>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, gameObject);
+        Instantiate(bullet).GetComponent<Boomerang2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, player);
         anim.SetBool("Shoot", true);
 
 
     }
     void FireExploder()
     {
-        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
+        Instantiate(bullet).GetComponent<ExplodeBullet2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, explode);
         anim.SetBool("Shoot", true);
 
     }

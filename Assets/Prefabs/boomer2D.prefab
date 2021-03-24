@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 455273121694312356}
   - component: {fileID: 3245612049004447501}
-  - component: {fileID: 1409037445508305032}
   - component: {fileID: 1944845385893578993}
   - component: {fileID: 4713196924308325707}
   - component: {fileID: 8633372991595600424}
   - component: {fileID: 1395625252096477769}
+  - component: {fileID: -6907111796866331686}
   m_Layer: 0
   m_Name: boomer2D
   m_TagString: Bullet
@@ -52,24 +52,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1409037445508305032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944248291270278430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a45c602461082244088dba76d11626f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  rotation: {x: 0, y: 0, z: 0, w: 0}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 0
-  pos: {x: 0, y: 0, z: 0}
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1944845385893578993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +85,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1d87afd9f159e35438c9ba04bf224125, type: 2}
+  - {fileID: 2100000, guid: 840cdd2799593f149968c1aafd11ce82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -260,3 +242,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6907111796866331686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944248291270278430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d20a91737e59943b97eace3cb84485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

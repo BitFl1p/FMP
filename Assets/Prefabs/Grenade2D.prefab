@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8049149151199976990}
   - component: {fileID: 4442861264180770114}
   - component: {fileID: 3876872229257799311}
-  - component: {fileID: 4686300776772910516}
   - component: {fileID: 3572460752154342870}
+  - component: {fileID: 3799220347103909136}
   m_Layer: 8
   m_Name: Grenade2D
   m_TagString: Bullet
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7166699598178249574}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -162,19 +162,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &4686300776772910516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7166699598178249574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a7f2d299d86054bbab750a5cc7bdd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explode: {fileID: 0}
 --- !u!212 &3572460752154342870
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -225,3 +212,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3799220347103909136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7166699598178249574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a56523f333de94bb4fad532aceb789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

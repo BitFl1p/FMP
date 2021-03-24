@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
+    
     public bool flip;
-    public float speed, jumpPow;
+    public float speed, jumpPow, lockPos;
     [HideInInspector] public bool isGrounded;
     public string axis = "XY";
     Rigidbody rb;
@@ -19,6 +20,8 @@ public class CharacterController2D : MonoBehaviour
     }
     void Update()
     {
+        if (axis == "XY") transform.position = new Vector3(transform.position.x,transform.position.y, lockPos);
+        else transform.position = new Vector3(lockPos, transform.position.y, transform.position.z);
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (moveInput != Vector2.zero)
         {
