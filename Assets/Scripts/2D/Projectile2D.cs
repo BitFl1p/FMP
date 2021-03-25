@@ -16,6 +16,7 @@ public class Projectile2D : Projectile
 
     internal override void Shoot()
     {
+        Debug.Log("Yeeeeeeeeeeet");
         if (start)
         {
             speed = speed * 100;

@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: 7bfec03072e11c6428105aaea94701ea
+guid: a075f6b6fcbb4bc41b2e7df528deb2c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2813319833732950306
-    second: GLEG_0
+      213: 1810921171816621356
+    second: sentry_0
   - first:
-      213: 4085715473426148830
-    second: GLEG_1
+      213: 6408653497330957982
+    second: sentry_1
   - first:
-      213: 6270007611121791086
-    second: GLEG_2
+      213: -8270362038047907305
+    second: sentry_2
   - first:
-      213: -1101570363634671365
-    second: GLEG_3
+      213: -8485008988831425128
+    second: sentry_3
   - first:
-      213: 2028354309575897450
-    second: GLEG_4
+      213: 8789583050880737803
+    second: sentry_4
   - first:
-      213: -4908347056202719355
-    second: GLEG_5
+      213: 1561461947550578630
+    second: sentry_5
   - first:
-      213: 6758037663102738293
-    second: GLEG_6
-  - first:
-      213: -2806852081994028421
-    second: GLEG_7
+      213: -633646010763311600
+    second: sentry_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -85,7 +82,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,7 +94,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -109,7 +106,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -121,7 +118,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: tvOS
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -133,7 +130,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -145,7 +142,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Lumin
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -157,7 +154,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -169,7 +166,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -183,169 +180,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GLEG_0
+      name: sentry_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 20
+        width: 22
+        height: 10
+      alignment: 9
+      pivot: {x: 0.565, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed659ce448415f8d0800000000000000
-      internalID: -2813319833732950306
+      spriteID: c252d5a063fa12910800000000000000
+      internalID: 1810921171816621356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GLEG_1
+      name: sentry_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 22
+        y: 20
+        width: 22
+        height: 10
+      alignment: 9
+      pivot: {x: 0.565, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edde1e6739063b830800000000000000
-      internalID: 4085715473426148830
+      spriteID: e9ef9fcb66c10f850800000000000000
+      internalID: 6408653497330957982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GLEG_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e60f8efc3ba830750800000000000000
-      internalID: 6270007611121791086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GLEG_3
+      name: sentry_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 10
+        width: 22
+        height: 10
+      alignment: 9
+      pivot: {x: 0.565, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf02574379f66b0f0800000000000000
-      internalID: -1101570363634671365
+      spriteID: 712674e6b85c93d80800000000000000
+      internalID: -8270362038047907305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GLEG_4
+      name: sentry_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 22
+        y: 10
+        width: 22
+        height: 10
+      alignment: 9
+      pivot: {x: 0.565, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6177e47f79262c10800000000000000
-      internalID: 2028354309575897450
+      spriteID: 89dd4b8b7413f3a80800000000000000
+      internalID: -8485008988831425128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GLEG_5
+      name: sentry_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 22
+        y: 0
+        width: 22
+        height: 10
+      alignment: 9
+      pivot: {x: 0.565, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58fd3b0ab5c02ebb0800000000000000
-      internalID: -4908347056202719355
+      spriteID: 6c7ba0a4e5d6ba510800000000000000
+      internalID: 1561461947550578630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GLEG_6
+      name: sentry_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 22
+        height: 10
+      alignment: 9
+      pivot: {x: 0.55, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57f13ffe27f59cd50800000000000000
-      internalID: 6758037663102738293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GLEG_7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7a2eab17ee0c09d0800000000000000
-      internalID: -2806852081994028421
+      spriteID: 0160c177f46d437f0800000000000000
+      internalID: -633646010763311600
       vertices: []
       indices: 
       edges: []
@@ -353,7 +308,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 14d97f3aacee84f42a609f0c614666d6
+    spriteID: 8f092815056531940be75892b60a4e40
     internalID: 0
     vertices: []
     indices: 

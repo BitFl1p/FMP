@@ -22,11 +22,11 @@ public class AutoGun : MonoBehaviour
     }
     void Shoot()
     {
-        
+
         muzzle?.Play();
         Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
-        
+
     }
     private void OnTriggerStay(Collider other)
     {
@@ -40,13 +40,13 @@ public class AutoGun : MonoBehaviour
                 done = false;
                 Shoot();
             }
-            
-        }       
+
+        }
     }
-    
+
     public void Explode()
     {
-        Instantiate(explosion).Wee(damage,transform.position); ;
+        Instantiate(explosion).Wee(damage, transform.position); ;
         Destroy(gameObject);
     }
 }

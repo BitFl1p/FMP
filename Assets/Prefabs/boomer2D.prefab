@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quickdie: 1
-  timer: 3
+  timer: 2
 --- !u!96 &4713196924308325707
 TrailRenderer:
   serializedVersion: 2

@@ -14,7 +14,8 @@ public class ExplodeBullet2D : Projectile2D
 
     internal override void Kill()
     {
-        Instantiate(explode).Wee(damage, transform.position);
+        if(axis == "XY") Instantiate(explode).Wee(damage, transform.position, Vector3.zero);
+        else Instantiate(explode).Wee(damage, transform.position, new Vector3(0,90,0));
         Destroy(gameObject);
     }
 }

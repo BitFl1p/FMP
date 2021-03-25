@@ -6,9 +6,10 @@ public class Explode2D : MonoBehaviour
 {
     
     public float power = 8f, radius = 3f, upForce = 1f;
-    public void Wee(int damage, Vector3 pos)
+    public void Wee(int damage, Vector3 pos, Vector3 rot)
     {
         transform.position = pos;
+        transform.eulerAngles = rot;
         Collider[] nearby = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider thisGuy in nearby)
         {

@@ -8,6 +8,7 @@ public class AnimationEvents : MonoBehaviour
     public ZapCannon zap;
     public Gun[] gun;
     public AutoGun sentry;
+    public AutoGun2D sentry2D;
     public void GunDone()
     {
         foreach (Gun goon in gun)
@@ -22,7 +23,8 @@ public class AnimationEvents : MonoBehaviour
     }
     public void SentryDone()
     {
-        sentry.done = true;
+        if(sentry != null) sentry.done = true;
+        if(sentry2D != null) sentry2D.done = true;
     }
     public void SpawnSentry()
     {
