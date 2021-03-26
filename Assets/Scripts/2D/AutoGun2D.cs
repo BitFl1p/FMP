@@ -17,7 +17,22 @@ public class AutoGun2D : MonoBehaviour
     public Explode2D explosion;
     bool detected;
 
-
+    private void OnEnable()
+    {
+        AutoGun2D[] sentries = FindObjectsOfType<AutoGun2D>();
+        if (axis == "XY")
+        {
+            transform.eulerAngles = new Vector3(0, 90, 0);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+        }
+        else
+        {
+            transform.eulerAngles = Vector3.zero;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+        }
+        
+        
+    }
     private void Update()
     {
         if (done) anim.SetBool("Shoot", false); //anim.enabled = false;

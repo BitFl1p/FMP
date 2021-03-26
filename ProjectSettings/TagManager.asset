@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - 2D
   - OuterWall
+  - Enemy
   layers:
   - Default
   - TransparentFX

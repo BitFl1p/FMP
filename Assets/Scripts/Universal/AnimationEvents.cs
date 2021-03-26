@@ -28,8 +28,16 @@ public class AnimationEvents : MonoBehaviour
     }
     public void SpawnSentry()
     {
-        Instantiate(sentry).transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z); ;
-        
+
+        if (sentry != null) Instantiate(sentry).transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+        if (sentry2D != null)
+        {
+            AutoGun2D instance = Instantiate(sentry2D);
+            instance.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+            instance.axis = GetComponent<SentryCase2D>().axis;
+        }
+
+
     }
     public void Die()
     {

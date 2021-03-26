@@ -12,18 +12,20 @@ public class Projectile2D : Projectile
 
 
     internal string axis;
-
+    private void OnEnable()
+    {
+        if (axis == "XY") GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+        else GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+    }
 
     internal override void Shoot()
     {
-        Debug.Log("Yeeeeeeeeeeet");
         if (start)
         {
             speed = speed * 100;
             transform.position = pos;
-            if(axis == "XY") GetComponent<Rigidbody>().velocity = new Vector3(direction.x * speed, direction.y * speed, 0);
+            if (axis == "XY") GetComponent<Rigidbody>().velocity = new Vector3(direction.x * speed, direction.y * speed, 0);
             else GetComponent<Rigidbody>().velocity = new Vector3(0, direction.y * speed, direction.z * speed);
-
             transform.rotation = rotation;
             start = false;
         }
