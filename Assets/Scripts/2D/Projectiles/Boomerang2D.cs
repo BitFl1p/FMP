@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Boomerang2D : Projectile2D
 {
-    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, GameObject player)
+    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos,string axis, GameObject player)
     {
-        SetData(damage, rotation, direction, speed, pos);
+        SetData(damage, rotation, direction, speed, pos, axis);
         this.player = player;
     }
     internal GameObject player;

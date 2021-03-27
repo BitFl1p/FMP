@@ -5,7 +5,7 @@ using System;
 public class Gun2D : MonoBehaviour
 {
     public GameObject player;
-    public string axis;
+    string axis;
     public Slider ammoSlider;
     float reloadCount;
     public float reloadTime;
@@ -26,6 +26,7 @@ public class Gun2D : MonoBehaviour
     {
         ammo = clipSize;
         anim = GetComponent<Animator>();
+        axis = player.GetComponent<CharacterController2D>().axis;
     }
     void Update()
     {
@@ -59,12 +60,7 @@ public class Gun2D : MonoBehaviour
                     case 1: FireShotgun(); break;
                     case 2: FireBoomer(); break;
                     case 3: FireExploder(); break;
-                    case 6:
-                        //ThrowSentry();
-                        Debug.LogError("Not Implemented");
-                        break;
-
-
+                    case 6: ThrowSentry(); break;
                 }
 
 
@@ -108,7 +104,7 @@ public class Gun2D : MonoBehaviour
     void FireBoomer()
     {
 
-        Instantiate(bullet).GetComponent<Boomerang2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, player);
+        Instantiate(bullet).GetComponent<Boomerang2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, player);
         anim.SetBool("Shoot", true);
 
 
@@ -121,7 +117,7 @@ public class Gun2D : MonoBehaviour
     }
     void ThrowSentry()
     {
-        Instantiate(bullet).GetComponent<SentryCase>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Instantiate(bullet).GetComponent<SentryCase2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
         anim.SetBool("Shoot", true);
     }
     Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x, UnityEngine.Random.Range(-0.1f, 0.1f), firePoint.forward.z).normalized; }

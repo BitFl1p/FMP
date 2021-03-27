@@ -20,8 +20,17 @@ public class CharacterController2D : MonoBehaviour
     }
     void Update()
     {
-        if (axis == "XY") transform.position = new Vector3(transform.position.x,transform.position.y, lockPos.position.z);
-        else transform.position = new Vector3(lockPos.position.x, transform.position.y, transform.position.z);
+        if (axis == "XY")
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, lockPos.position.z);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+
+        }
+        else
+        {
+            transform.position = new Vector3(lockPos.position.x, transform.position.y, transform.position.z);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        }
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (moveInput != Vector2.zero)
         {

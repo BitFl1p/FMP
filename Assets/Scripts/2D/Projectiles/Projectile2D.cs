@@ -14,8 +14,8 @@ public class Projectile2D : Projectile
     internal string axis;
     private void OnEnable()
     {
-        if (axis == "XY") GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
-        else GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+        if (axis == "XY") GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        else GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
     internal override void Shoot()
@@ -29,6 +29,8 @@ public class Projectile2D : Projectile
             transform.rotation = rotation;
             start = false;
         }
+        if (axis == "XY") transform.position = new Vector3(transform.position.x, transform.position.y, pos.z);
+        else transform.position = new Vector3(pos.x, transform.position.y, transform.position.z);
         RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
         foreach (RaycastHit hit in hits)
         {

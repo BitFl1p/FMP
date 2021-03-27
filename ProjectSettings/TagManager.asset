@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Ground
   - Orb
-  - Player2D
   - Bullet
   - 2D
   - OuterWall

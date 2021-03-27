@@ -28,6 +28,11 @@ public class AutoGun : MonoBehaviour
         anim.SetBool("Shoot", true);
 
     }
+    private void OnEnable()
+    {
+        AutoGun[] sentries = FindObjectsOfType<AutoGun>();
+        if (sentries.Length > 2) for (int i = 0; i < sentries.Length; i++) if (i > 2) sentries[i].Explode();
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<Health>() != null)

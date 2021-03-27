@@ -19,16 +19,19 @@ public class AutoGun2D : MonoBehaviour
 
     private void OnEnable()
     {
+
         AutoGun2D[] sentries = FindObjectsOfType<AutoGun2D>();
+        if (sentries.Length > 2) for (int i = 0; i < sentries.Length; i++) if (i > 2) sentries[i].Explode();
+
         if (axis == "XY")
         {
             transform.eulerAngles = new Vector3(0, 90, 0);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
         else
         {
             transform.eulerAngles = Vector3.zero;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
         
         

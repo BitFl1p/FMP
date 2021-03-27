@@ -429,7 +429,8 @@ MonoBehaviour:
   done: 1
   damage: 1
   anim: {fileID: 2378949854649915768}
-  explosion: {fileID: 0}
+  explosion: {fileID: 3989689114614670918, guid: b2b1c807f92be3a41b6c0ae759170717,
+    type: 3}
 --- !u!54 &2378949854694809474
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -457,7 +458,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 12.70742, z: 5.67}
+  m_Size: {x: 4.61, y: 12.70742, z: 5.67}
   m_Center: {x: 0, y: 5.85371, z: 0}
 --- !u!1 &2378949854929012369
 GameObject:
