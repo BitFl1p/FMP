@@ -15,7 +15,7 @@ public class LaserGun : MonoBehaviour
     {
         ammoSlider.maxValue = maxFire;
         ammoSlider.value = maxFire - fireCount;
-        anim.SetInteger("WepNum", wepNum);
+        Wepnep();
         
         if (Input.GetButton("Fire1")&&!cooling)
         {
@@ -54,5 +54,9 @@ public class LaserGun : MonoBehaviour
             }
         }
         
+    }
+    internal virtual void Wepnep()
+    {
+        anim.SetInteger("WepNum", wepNum);
     }
 }

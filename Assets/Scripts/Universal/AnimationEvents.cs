@@ -6,6 +6,7 @@ public class AnimationEvents : MonoBehaviour
 {
     public Gun2D gun2D;
     public ZapCannon zap;
+    public ZapCannon2D zap2D;
     public Gun[] gun;
     public AutoGun sentry;
     public AutoGun2D sentry2D;
@@ -19,12 +20,14 @@ public class AnimationEvents : MonoBehaviour
     }
     public void ZapDone()
     {
-        zap.done = true;
+        
+        if (zap != null) zap.done = true;
+        if (zap2D != null) zap2D.done = true;
     }
     public void SentryDone()
     {
-        if(sentry != null) sentry.done = true;
-        if(sentry2D != null) sentry2D.done = true;
+        if (sentry != null) sentry.done = true;
+        if (sentry2D != null) sentry2D.done = true;
     }
     public void SpawnSentry()
     {
