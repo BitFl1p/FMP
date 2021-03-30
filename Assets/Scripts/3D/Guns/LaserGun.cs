@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class LaserGun : MonoBehaviour
 {
+    public GameObject player;
     public Slider ammoSlider;
     public ParticleSystem[] steam;
     public Laser laser;
@@ -21,7 +22,7 @@ public class LaserGun : MonoBehaviour
         {
             anim.SetBool("Shoot", true);
             laser.gameObject.SetActive(true);
-            laser.damage = damage;
+            laser.damage = damage*player.GetComponent<Stats>().baseDamage;
             fireCount += Time.deltaTime;
             if (fireCount >= maxFire)
             {

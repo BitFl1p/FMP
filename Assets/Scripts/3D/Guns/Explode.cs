@@ -7,7 +7,7 @@ public class Explode : MonoBehaviour
 
     public ParticleSystem part1, part2;
     public float power = 8f, radius = 4f, upForce = 1f;
-    public void Wee(int damage, Vector3 pos)
+    public void Wee(float damage, Vector3 pos)
     {
         transform.position = pos;
         

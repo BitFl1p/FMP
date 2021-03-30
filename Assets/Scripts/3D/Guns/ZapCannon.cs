@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ZapCannon : MonoBehaviour
 {
+    public GameObject player;
     public Transform firePoint;
     public bool done;
     public Slider ammoSlider;
@@ -34,7 +35,7 @@ public class ZapCannon : MonoBehaviour
                 StartCoroutine(Camera.main.GetComponent<CameraShake>().Shake(0.5f,1));
                 fired = true;
                 BigBall ball = Instantiate(laser);
-                ball.SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+                ball.SetData(damage*player.GetComponent<Stats>().baseDamage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
                 
                 anim.SetBool("Shoot", true);
                 fireCount -= Time.deltaTime;
@@ -43,8 +44,34 @@ public class ZapCannon : MonoBehaviour
             }
 
         }
-        
-        else if(done)
+        else if (done)
+        {
+            firePoint.localScale = Vector3.one * (fireCount / maxFire);
+            fireCount -= Time.deltaTime;
+            anim.SetBool("Shoot", false);
+            if (fireCount <= 0)
+            {
+                fireCount = 0;
+                cooling = false;
+            }
+            fired = false;
+        }
+        if (cooling)
+        {
+            firePoint.localScale = Vector3.zero;
+            if (!animPlaying)
+            {
+                foreach (ParticleSystem current in steam) { current.Play(); }
+                animPlaying = true;
+            }
+            fireCount -= Time.deltaTime;
+            if (fireCount <= 0)
+            {
+                animPlaying = false;
+                cooling = false;
+            }
+        }
+        /*else if(done)
         {
             fireCount -= Time.deltaTime;
             anim.SetBool("Shoot", false);
@@ -68,7 +95,7 @@ public class ZapCannon : MonoBehaviour
                 animPlaying = false;
                 cooling = false;
             }
-        }
+        }*/
 
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boomerang : Projectile
 {
-    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, GameObject player)
+    public void SetData(float damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, GameObject player)
     {
         SetData(damage, rotation, direction, speed, pos);
         this.player = player;

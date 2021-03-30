@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
+    public void SetData(float damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
     {
         this.damage = damage;
         this.rotation = rotation;
@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
         start = true;
     }
 
-    internal int damage;
+    internal float damage;
     internal Quaternion rotation;
     internal Vector3 direction;
     internal float speed;
