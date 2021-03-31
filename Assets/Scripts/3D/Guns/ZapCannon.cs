@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ZapCannon : MonoBehaviour
 {
+    public float critChance;
     public GameObject player;
     public Transform firePoint;
     public bool done;
@@ -35,7 +36,7 @@ public class ZapCannon : MonoBehaviour
                 StartCoroutine(Camera.main.GetComponent<CameraShake>().Shake(0.5f,1));
                 fired = true;
                 BigBall ball = Instantiate(laser);
-                ball.SetData(damage*player.GetComponent<Stats>().baseDamage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+                ball.SetData(damage*player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
                 
                 anim.SetBool("Shoot", true);
                 fireCount -= Time.deltaTime;

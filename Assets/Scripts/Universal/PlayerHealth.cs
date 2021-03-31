@@ -7,8 +7,9 @@ public class PlayerHealth : Health
 {
     float count = 0;
     float damageCount;
-    private void OnEnable()
+    internal override void OnEnable()
     {
+        base.OnEnable();
         maxHealth = GetComponent<Stats>().maxHealth * 100;
         currentHealth = maxHealth;
     }
@@ -17,8 +18,9 @@ public class PlayerHealth : Health
         base.TakeDamage(damage);
         damageCount = 0;
     }
-    private void Update()
+    internal override void Update()
     {
+        base.Update();
         damageCount += Time.deltaTime;
         maxHealth = GetComponent<Stats>().maxHealth * 100;
         count += Time.deltaTime;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AutoGun2D : MonoBehaviour
 {
+    public float critChance;
     public string axis;
     public Vector3 leftVector, rightVector;
     public bool enemyLeft, enemyRight;
@@ -57,7 +58,7 @@ public class AutoGun2D : MonoBehaviour
     void Shoot()
     {
 
-        Instantiate(bullet).SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
+        Instantiate(bullet).SetData(damage, critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
         anim.SetBool("Shoot", true);
 
     }

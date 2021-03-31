@@ -5,7 +5,6 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public List<GameObject> hits;
-    public List<GameObject> obsolhits;
     public float damage;
     float count;
     public float timer;
@@ -26,8 +25,6 @@ public class Laser : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<Health>() != null && dealDamage) { foreach(GameObject hit in hits) hit.gameObject.GetComponent<Health>().TakeDamage(damage); dealDamage = false; }
-        foreach (GameObject hit in hits) if (!hit.activeInHierarchy) obsolhits.Add(hit);
-        foreach (GameObject hit in obsolhits) hits.Remove(hit);
     }
     private void OnTriggerEnter(Collider other)
     {

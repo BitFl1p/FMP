@@ -6,11 +6,11 @@ public class Health : MonoBehaviour
 {
     public float maxHealth, currentHealth;
     public Slider healthSlid, damageSlid;
-    private void OnEnable()
+    internal virtual void OnEnable()
     {
         currentHealth = maxHealth;
     }
-    private void Update()
+    internal virtual void Update()
     {
         healthSlid.maxValue = maxHealth;
         healthSlid.value = currentHealth;
@@ -18,28 +18,33 @@ public class Health : MonoBehaviour
     }
     public virtual void TakeDamage(float damage)
     {
+        damageSlid.value = currentHealth;
         currentHealth -= damage;
-        StartCoroutine(damageSlide());
+        healthSlid.value = currentHealth;
         if (currentHealth <= 0)
         {
             Die();
+            return;
         }
+        StartCoroutine(damageSlide());
+        
     }
 
     public IEnumerator damageSlide()
     {
+        float amount = 0.1f;
         float count = 0;
-        while(count >= 0.5 && damageSlid.value > healthSlid.value)
+        while (damageSlid.value > healthSlid.value)
         {
-            damageSlid.value -= 0.1f;
+            if (count < 0.5) { count += Time.deltaTime; }
+            else if (count >= 0.5 && damageSlid.value > healthSlid.value) { damageSlid.value -= amount; amount += 0.1f; }
             yield return null;
         }
-        if(damageSlid.value <= healthSlid.value)
+        if (damageSlid.value <= healthSlid.value)
         {
             damageSlid.value = healthSlid.value;
             yield break;
         }
-
     }
     void Die()
     {

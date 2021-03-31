@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Boomerang : Projectile
 {
-    public void SetData(float damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, GameObject player)
+    public void SetData(float damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, GameObject player)
     {
-        SetData(damage, rotation, direction, speed, pos);
+        SetData(damage, critChance, rotation, direction, speed, pos);
         this.player = player;
     }
     internal GameObject player;
@@ -26,7 +26,7 @@ public class Boomerang : Projectile
         RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
         foreach (RaycastHit hit in hits)
         {
-            if (hit.collider.isTrigger == false)
+            if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
             {
                 if (hit.collider.gameObject.GetComponent<Health>() != null)
                 {

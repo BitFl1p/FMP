@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ExplodeBullet : Projectile
 {
-    public void SetData(float damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, Explode explode)
+    public void SetData(float damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, Explode explode)
     {
-        SetData(damage, rotation, direction, speed, pos);
+        SetData(damage, critChance, rotation, direction, speed, pos);
         this.explode = explode;
         
     }
@@ -14,7 +14,9 @@ public class ExplodeBullet : Projectile
 
     internal override void Kill()
     {
-        Instantiate(explode).Wee(damage, transform.position);
+        float rand = Random.Range(0, 100);
+        if (rand <= critChance) Instantiate(explode).Wee(damage * 2, transform.position);
+        else Instantiate(explode).Wee(damage, transform.position);
         Destroy(gameObject);
     }
     

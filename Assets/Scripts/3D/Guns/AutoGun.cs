@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AutoGun : MonoBehaviour
 {
+    public float critChance;
     public Transform head;
     public GameObject bullet;
     public ParticleSystem muzzle;
@@ -24,7 +25,7 @@ public class AutoGun : MonoBehaviour
     {
 
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<Bullet>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Instantiate(bullet).GetComponent<Bullet>().SetData(damage, critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
 
     }

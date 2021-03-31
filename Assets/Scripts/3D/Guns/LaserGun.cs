@@ -31,6 +31,7 @@ public class LaserGun : MonoBehaviour
         }
         else
         {
+            laser.hits.Clear();
             fireCount -= Time.deltaTime;
             anim.SetBool("Shoot", false);
             laser.gameObject.SetActive(false);
@@ -42,6 +43,7 @@ public class LaserGun : MonoBehaviour
         }
         if (cooling)
         {
+            laser.hits.Clear();
             if (!animPlaying)
             {
                 foreach (ParticleSystem current in steam) { current.Play(); }

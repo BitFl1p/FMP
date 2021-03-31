@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public void SetData(float damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
+    public void SetData(float damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
     {
         this.damage = damage;
+        this.critChance = critChance;
         this.rotation = rotation;
         this.direction = direction;
         this.speed = speed;
         this.pos = pos;
         start = true;
     }
-
+    
     internal float damage;
+    internal float critChance;
     internal Quaternion rotation;
     internal Vector3 direction;
     internal float speed;
@@ -45,9 +47,12 @@ public class Projectile : MonoBehaviour
         {
             if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
             {
-                if (hit.collider.gameObject.GetComponent<Health>() != null)
+                if (hit.collider.gameObject.GetComponent<EnemyHealth>() != null)
                 {
-                    hit.collider.gameObject.GetComponent<Health>().TakeDamage(damage);
+                    float rand = Random.Range(0, 100);
+                    if (rand <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage*2);
+                    else hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+
                 }
                 itHit = true;
             }

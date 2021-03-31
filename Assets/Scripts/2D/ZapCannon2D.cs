@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ZapCannon2D : MonoBehaviour
 {
+    public float critChance;
     public Transform firePoint;
     public bool done;
     public Slider ammoSlider;
@@ -36,7 +37,7 @@ public class ZapCannon2D : MonoBehaviour
                 StartCoroutine(Camera.main.GetComponent<CameraShake>().Shake(0.5f, 1));
                 fired = true;
                 BigBall2D ball = Instantiate(laser);
-                ball.SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+                ball.SetData(damage, critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
 
                 anim.SetBool("Shoot", true);
                 fireCount -= Time.deltaTime;

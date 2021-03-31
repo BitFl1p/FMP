@@ -4,6 +4,7 @@ using System;
 
 public class Gun2D : MonoBehaviour
 {
+    public float critChance;
     public GameObject player;
     string axis;
     public Slider ammoSlider;
@@ -88,7 +89,7 @@ public class Gun2D : MonoBehaviour
     void FirePistol()
     {
 
-        Instantiate(bullet).GetComponent<Bullet2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
+        Instantiate(bullet).GetComponent<Bullet2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
         anim.SetBool("Shoot", true);
 
 
@@ -96,7 +97,7 @@ public class Gun2D : MonoBehaviour
     void FireShotgun()
     {
 
-        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet2D>().SetData(damage, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position, axis);
+        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position, axis);
 
         anim.SetBool("Shoot", true);
 
@@ -104,20 +105,20 @@ public class Gun2D : MonoBehaviour
     void FireBoomer()
     {
 
-        Instantiate(bullet).GetComponent<Boomerang2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, player);
+        Instantiate(bullet).GetComponent<Boomerang2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, player);
         anim.SetBool("Shoot", true);
 
 
     }
     void FireExploder()
     {
-        Instantiate(bullet).GetComponent<ExplodeBullet2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, explode);
+        Instantiate(bullet).GetComponent<ExplodeBullet2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, explode);
         anim.SetBool("Shoot", true);
 
     }
     void ThrowSentry()
     {
-        Instantiate(bullet).GetComponent<SentryCase2D>().SetData(damage, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
+        Instantiate(bullet).GetComponent<SentryCase2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
         anim.SetBool("Shoot", true);
     }
     Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x, UnityEngine.Random.Range(-0.1f, 0.1f), firePoint.forward.z).normalized; }

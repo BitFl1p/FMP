@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Projectile2D : Projectile
 {
-    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, string axis)
+    public void SetData(float damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, string axis)
     {
-        SetData(damage, rotation, direction, speed, pos);
+        SetData(damage, critChance, rotation, direction, speed, pos);
         this.axis = axis;
     }
 
@@ -35,7 +35,9 @@ public class Projectile2D : Projectile
             {
                 if (hit.collider.gameObject.GetComponent<Health>() != null)
                 {
-                    hit.collider.gameObject.GetComponent<Health>().TakeDamage(damage);
+                    float rand = Random.Range(0, 100);
+                    if (rand <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 2);
+                    else hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
                 }
                 itHit = true;
             }

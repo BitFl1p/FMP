@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Boomerang2D : Projectile2D
 {
-    public void SetData(int damage, Quaternion rotation, Vector3 direction, float speed, Vector3 pos,string axis, GameObject player)
+    public void SetData(float damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos,string axis, GameObject player)
     {
-        SetData(damage, rotation, direction, speed, pos, axis);
+        SetData(damage, critChance, rotation, direction, speed, pos, axis);
         this.player = player;
     }
     internal GameObject player;
@@ -32,7 +32,8 @@ public class Boomerang2D : Projectile2D
             {
                 if (hit.collider.gameObject.GetComponent<Health>() != null)
                 {
-                    hit.collider.gameObject.GetComponent<Health>().TakeDamage(damage);
+                    if (Random.Range(0, 100) <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 2);
+                    else hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
                 }
                 itHit = true;
             }
