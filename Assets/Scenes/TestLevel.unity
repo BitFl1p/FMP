@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.00011881342, g: 0.005885495, b: 0.029016184, a: 1}
+  m_IndirectSpecularColor: {r: 0.0001194206, g: 0.0058584344, b: 0.028912902, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5209,6 +5209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fcb92aec7bb7c428315681e04b52e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 29638689}
   critChance: 0
   firePoint: {fileID: 1997298943}
   done: 1
@@ -5992,7 +5993,7 @@ MonoBehaviour:
   speed: 1
   firePoint: {fileID: 359129863}
   done: 1
-  damage: 0
+  damage: 1
   anim: {fileID: 1213205210}
   wepNum: 6
   clipSize: 1
@@ -12857,7 +12858,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370821929}
-  m_LocalRotation: {x: 0.06710507, y: -0.000000015814805, z: -0.000000026779533, w: 0.997746}
+  m_LocalRotation: {x: 0.06710507, y: 0.000000019577103, z: -0.000000029159882, w: 0.997746}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -13224,7 +13225,7 @@ MonoBehaviour:
   speed: 100
   firePoint: {fileID: 457214488}
   done: 1
-  damage: 10
+  damage: 2
   anim: {fileID: 1213205210}
   wepNum: 1
   clipSize: 5
@@ -18212,7 +18213,7 @@ MonoBehaviour:
   speed: 5
   firePoint: {fileID: 1533351024}
   done: 1
-  damage: 30
+  damage: 8
   anim: {fileID: 1213205210}
   wepNum: 3
   clipSize: 5
@@ -18228,6 +18229,65 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 907124789}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &492678604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492678605}
+  - component: {fileID: 492678607}
+  - component: {fileID: 492678606}
+  m_Layer: 0
+  m_Name: Upgrade Station
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &492678605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492678604}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -24.542404, y: -22.1, z: 139.35312}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2118342067}
+  m_Father: {fileID: 1441250416}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &492678606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492678604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60.7, y: 42.7, z: 60.1}
+  m_Center: {x: -6.856097, y: 12.262611, z: 0}
+--- !u!65 &492678607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492678604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 46.69834, y: 24.320492, z: 40}
+  m_Center: {x: -6.856097, y: 12.262611, z: 0}
 --- !u!1 &503243447
 GameObject:
   m_ObjectHideFlags: 3
@@ -18860,7 +18920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critChance: 0
-  player: {fileID: 0}
+  player: {fileID: 762350785}
   ammoSlider: {fileID: 313682037}
   reloadTime: 3
   steam:
@@ -24536,7 +24596,7 @@ MonoBehaviour:
   speed: 10
   firePoint: {fileID: 1321635401}
   done: 1
-  damage: 10
+  damage: 2
   anim: {fileID: 1213205210}
   wepNum: 2
   clipSize: 1
@@ -25183,7 +25243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critChance: 0
-  player: {fileID: 0}
+  player: {fileID: 762350785}
   ammoSlider: {fileID: 313682037}
   reloadTime: 3
   steam:
@@ -25228,6 +25288,7 @@ GameObject:
   - component: {fileID: 762350789}
   - component: {fileID: 762350788}
   - component: {fileID: 762350791}
+  - component: {fileID: 762350792}
   m_Layer: 0
   m_Name: Robot Man
   m_TagString: Player
@@ -25374,6 +25435,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &762350792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762350785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f822b1cb839044eb502aa927c3e763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseRegen: 1
+  maxHealth: 100
+  baseDamage: 1
+  jumpHeight: 1
+  moveSpeed: 1
+  jumpAmount: 1
+  critChance: 1
+  baseReloadTime: 1
 --- !u!1 &766025405
 GameObject:
   m_ObjectHideFlags: 0
@@ -25915,7 +25996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84b56caff0177843ba286d63ef5f5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 812678367}
   ammoSlider: {fileID: 313682037}
   steam:
   - {fileID: 1564317560}
@@ -26170,7 +26251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRegen: 1
-  maxHealth: 1
+  maxHealth: 100
   baseDamage: 1
   jumpHeight: 1
   moveSpeed: 1
@@ -57877,7 +57958,7 @@ MonoBehaviour:
   laser: {fileID: 1009495031}
   anim: {fileID: 1213205210}
   wepNum: 4
-  damage: 5
+  damage: 1
   maxFire: 5
 --- !u!1 &1260342527
 GameObject:
@@ -77947,7 +78028,7 @@ Transform:
   - {fileID: 2061975757}
   - {fileID: 235783955}
   - {fileID: 826541977}
-  - {fileID: 2118342067}
+  - {fileID: 492678605}
   - {fileID: 332691554}
   - {fileID: 56502079}
   - {fileID: 618133730}
@@ -78520,7 +78601,7 @@ MonoBehaviour:
   laser: {fileID: 94931195068723295, guid: ba7aeabd529ed1e42b0f8cff3efa9b59, type: 3}
   anim: {fileID: 1213205210}
   wepNum: 5
-  damage: 60
+  damage: 12
   maxFire: 2
   speed: 0.02
 --- !u!1 &1533351023
@@ -88246,7 +88327,7 @@ MonoBehaviour:
   speed: 100
   firePoint: {fileID: 282715196}
   done: 1
-  damage: 5
+  damage: 1
   anim: {fileID: 1213205210}
   wepNum: 0
   clipSize: 20
@@ -104213,7 +104294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critChance: 0
-  player: {fileID: 0}
+  player: {fileID: 762350785}
   ammoSlider: {fileID: 313682037}
   reloadTime: 3
   steam:
@@ -104901,22 +104982,22 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1441250416}
+    m_TransformParent: {fileID: 492678605}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b74a598bc9a88e444984d63f5cf56800,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.542406
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74a598bc9a88e444984d63f5cf56800,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74a598bc9a88e444984d63f5cf56800,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 139.35312
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74a598bc9a88e444984d63f5cf56800,
         type: 3}
@@ -104941,7 +105022,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b74a598bc9a88e444984d63f5cf56800,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74a598bc9a88e444984d63f5cf56800,
         type: 3}

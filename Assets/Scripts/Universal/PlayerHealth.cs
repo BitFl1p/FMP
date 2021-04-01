@@ -10,7 +10,7 @@ public class PlayerHealth : Health
     internal override void OnEnable()
     {
         base.OnEnable();
-        maxHealth = GetComponent<Stats>().maxHealth * 100;
+        maxHealth = GetComponent<Stats>().maxHealth;
         currentHealth = maxHealth;
     }
     public override void TakeDamage(float damage)
@@ -22,7 +22,7 @@ public class PlayerHealth : Health
     {
         base.Update();
         damageCount += Time.deltaTime;
-        maxHealth = GetComponent<Stats>().maxHealth * 100;
+        maxHealth = GetComponent<Stats>().maxHealth;
         count += Time.deltaTime;
         if (count >= 0.1 && currentHealth < maxHealth && damageCount >= 5)
         {
