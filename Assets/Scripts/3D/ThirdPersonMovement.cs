@@ -8,7 +8,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float offset = 50, drag = 0.5f;
     public CinemachineFreeLook vcam;
     Vector3 velocity, moveDir = Vector3.zero;
-    public float gravity = -9.81f, speed = 6, turnSmoothTime = 0.1f, jumpHeight = 10;
+    public float gravity = -9.81f, speed, turnSmoothTime = 0.1f, jumpHeight;
     public Transform cam;
     //public CharacterController controller;
     float turnSmoothVelocity, horizontal, vertical, jumpCount;
@@ -19,6 +19,7 @@ public class ThirdPersonMovement : MonoBehaviour
     bool jumped;
     private void Start()
     {
+        jumpHeight = GetComponent<Stats>().jumpHeight;
         jumpAmount = GetComponent<Stats>().jumpAmount;
         anim = GetComponentInChildren<Animator>();
         rb = GetComponentInChildren<Rigidbody>();
@@ -57,7 +58,8 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     void Jump()
     {
-        
+        jumpHeight = GetComponent<Stats>().jumpHeight;
+        jumpAmount = GetComponent<Stats>().jumpAmount;
         if (jumpCount <= 0)
         {
             if (grounded)
@@ -90,6 +92,7 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     void Move()
     {
+        speed = GetComponent<Stats>().moveSpeed;
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
@@ -111,7 +114,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             anim.SetBool("Schmove", false);
         }
-        rb.velocity = new Vector3(GoTowardsZero(rb.velocity.x, drag), rb.velocity.y, GoTowardsZero(rb.velocity.z, drag));
+        rb.velocity = new Vector3(GoTowardsZero(rb.velocity.x, System.Math.Abs(rb.velocity.x / drag)), rb.velocity.y, GoTowardsZero(rb.velocity.z, System.Math.Abs(rb.velocity.z / drag)));
         anim.SetFloat("SpeedX", horizontal, Time.deltaTime * 2f, Time.deltaTime);
         anim.SetFloat("SpeedY", vertical, Time.deltaTime * 2f, Time.deltaTime);
     }

@@ -6,7 +6,7 @@ public class Stats : MonoBehaviour
 {
     public float baseRegen;
     public float maxHealth;
-    public float baseDamage;
+    public int baseDamage;
     public float jumpHeight;
     public float moveSpeed;
     public int jumpAmount;

@@ -13,7 +13,7 @@ public class ZapCannon : MonoBehaviour
     public ParticleSystem[] steam;
     public BigBall laser;
     public Animator anim;
-    public int wepNum = 4, damage = 5;
+    public int wepNum = 4, damage;
     float fireCount;
     bool cooling = false, animPlaying = false;
     public float maxFire, speed;

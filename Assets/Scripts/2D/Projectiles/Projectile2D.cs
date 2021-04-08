@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile2D : Projectile
 {
-    public void SetData(float damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, string axis)
+    public void SetData(int damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, string axis)
     {
         SetData(damage, critChance, rotation, direction, speed, pos);
         this.axis = axis;

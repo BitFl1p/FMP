@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
         healthSlid.value = currentHealth;
         damageSlid.maxValue = maxHealth;
     }
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(int damage)
     {
         damageSlid.value = currentHealth;
         currentHealth -= damage;

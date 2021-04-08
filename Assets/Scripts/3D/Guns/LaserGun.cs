@@ -8,7 +8,7 @@ public class LaserGun : MonoBehaviour
     public ParticleSystem[] steam;
     public Laser laser;
     public Animator anim;
-    public int wepNum = 4, damage = 5;
+    public int wepNum = 4, damage;
     float fireCount;
     bool cooling = false, animPlaying = false;
     public float maxFire;
@@ -22,7 +22,7 @@ public class LaserGun : MonoBehaviour
         {
             anim.SetBool("Shoot", true);
             laser.gameObject.SetActive(true);
-            laser.damage = damage*player.GetComponent<Stats>().baseDamage;
+            laser.damage = damage * player.GetComponent<Stats>().baseDamage;
             fireCount += Time.deltaTime;
             if (fireCount >= maxFire)
             {

@@ -6,7 +6,7 @@ public class Explode2D : MonoBehaviour
 {
     
     public float power = 8f, radius = 3f, upForce = 1f;
-    public void Wee(float damage, Vector3 pos, Vector3 rot)
+    public void Wee(int damage, Vector3 pos, Vector3 rot)
     {
         transform.position = pos;
         transform.eulerAngles = rot;

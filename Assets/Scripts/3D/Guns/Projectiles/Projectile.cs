@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public void SetData(float damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
+    public void SetData(int damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)
     {
         this.damage = damage;
         this.critChance = critChance;
@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
         start = true;
     }
     
-    internal float damage;
+    internal int damage;
     internal float critChance;
     internal Quaternion rotation;
     internal Vector3 direction;

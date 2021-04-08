@@ -13,7 +13,7 @@ public class PlayerHealth : Health
         maxHealth = GetComponent<Stats>().maxHealth;
         currentHealth = maxHealth;
     }
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
         damageCount = 0;

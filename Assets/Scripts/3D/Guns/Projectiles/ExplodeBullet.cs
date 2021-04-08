@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplodeBullet : Projectile
 {
-    public void SetData(float damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, Explode explode)
+    public void SetData(int damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, Explode explode)
     {
         SetData(damage, critChance, rotation, direction, speed, pos);
         this.explode = explode;
