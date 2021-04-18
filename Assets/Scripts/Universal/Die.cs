@@ -20,7 +20,7 @@ public class Die : MonoBehaviour
     }
     public void Deth()
     {
-        
+
         transform.localScale -= Vector3.one * 0.1f * transform.localScale.x;
         foreach (Transform child in transform)
         {
@@ -31,7 +31,7 @@ public class Die : MonoBehaviour
             Destroy(gameObject);
         }
 
-        
+
     }
     public void QuickDie()
     {

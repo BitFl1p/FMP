@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Collections;
 public class EnemyHealth : Health
 {
     public RectTransform healthCanvas;

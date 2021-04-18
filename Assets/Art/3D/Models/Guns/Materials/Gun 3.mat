@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Gun 3
-  m_Shader: {fileID: -6465566751694194690, guid: 87f2a60ddf3cf904cbd30f2b6f5a5299,
+  m_Shader: {fileID: -6465566751694194690, guid: 48ccc3f988985f046aafc896d3e64add,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -33,8 +33,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_A8B8D245:
+        m_Texture: {fileID: 2800000, guid: 61a0a2ae5896cb543bf8b65219c100f5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_E287B243:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ECE3C75:
+        m_Texture: {fileID: 2800000, guid: 184f816a887bc2848a3150fe83cc57e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -67,9 +75,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_16C20A75: 0
+    - Vector1_6D42AE5D: 2
     - Vector1_7EBA9DA6: 0
     - Vector1_95685012: 1
     - Vector1_DD68D639: 0.4
+    - Vector1_F76D707B: 0.1
     - Vector1_FE852DF9: 0
     - _AlphaClip: 0
     - _Blend: 0
@@ -95,6 +105,7 @@ Material:
     m_Colors:
     - Color_1570EED4: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0}
     - Color_4BABB1F: {r: 1, g: 1, b: 1, a: 0}
+    - Color_61350DFE: {r: 0, g: 0, b: 0, a: 0}
     - Color_9120DD2C: {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

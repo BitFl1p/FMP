@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ZapCannon2D : MonoBehaviour
+public class ZapCannon2D : GunBase
 {
     public GameObject player;
     public float critChance;
@@ -13,7 +11,7 @@ public class ZapCannon2D : MonoBehaviour
     public ParticleSystem[] steam;
     public BigBall2D laser;
     public Animator anim;
-    public int wepNum = 4, damage = 5;
+    public int damage = 5;
     float fireCount;
     bool cooling = false, animPlaying = false;
     public float maxFire, speed;
@@ -26,7 +24,7 @@ public class ZapCannon2D : MonoBehaviour
     {
         ammoSlider.maxValue = maxFire;
         ammoSlider.value = fireCount;
-        
+
 
         if (Input.GetKey(KeyCode.C) && !cooling && done)
         {
@@ -37,8 +35,8 @@ public class ZapCannon2D : MonoBehaviour
             {
                 StartCoroutine(Camera.main.GetComponent<CameraShake>().Shake(0.5f, 1));
                 fired = true;
-                BigBall2D ball = Instantiate(laser);
-                ball.SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+                BigBall2D ball = Instantiate(laser, firePoint.position, firePoint.rotation);
+                ball.SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
 
                 anim.SetBool("Shoot", true);
                 fireCount -= Time.deltaTime;

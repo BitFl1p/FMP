@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ExplodeBullet : Projectile
 {
@@ -8,7 +6,7 @@ public class ExplodeBullet : Projectile
     {
         SetData(damage, critChance, rotation, direction, speed, pos);
         this.explode = explode;
-        
+
     }
     internal Explode explode;
 
@@ -19,6 +17,6 @@ public class ExplodeBullet : Projectile
         else Instantiate(explode).Wee(damage, transform.position);
         Destroy(gameObject);
     }
-    
-    
+
+
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SentryVision : MonoBehaviour
 {
@@ -8,12 +6,12 @@ public class SentryVision : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             if (isLeft) GetComponentInParent<AutoGun2D>().enemyLeft = true;
             else GetComponentInParent<AutoGun2D>().enemyRight = true;
         }
-        
+
     }
     private void OnTriggerExit(Collider other)
     {

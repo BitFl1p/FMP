@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Gun : MonoBehaviour
+public class Gun : GunBase
 {
     public float critChance;
     public GameObject player;
@@ -16,9 +16,8 @@ public class Gun : MonoBehaviour
     public Transform firePoint;
     public bool done = true;
     public int damage;
-    float timer;
     public Animator anim;
-    public int wepNum, clipSize;
+    public int clipSize;
     int ammo;
     bool reload, steaming;
     void Start()
@@ -32,7 +31,7 @@ public class Gun : MonoBehaviour
         {
             ammoSlider.value = ammoSlider.maxValue;
             reload = true;
-            Reload(reloadTime*player.GetComponent<Stats>().baseReloadTime);
+            Reload(reloadTime * player.GetComponent<Stats>().baseReloadTime);
         }
         else
         {
@@ -40,9 +39,9 @@ public class Gun : MonoBehaviour
             ammoSlider.value = ammo;
         }
         anim.SetInteger("WepNum", wepNum);
-        if(done)
+        if (done)
         {
-            
+
             anim.SetBool("Shoot", false);
             if (Input.GetButton("Fire1") && !reload)
             {
@@ -58,10 +57,10 @@ public class Gun : MonoBehaviour
 
 
                 }
-                
-                
+
+
             }
-            
+
 
         }
     }
@@ -85,38 +84,41 @@ public class Gun : MonoBehaviour
     {
 
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<Bullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[0].Play();
+        Instantiate(bullet).GetComponent<Bullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
-        
+
 
     }
     void FireShotgun()
     {
-
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[1].Play();
         muzzle?.Play();
-        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage), player.GetComponent<Stats>().critChance, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position);
+        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position);
         anim.SetBool("Shoot", true);
 
     }
     void FireBoomer()
     {
-
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[2].Play();
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<Boomerang>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, gameObject);
+        Instantiate(bullet).GetComponent<Boomerang>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, gameObject);
         anim.SetBool("Shoot", true);
-        
+
 
     }
     void FireExploder()
     {
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[2].Play();
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position,explode);
+        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
         anim.SetBool("Shoot", true);
-        
+
     }
     void ThrowSentry()
     {
-        Instantiate(bullet).GetComponent<SentryCase>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[3].Play();
+        Instantiate(bullet).GetComponent<SentryCase>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
     }
     Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x + (firePoint.forward.x * Random.Range(-0.1f, 0.1f)), firePoint.forward.y + (firePoint.forward.y * Random.Range(-0.3f, 0.3f)), firePoint.forward.z + (firePoint.forward.z * Random.Range(-0.1f, 0.1f))).normalized; }

@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Cinemachine;
 using UnityEngine;
-using Cinemachine;
 public class ThirdPersonMovement : MonoBehaviour
 {
     Rigidbody rb;
@@ -37,20 +35,19 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Aim()
     {
-        hip.localEulerAngles = new Vector3(0, 180, vcam.m_YAxis.Value * 90 - offset);
-        /*Quaternion rot = hip.localRotation;
-        rot.eulerAngles = new Vector3(0.0f, vcam.m_YAxis.Value * 180, 0.0f);
-        hip.localRotation = rot;*/
+        hip.localEulerAngles = new Vector3(0, 180, vcam.m_YAxis.Value * 180 - offset);
     }
     float GoTowardsZero(float value, float speed)
     {
         if (value > speed)
         {
             value -= speed;
-        } else if(value < -speed)
+        }
+        else if (value < -speed)
         {
             value += speed;
-        } else
+        }
+        else
         {
             value = 0;
         }
@@ -58,12 +55,13 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     void Jump()
     {
-        jumpHeight = GetComponent<Stats>().jumpHeight;
-        jumpAmount = GetComponent<Stats>().jumpAmount;
+        
         if (jumpCount <= 0)
         {
             if (grounded)
             {
+                jumpHeight = GetComponent<Stats>().jumpHeight;
+                jumpAmount = GetComponent<Stats>().jumpAmount;
 
                 if (Input.GetButtonDown("Jump"))
                 {
@@ -88,7 +86,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             jumpCount -= Time.deltaTime;
         }
-        
+
     }
     void Move()
     {

@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Boomerang2D : Projectile2D
 {
-    public void SetData(int damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos,string axis, GameObject player)
+    public void SetData(int damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos, string axis, GameObject player)
     {
         SetData(damage, critChance, rotation, direction, speed, pos, axis);
         this.player = player;
@@ -12,6 +10,25 @@ public class Boomerang2D : Projectile2D
     internal GameObject player;
     internal override void Shoot()
     {
+        if (axis == "XY") GetComponent<Rigidbody>().velocity += new Vector3(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y, 0);
+        else GetComponent<Rigidbody>().velocity += new Vector3(0, player.transform.position.y - transform.position.y, player.transform.position.z - transform.position.z);
+        GetComponent<Rigidbody>().velocity += new Vector3(0, speed / 1000, 0);
+        if (!start)
+        {
+            RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
+                {
+                    if (hit.collider.gameObject.GetComponent<Health>() != null)
+                    {
+                        if (Random.Range(0, 100) <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 2);
+                        else hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                    }
+                    itHit = true;
+                }
+            }
+        }
         if (start)
         {
             speed = speed * 100;
@@ -21,22 +38,6 @@ public class Boomerang2D : Projectile2D
 
             transform.rotation = rotation;
             start = false;
-        }
-        if(axis == "XY") GetComponent<Rigidbody>().velocity += new Vector3(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y, 0);
-        else GetComponent<Rigidbody>().velocity += new Vector3(0, player.transform.position.y - transform.position.y, player.transform.position.z - transform.position.z);
-        GetComponent<Rigidbody>().velocity += new Vector3(0, speed / 1000, 0);
-        RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
-        foreach (RaycastHit hit in hits)
-        {
-            if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
-            {
-                if (hit.collider.gameObject.GetComponent<Health>() != null)
-                {
-                    if (Random.Range(0, 100) <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 2);
-                    else hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-                }
-                itHit = true;
-            }
         }
         if (itHit) Kill();
         lastPos = transform.position;

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BigBall : Projectile
 {
@@ -16,7 +14,7 @@ public class BigBall : Projectile
         }
         transform.position += direction * speed;
         lastPos = transform.position;
-        
+
         if (count >= 3) { GetComponent<Die>().Deth(); }
     }
     internal override void Aim()
@@ -29,6 +27,6 @@ public class BigBall : Projectile
         health?.TakeDamage(damage);
         count++;
     }
-    
-    
+
+
 }

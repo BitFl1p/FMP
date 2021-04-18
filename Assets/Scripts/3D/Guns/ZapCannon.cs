@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ZapCannon : MonoBehaviour
+public class ZapCannon : GunBase
 {
     public float critChance;
     public GameObject player;
@@ -13,19 +11,19 @@ public class ZapCannon : MonoBehaviour
     public ParticleSystem[] steam;
     public BigBall laser;
     public Animator anim;
-    public int wepNum = 4, damage;
+    public int damage;
     float fireCount;
     bool cooling = false, animPlaying = false;
     public float maxFire, speed;
     bool fired = false;
-    
-    
+
+
     void Update()
     {
         ammoSlider.maxValue = maxFire;
         ammoSlider.value = fireCount;
         anim.SetInteger("WepNum", wepNum);
-        firePoint.localScale = Vector3.one * 8f * (fireCount / maxFire) ;
+        firePoint.localScale = Vector3.one * 8f * (fireCount / maxFire);
 
         if (Input.GetButton("Fire1") && !cooling && done)
         {
@@ -33,11 +31,11 @@ public class ZapCannon : MonoBehaviour
 
             if (fireCount >= maxFire && !fired)
             {
-                StartCoroutine(Camera.main.GetComponent<CameraShake>().Shake(0.5f,1));
+                StartCoroutine(Camera.main.GetComponent<CameraShake>().Shake(0.5f, 1));
                 fired = true;
                 BigBall ball = Instantiate(laser);
-                ball.SetData(damage*player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
-                
+                ball.SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+
                 anim.SetBool("Shoot", true);
                 fireCount -= Time.deltaTime;
                 cooling = true;

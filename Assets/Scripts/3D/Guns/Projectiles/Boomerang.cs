@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Boomerang : Projectile
 {
@@ -41,7 +39,7 @@ public class Boomerang : Projectile
     }
     internal override void Aim()
     {
-        
+
         transform.eulerAngles = new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z);
         transform.eulerAngles += new Vector3(0, -30, 0);
     }

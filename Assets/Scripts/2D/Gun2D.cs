@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System;
 
-public class Gun2D : MonoBehaviour
+public class Gun2D : GunBase
 {
     public float critChance;
     public GameObject player;
@@ -17,9 +16,8 @@ public class Gun2D : MonoBehaviour
     public Transform firePoint;
     public bool done = true;
     public int damage = 1;
-    float timer;
     Animator anim;
-    public int wepNum, clipSize;
+    public int clipSize;
     int ammo;
     bool reload, steaming;
 
@@ -31,7 +29,7 @@ public class Gun2D : MonoBehaviour
     }
     void Update()
     {
-        if(clipSize <= 0)
+        if (clipSize <= 0)
         {
             ammoSlider.value = ammoSlider.maxValue;
         }
@@ -89,7 +87,7 @@ public class Gun2D : MonoBehaviour
     void FirePistol()
     {
 
-        Instantiate(bullet).GetComponent<Bullet2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
+        Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Bullet2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
         anim.SetBool("Shoot", true);
 
 
@@ -97,7 +95,7 @@ public class Gun2D : MonoBehaviour
     void FireShotgun()
     {
 
-        for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position, axis);
+        for (int i = 0; i <= 6; i++) Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Bullet2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position, axis);
 
         anim.SetBool("Shoot", true);
 
@@ -105,20 +103,20 @@ public class Gun2D : MonoBehaviour
     void FireBoomer()
     {
 
-        Instantiate(bullet).GetComponent<Boomerang2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, player);
+        Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Boomerang2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, player);
         anim.SetBool("Shoot", true);
 
 
     }
     void FireExploder()
     {
-        Instantiate(bullet).GetComponent<ExplodeBullet2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, explode);
+        Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<ExplodeBullet2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, explode);
         anim.SetBool("Shoot", true);
 
     }
     void ThrowSentry()
     {
-        Instantiate(bullet).GetComponent<SentryCase2D>().SetData(damage * player.GetComponent<Stats>().baseDamage, player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
+        Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<SentryCase2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
         anim.SetBool("Shoot", true);
     }
     Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x, UnityEngine.Random.Range(-0.1f, 0.1f), firePoint.forward.z).normalized; }

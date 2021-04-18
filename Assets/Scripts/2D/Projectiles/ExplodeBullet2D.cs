@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ExplodeBullet2D : Projectile2D
 {
@@ -14,8 +12,8 @@ public class ExplodeBullet2D : Projectile2D
 
     internal override void Kill()
     {
-        if(axis == "XY") if (Random.Range(0, 100) <= critChance) Instantiate(explode).Wee(damage * 2, transform.position, Vector3.zero); else Instantiate(explode).Wee(damage * 2, transform.position, Vector3.zero);
-        else if (Random.Range(0, 100) <= critChance) Instantiate(explode).Wee(damage*2, transform.position, new Vector3(0, 90, 0)); else Instantiate(explode).Wee(damage * 2, transform.position, new Vector3(0, 90, 0));
+        if (axis == "XY") if (Random.Range(0, 100) <= critChance) Instantiate(explode).Wee(damage * 2, transform.position, Vector3.zero); else Instantiate(explode).Wee(damage * 2, transform.position, Vector3.zero);
+        else if (Random.Range(0, 100) <= critChance) Instantiate(explode).Wee(damage * 2, transform.position, new Vector3(0, 90, 0)); else Instantiate(explode).Wee(damage * 2, transform.position, new Vector3(0, 90, 0));
         Destroy(gameObject);
     }
 }

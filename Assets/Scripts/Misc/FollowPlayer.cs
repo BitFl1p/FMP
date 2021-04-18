@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 [ExecuteInEditMode]
 public class FollowPlayer : MonoBehaviour
 {
@@ -8,7 +6,7 @@ public class FollowPlayer : MonoBehaviour
     public Vector3 offset;
     void Update()
     {
-        
+
         transform.position = player.position + offset;
         transform.LookAt(player);
     }

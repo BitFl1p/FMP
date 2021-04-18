@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class GroundCheck : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if(other.isTrigger == false && other.gameObject.tag == "Ground") { if(player2D != null) { player2D.isGrounded = true; } if (player3D != null) { player3D.grounded = true; } }
+        if (other.isTrigger == false && other.gameObject.tag == "Ground") { if (player2D != null) { player2D.isGrounded = true; } if (player3D != null) { player3D.grounded = true; } }
     }
     private void OnTriggerExit(Collider other)
     {

@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class LaserGun : MonoBehaviour
+public class LaserGun : GunBase
 {
+
     public GameObject player;
     public Slider ammoSlider;
     public ParticleSystem[] steam;
     public Laser laser;
     public Animator anim;
-    public int wepNum = 4, damage;
+    public int damage;
     float fireCount;
     bool cooling = false, animPlaying = false;
     public float maxFire;
@@ -17,12 +18,12 @@ public class LaserGun : MonoBehaviour
         ammoSlider.maxValue = maxFire;
         ammoSlider.value = maxFire - fireCount;
         Wepnep();
-        
-        if (Input.GetButton("Fire1")&&!cooling)
+
+        if (Input.GetButton("Fire1") && !cooling)
         {
             anim.SetBool("Shoot", true);
             laser.gameObject.SetActive(true);
-            laser.damage = damage * player.GetComponent<Stats>().baseDamage;
+            laser.damage = (int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier);
             fireCount += Time.deltaTime;
             if (fireCount >= maxFire)
             {
@@ -56,7 +57,7 @@ public class LaserGun : MonoBehaviour
                 cooling = false;
             }
         }
-        
+
     }
     internal virtual void Wepnep()
     {

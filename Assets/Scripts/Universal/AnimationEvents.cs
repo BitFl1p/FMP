@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AnimationEvents : MonoBehaviour
 {
@@ -20,7 +18,7 @@ public class AnimationEvents : MonoBehaviour
     }
     public void ZapDone()
     {
-        
+
         if (zap != null) zap.done = true;
         if (zap2D != null) zap2D.done = true;
     }

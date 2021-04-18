@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AutoGun : MonoBehaviour
 {
@@ -36,7 +34,7 @@ public class AutoGun : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Health>() != null)
+        if (other.gameObject.GetComponent<Health>() != null && other.gameObject.tag == "Enemy")
         {
 
             head.LookAt(FindObjectOfType<Health>().transform.position);

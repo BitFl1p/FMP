@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeStation : MonoBehaviour
 {
+    public Transform[] positions;
     public int[] upNums;
     public GameObject[] upgradePrefabs;
     public List<GameObject> upgrades;
@@ -12,7 +12,7 @@ public class UpgradeStation : MonoBehaviour
     int upgradeToGive;
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             anim.SetBool("Here", true);
             foreach (GameObject upgrade in upgrades) upgrade.SetActive(true);
@@ -21,13 +21,13 @@ public class UpgradeStation : MonoBehaviour
                 Debug.DrawRay(Camera.main.gameObject.transform.position, Camera.main.gameObject.transform.forward, Color.cyan, 2);
                 Stats playerStats = other.GetComponent<Stats>();
                 RaycastHit hit;
-                
+
                 int layerMask = 1 << 9;
                 layerMask = ~layerMask;
                 if (Physics.Raycast(Camera.main.gameObject.transform.position, Camera.main.gameObject.transform.forward, out hit, Mathf.Infinity, layerMask))
                 {
-                    
-                    if(hit.collider.gameObject.GetComponent<UpgradeHolder>() != null)
+
+                    if (hit.collider.gameObject.GetComponent<UpgradeHolder>() != null)
                     {
                         switch (hit.collider.gameObject.GetComponent<UpgradeHolder>().upgradeNum)
                         {
@@ -38,7 +38,6 @@ public class UpgradeStation : MonoBehaviour
                             case 5: playerStats.moveSpeed += 0.5f; break;
                             case 6: playerStats.jumpAmount += 1; break;
                             case 7: playerStats.critChance += 2; break;
-                            case 8: playerStats.baseReloadTime += Mathf.Ceil(playerStats.baseReloadTime / 4); break;
                         }
                         reset = true;
                     }
@@ -56,10 +55,10 @@ public class UpgradeStation : MonoBehaviour
         {
             foreach (GameObject upgrade in upgrades) Destroy(upgrade);
             upgrades.Clear();
-            for(int i = 1; i <= 3; i ++) upgrades.Add(Instantiate(upgradePrefabs[Random.Range(0,upgradePrefabs.Length)],transform));
-            upgrades[0].transform.position = transform.position + new Vector3(-26,12,15);
-            upgrades[1].transform.position = transform.position + new Vector3(-26,12,5);
-            upgrades[2].transform.position = transform.position + new Vector3(-26,12,-5);
+            for (int i = 1; i <= 3; i++) upgrades.Add(Instantiate(upgradePrefabs[Random.Range(0, upgradePrefabs.Length)], transform));
+            upgrades[0].transform.position = positions[0].position;
+            upgrades[1].transform.position = positions[1].position;
+            upgrades[2].transform.position = positions[2].position;
             foreach (GameObject upgrade in upgrades) upgrade.SetActive(false);
             reset = false;
         }

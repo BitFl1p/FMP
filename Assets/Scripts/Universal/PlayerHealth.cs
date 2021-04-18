@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class PlayerHealth : Health 
+public class PlayerHealth : Health
 {
     float count = 0;
     float damageCount;
@@ -34,10 +31,10 @@ public class PlayerHealth : Health
             currentHealth += GetComponent<Stats>().baseRegen;
             count = 0;
         }
-        
+
         healthSlid.maxValue = maxHealth;
         healthSlid.value = currentHealth;
     }
-    
+
 
 }

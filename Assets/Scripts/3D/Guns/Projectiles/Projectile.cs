@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
@@ -14,7 +12,7 @@ public class Projectile : MonoBehaviour
         this.pos = pos;
         start = true;
     }
-    
+
     internal int damage;
     internal float critChance;
     internal Quaternion rotation;
@@ -30,9 +28,26 @@ public class Projectile : MonoBehaviour
         Shoot();
         Aim();
     }
-
     internal virtual void Shoot()
     {
+        if (!start)
+        {
+            RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
+                {
+                    if (hit.collider.gameObject.GetComponent<EnemyHealth>() != null)
+                    {
+                        float rand = Random.Range(0, 100);
+                        if (rand <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 2);
+                        else hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+
+                    }
+                    itHit = true;
+                }
+            }
+        }
         if (start)
         {
             speed = speed * 100;
@@ -42,21 +57,7 @@ public class Projectile : MonoBehaviour
             transform.rotation = rotation;
             start = false;
         }
-        RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
-        foreach (RaycastHit hit in hits)
-        {
-            if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
-            {
-                if (hit.collider.gameObject.GetComponent<EnemyHealth>() != null)
-                {
-                    float rand = Random.Range(0, 100);
-                    if (rand <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage*2);
-                    else hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-
-                }
-                itHit = true;
-            }
-        }
+        
         if (itHit) Kill();
         lastPos = transform.position;
     }

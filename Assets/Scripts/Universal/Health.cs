@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Collections;
 public class Health : MonoBehaviour
 {
     public float maxHealth, currentHealth;
@@ -27,7 +26,7 @@ public class Health : MonoBehaviour
             return;
         }
         StartCoroutine(damageSlide());
-        
+
     }
 
     public IEnumerator damageSlide()

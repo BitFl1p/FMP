@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
@@ -25,11 +24,11 @@ public class Laser : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Health>() != null && dealDamage) { foreach(GameObject hit in hits) hit.gameObject.GetComponent<Health>().TakeDamage(damage * player.GetComponent<Stats>().baseDamage); dealDamage = false; }
+        if (other.gameObject.GetComponent<Health>() != null && dealDamage) { foreach (GameObject hit in hits) hit.gameObject.GetComponent<Health>().TakeDamage(damage * player.GetComponent<Stats>().baseDamage); dealDamage = false; }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Enemy") hits.Add(other.gameObject);
+        if (other.gameObject.tag == "Enemy") hits.Add(other.gameObject);
     }
     private void OnTriggerExit(Collider other)
     {

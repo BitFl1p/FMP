@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AutoGun2D : MonoBehaviour
 {
@@ -34,8 +32,8 @@ public class AutoGun2D : MonoBehaviour
             transform.eulerAngles = Vector3.zero;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
-        
-        
+
+
     }
     private void Update()
     {
@@ -66,7 +64,7 @@ public class AutoGun2D : MonoBehaviour
 
     public void Explode()
     {
-        if (axis == "XY") Instantiate(explosion).Wee(damage, transform.position, new Vector3(0,0,0));
+        if (axis == "XY") Instantiate(explosion).Wee(damage, transform.position, new Vector3(0, 0, 0));
         else Instantiate(explosion).Wee(damage, transform.position, new Vector3(0, 90, 0));
         Destroy(gameObject);
     }

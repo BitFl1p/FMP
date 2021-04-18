@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletDie : MonoBehaviour
 {
@@ -18,5 +16,5 @@ public class BulletDie : MonoBehaviour
             Destroy(gameObject);
         }
     }// Start is called before the first frame update
-    
+
 }
