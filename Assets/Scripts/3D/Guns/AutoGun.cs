@@ -21,7 +21,7 @@ public class AutoGun : MonoBehaviour
     }
     void Shoot()
     {
-
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[0].Play();
         muzzle?.Play();
         Instantiate(bullet).GetComponent<Bullet>().SetData(damage, critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);

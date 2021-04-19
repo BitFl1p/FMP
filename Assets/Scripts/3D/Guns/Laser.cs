@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    public float damageMultiplier;
     public GameObject player;
     public List<GameObject> hits;
     public int damage;

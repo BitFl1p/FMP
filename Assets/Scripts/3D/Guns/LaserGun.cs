@@ -9,9 +9,9 @@ public class LaserGun : GunBase
     public ParticleSystem[] steam;
     public Laser laser;
     public Animator anim;
-    public int damage;
+    public float damage;
     float fireCount;
-    bool cooling = false, animPlaying = false;
+    bool cooling = false, animPlaying = false, alreadyPlaying = false;
     public float maxFire;
     void Update()
     {
@@ -21,6 +21,7 @@ public class LaserGun : GunBase
 
         if (Input.GetButton("Fire1") && !cooling)
         {
+            if (!alreadyPlaying) { Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[5].Play(); alreadyPlaying = true; }
             anim.SetBool("Shoot", true);
             laser.gameObject.SetActive(true);
             laser.damage = (int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier);
@@ -32,6 +33,8 @@ public class LaserGun : GunBase
         }
         else
         {
+            Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[5].Stop();
+            alreadyPlaying = false;
             laser.hits.Clear();
             fireCount -= Time.deltaTime;
             anim.SetBool("Shoot", false);

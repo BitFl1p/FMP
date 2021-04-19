@@ -10,6 +10,7 @@ TagManager:
   - 2D
   - OuterWall
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - 
   - PlayerBullet
   - Player
-  - 
-  - 
+  - Enemy
+  - Obstacle
   - 
   - 
   - 

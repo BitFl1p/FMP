@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<StringTable>
+	<Creator>Mesh Terrain Creator</Creator>
+	<Creator_Header>Mesh Terrain Creator</Creator_Header>
+	<Creator_Description>Create mesh-terrain(s) directly: Set parameters and click the Create button.</Creator_Description>
+	<MeshSize>Mesh Size</MeshSize>
+	<SplatTexture>Splat Textures</SplatTexture>
+	<NormalMap>Normal Map</NormalMap>
+	<ShaderType>Shader Type</ShaderType>
+	<CreateMultipleCopies>Create Multiple Copies</CreateMultipleCopies>
+	<AsAPlane>as a plane</AsAPlane>
+	<FromAHeightMap>from a height-map</FromAHeightMap>
+	<FromACurve>from a curve</FromACurve>
+	<BaseHeight>Base Height</BaseHeight>
+	<TotalHeight>Total Height</TotalHeight>
+	<Warning_VertexCountTooBig_AssetPreferred>Vertex count is too big. It is recommended to use .asset file format to significantly reduce the time of saving and importing a mesh.</Warning_VertexCountTooBig_AssetPreferred>
+	<MTEConverter>MTE Converter</MTEConverter>
+	<MTEConverter_Header>Mesh Terrain Converter</MTEConverter_Header>
+	<UnityTerrainToMTEMesh_Header>Unity Terrain → Mesh-Terrain</UnityTerrainToMTEMesh_Header>
+	<UnityTerrainToMTEMesh_Description>Convert a terrain to a MTE-editable mesh.</UnityTerrainToMTEMesh_Description>
+	<MeshToMTEMesh_Header>Regular Mesh → Mesh-Terrain</MeshToMTEMesh_Header>
+	<MeshToMTEMesh_Description>Convert a regular mesh to a MTE-editable mesh.</MeshToMTEMesh_Description>
+	<Name>Name</Name>
+	<KeepMeshVertex>Keep mesh vertex</KeepMeshVertex>
+	<Info_KeepMeshVertex>Converted mesh will use the original vertices' position.</Info_KeepMeshVertex>
+	<Info_NotKeepMeshVertex>Converted mesh will use uniformly layout-ed vertex positions, whose height sampled from the mesh.</Info_NotKeepMeshVertex>
+	<KeepMeshUV>Keep mesh uv</KeepMeshUV>
+	<Info_KeepMeshUV>Converted mesh will use original uv.</Info_KeepMeshUV>
+	<Info_NotKeepMeshUV>Converted mesh will use uniformly layout-ed uv.</Info_NotKeepMeshUV>
+	<KeepMeshNormal>Keep mesh normal</KeepMeshNormal>
+	<Info_KeepMeshNormal>Converted mesh will use original normal. Obj format hasn't been supported yet.
+Note: please turn off *settings -&gt; Recalculate normals when saving mesh to* so as to keep original mesh normals when the mesh is saved later.</Info_KeepMeshNormal>
+	<Info_NotKeepMeshNormal>Converted mesh will use smoothed normal.</Info_NotKeepMeshNormal>
+	<CreatePrefab>Create prefab</CreatePrefab>
+	<SelectOutputDir>Output dir</SelectOutputDir>
+	<Warning_OutputDirContainsNameFolder>The Output directory already contains a folder of the same name. Use another name or choose another output directory instead.</Warning_OutputDirContainsNameFolder>
+	<Textures>Textures</Textures>
+	<Vertexes>Vertexes</Vertexes>
+	<SplatTextureCount>Splat texture count</SplatTextureCount>
+	<ControlTextureSize>Control texture size</ControlTextureSize>
+	<MeshOnly>Mesh Only</MeshOnly>
+	<Info_TerrainConverter_MeshOnly>Terrain will be converted to regular mesh with default material.
+Splat layers will Not be preserved after conversion.</Info_TerrainConverter_MeshOnly>
+	<Info_TerrainConverter_NotMeshOnly>Terrain will be converted to mesh-terrain with material using MTE's shader.
+Splat layers will be preserved after conversion.</Info_TerrainConverter_NotMeshOnly>
+	<KeepLightmapping>Keep lightmapping data</KeepLightmapping>
+	<Tooltip_KeepLightmapping>"Keep lightmapping data" is not compatible with "Split" and "File Format *.obj."</Tooltip_KeepLightmapping>
+	<ExportTrees>Export trees</ExportTrees>
+	<BeginCovert>Begin Converting</BeginCovert>
+	<Error_Conversion_Failed>Conversion failed</Error_Conversion_Failed>
+	<MTEEditor>MTE Editor</MTEEditor>
+	<MTEEditor_Title>Mesh Terrain Editor</MTEEditor_Title>
+	<Info_DisabledMTEWhenCameraSelected>MTE editor is temporarily disabled because the camera is selected.</Info_DisabledMTEWhenCameraSelected>
+	<Warning_CannotFindMeshTerrain>Cannot find a mesh-terrain that matches current layer and tag. Please make sure the mesh-terrains you want to edit have the same layer and tag as MTE editor. Then click the refresh-filter button.</Warning_CannotFindMeshTerrain>
+	<RaiseLower_Header>Raise/Lower Terrain</RaiseLower_Header>
+	<RaiseLower_Description>Click to raise/lower.
+Press space to toggle up/down.</RaiseLower_Description>
+	<Falloff>Falloff</Falloff>
+	<PaintHeight_Header>Paint Height</PaintHeight_Header>
+	<PaintHeight_Description>Hold ctrl to sample height.</PaintHeight_Description>
+	<SmoothHeight_Header>Smooth height</SmoothHeight_Header>
+	<SmoothHeight_Description>Click to smooth.</SmoothHeight_Description>
+	<SplatPainter_Header>Paint Texture</SplatPainter_Header>
+	<SplatPainter_Description>Select a texture below, then click/drag to paint.</SplatPainter_Description>
+	<SplatPainter_Mode_Selected>Selected</SplatPainter_Mode_Selected>
+	<SplatPainter_Mode_SelectedDescription>Paint on a selected mesh-terrain with custom UV, ignore the filter.</SplatPainter_Mode_SelectedDescription>
+	<SplatPainter_Mode_Filtered>Filtered</SplatPainter_Mode_Filtered>
+	<SplatPainter_Mode_FilteredDescription>Paint on all mesh-terrains that match the tag and layer of the filter</SplatPainter_Mode_FilteredDescription>
+	<Info_SplatPainter_NoSplatTextureFound>No splat textures found in targets.</Info_SplatPainter_NoSplatTextureFound>
+	<Info_SplatPainter_NoSplatTextureFoundOnSelectedObject>No splat textures found in selected GameObject</Info_SplatPainter_NoSplatTextureFoundOnSelectedObject>
+	<PaintVertexColor_Header>Paint Vertex Color</PaintVertexColor_Header>
+	<PaintVertexColor_Description>Select a color below, then click to paint.</PaintVertexColor_Description>
+	<ColorPresets>Color presets</ColorPresets>
+	<SingleChannel>Single Channel</SingleChannel>
+	<Info_ToolDescription_VertexColorFill>Fill all targets with the selected color.</Info_ToolDescription_VertexColorFill>
+	<Info_ToolDescription_VertexColorRandomize>Generate vertex colors randomly.</Info_ToolDescription_VertexColorRandomize>
+	<AttachVertexColor>Attach
+VertexColor</AttachVertexColor>
+	<Info_ToolDescription_AttachVertexColor>Attach vertex color component to selected GameObject.</Info_ToolDescription_AttachVertexColor>
+	<PaintGrass_Header>Grass Painter</PaintGrass_Header>
+	<PaintGrass_Description>Click and drag to paint. Hold Shift to erase.
+Press PageUp/Down to undo/redo.</PaintGrass_Description>
+	<Grasses>Grasses</Grasses>
+	<Warning_NoGrass>No grass defined</Warning_NoGrass>
+	<Warning_NoGrassLoader>Please create a grass loader object first. (Refer to the docs for details.)</Warning_NoGrassLoader>
+	<LoadFromFile>Load from list file...</LoadFromFile>
+	<LoadFromGrassLoader>Load From GrassLoader...</LoadFromGrassLoader>
+	<Info_HowToRotate>Hold Ctrl and roll the scroll wheel to rotate.</Info_HowToRotate>
+	<Info_ToolDescription_SaveLightMapData>Save lightmap data to loaded grasses.asset.</Info_ToolDescription_SaveLightMapData>
+	<Random>Random</Random>
+	<CreateGrassLoader>Create
+GrassLoader</CreateGrassLoader>
+	<Info_ToolDescription_CreateGrassLoader>Create grass loader object in the scene. 
+One scene can have only one single GrassLoader object.</Info_ToolDescription_CreateGrassLoader>
+	<AttachGrassLoader>Attach
+GrassLoader</AttachGrassLoader>
+	<Info_ToolDescription_AttachGrassLoader>Attach GrassLoader component to selected GameObject. Or fix the GrassLoader on it.</Info_ToolDescription_AttachGrassLoader>
+	<BakePointCloudToMesh>Bake
+Point Cloud</BakePointCloudToMesh>
+	<Info_ToolDescription_BakePointCloudToMesh>Convert the painted grass point cloud to actual meshes. You will not be able to modify the point cloud after baking.</Info_ToolDescription_BakePointCloudToMesh>
+	<Warning_NoGrassLoader_CannotBakePointCloudToMesh>Cannot bake grass point cloud to mesh: no GrassLoader component found in scene.</Warning_NoGrassLoader_CannotBakePointCloudToMesh>
+	<Info_RemoveGrassLoader>Remove the GrassLoader component? The point cloud data will be retained in the asset file.</Info_RemoveGrassLoader>
+	<ReloadFromFile>1. Reload From File</ReloadFromFile>
+	<BakeLightmap>2. Bake Lightmap</BakeLightmap>
+	<SaveLightmapData>3. Save lightmap data</SaveLightmapData>
+	<ClearPreviewGrasssesAndSaveScene>4. Clear Preview Grassses &amp; Save Scene</ClearPreviewGrasssesAndSaveScene>
+	<Warning_HowToSaveASceneWithGrasses>Please use button No.4 to save your scene, otherwise the preview-only grasses will be saved into your scene.unity file!</Warning_HowToSaveASceneWithGrasses>
+	<ShowGrassObjects>Show Grass Objects</ShowGrassObjects>
+	<Info_ReloadedGrassesFromFile>Reloaded grasses from file.</Info_ReloadedGrassesFromFile>
+	<Info_LightmapDataSaved>Lightmap data saved.</Info_LightmapDataSaved>
+	<ObjectPainter_Header>Object Painter</ObjectPainter_Header>
+	<ObjectPainter_Description>Click and drag to paint. Hold Shift to erase.
+Press PageUp/PageDown to undo/redo.</ObjectPainter_Description>
+	<Container>Container</Container>
+	<Warning_NoPrefabAdded>No prefab added</Warning_NoPrefabAdded>
+	<PaintFlow_Header>Flow Painter</PaintFlow_Header>
+	<PaintFlow_Description>Click to draw.
+Strengh is shared between modes;
+Speed is the brush speed.</PaintFlow_Description>
+	<CreateFlowMap>Create
+Flowmap</CreateFlowMap>
+	<Info_ModeDescription_Fixed>Hold ctrl and scroll to adjust direction.</Info_ModeDescription_Fixed>
+	<Info_ModeDescription_Movement>Normalized flow speed and direction is determined by mouse movement.</Info_ModeDescription_Movement>
+	<Info_ModeDescription_Pinch>Press Space to toggle between pinching and inflating.</Info_ModeDescription_Pinch>
+	<Info_ModeDescription_Vortex>Press Space to toggle direction of rotation.</Info_ModeDescription_Vortex>
+	<Info_ToolDescription_CreateFlowMap>Create a flow-map using current direction.</Info_ToolDescription_CreateFlowMap>
+	<MeshMisc_Header>Mesh Toolbox</MeshMisc_Header>
+	<MeshMisc_Description>Press Enter to begin moving.
+Hold shift to erase selection.
+Press Esc to reselect.</MeshMisc_Description>
+	<Info_ToolDescription_DeleteVertices>Delete selected vertices (faces contains these vertices will be removed). Note vertex-colored GameObjects will be ignored.</Info_ToolDescription_DeleteVertices>
+	<Warning_CannotCutHolesOnAVertexColoredMesh>You cannot cut holes on a vertex-colored mesh-terrain.</Warning_CannotCutHolesOnAVertexColoredMesh>
+	<SplatArrayPainter_Header>Paint Texture(Array) - beta version</SplatArrayPainter_Header>
+	<SplatArrayPainter_Description>Select a texture below, then click/drag to paint.</SplatArrayPainter_Description>
+	<Info_SplatArrayPainter_NoSplatTextureFoundOnSelectedObject>No splat texture-array found in selected GameObject.</Info_SplatArrayPainter_NoSplatTextureFoundOnSelectedObject>
+	<CreateTexture2DArray>Create
+Texture2DArray</CreateTexture2DArray>
+	<Info_ToolDescription_CreateTexture2DArray>Create a Texture2DArray asset with specified 2D textures.</Info_ToolDescription_CreateTexture2DArray>
+	<Settings_Header>Settings</Settings_Header>
+	<Settings_Description>General settings.</Settings_Description>
+	<CompactGUI>Use compact GUI</CompactGUI>
+	<AutoRefreshFilter>Auto refresh filter</AutoRefreshFilter>
+	<ShowAffectedVertex>Show affected vertexes</ShowAffectedVertex>
+	<FlashAffectedVertex>Flash affected vertexes</FlashAffectedVertex>
+	<ShowBrushRange>Show brush range</ShowBrushRange>
+	<UseCircularBrush>Use circular brush</UseCircularBrush>
+	<ShowNormal>Show point normal</ShowNormal>
+	<BrushUnit>Brush unit</BrushUnit>
+	<UseTileSize>Use tile size</UseTileSize>
+	<RecalculateNormalsWhenSavingMesh>Recalculate normals when saving mesh</RecalculateNormalsWhenSavingMesh>
+	<MeshSmoothAngle>Mesh Smooth Angle</MeshSmoothAngle>
+	<Language>Language</Language>
+	<AutoSaveMesh>Auto Save Mesh</AutoSaveMesh>
+	<PackTextures>Pack Textures</PackTextures>
+	<AlbedoAndSmoothness>Albedo&amp;Smooth</AlbedoAndSmoothness>
+	<Info_AlbedoAndSmoothness>Albedo(RGB) &amp; Smoothness(A) texture, which is readonly and only this one is used for rendering.
+Click the refresh button to generate from Albedo and Smoothness texture.</Info_AlbedoAndSmoothness>
+	<AlbedoTexturePropertyName>Albedo(RGB)</AlbedoTexturePropertyName>
+	<Info_AlbedoTexturePropertyName>Albedo texture, only used to generate the Albedo(RGB) &amp; Smoothness(A) texture, not for rendering.</Info_AlbedoTexturePropertyName>
+	<SmoothnessTexturePropertyName>Smooth(A)</SmoothnessTexturePropertyName>
+	<Info_SmoothnessTexturePropertyName>Smoothness texture, only used to generate the Albedo(RGB) &amp; Smoothness(A) texture, not for rendering.</Info_SmoothnessTexturePropertyName>
+	<RefreshAlbedoAndSmoothnessTextures>refresh albedo&amp;smoothness textures</RefreshAlbedoAndSmoothnessTextures>
+	<AddOneLayer>add one layer</AddOneLayer>
+	<EnableNormalIntensity>Enable Normal Intensity</EnableNormalIntensity>
+	<EnableSmoothnessTexture>Enable Smoothness Texture</EnableSmoothnessTexture>
+	<Tooltip_CannotModifySmoothnessTextureText>Cannot modify smoothness texture state for a mesh-terrain block. Use the UI on tile container/root object instead.</Tooltip_CannotModifySmoothnessTextureText>
+	<ShowDefaultShaderGUI>Show Default Shader GUI</ShowDefaultShaderGUI>
+	<TileCount>Tile Count</TileCount>
+	<HistoryViewer>MTE-History</HistoryViewer>
+	<MeshStatisticsViewer>Mesh Statistics Viewer</MeshStatisticsViewer>
+	<BasemapBaker>Basemap Baker</BasemapBaker>
+	<Info_ToolDescription_BasemapBaker>Create a basemap for a mesh-terrain.</Info_ToolDescription_BasemapBaker>
+	<Info_BasemapBaker_DisableLighting>Ignore all lighting in scene and use flat white ambient color. Lightmap applied to the mesh-terrain will also be disabled.</Info_BasemapBaker_DisableLighting>
+	<BeginBake>Begin Baking</BeginBake>
+	<MeshTillingBaker>Mesh Tilling Baker</MeshTillingBaker>
+	<Info_ToolDescription_MeshTillingBaker>Bake unified tilling into mesh's uv0. Be sure to backup your mesh first!
+Specialized shader is required to properly render the baked mesh. If you don't know the detail, don't use this.</Info_ToolDescription_MeshTillingBaker>
+	<MeshToTerrainConverter>Mesh to Terrain Converter</MeshToTerrainConverter>
+	<MeshToTerrainConverter_Description>Convert a mesh-terrain to a Unity3D terrain.</MeshToTerrainConverter_Description>
+	<UVEditor>Mesh UV Adjuster</UVEditor>
+	<UVEditor_Description>Normalize uv of a mesh; Invert u or v of a mesh.</UVEditor_Description>
+	<PivotEditor>Mesh Pivot Adjuster</PivotEditor>
+	<PivotEditor_Description>Offset the pivot point of a mesh.</PivotEditor_Description>
+	<MeshZUpToYUpConverter>Mesh z-up to y-up Converter</MeshZUpToYUpConverter>
+	<MeshZUpToYUpConverter_Description>Convert a z-up mesh to y-up by rotating -90 degrees around z axis.</MeshZUpToYUpConverter_Description>
+	<MeshSaver>Mesh Saver</MeshSaver>
+	<MeshSaver_Description>Save a single mesh of any format as an obj, asset or fbx file.</MeshSaver_Description>
+	<ControlTextureCreator>Control Texture Creator</ControlTextureCreator>
+	<ControlTextureCreator_Description>Create control texture(s).
+Created texture(s) will be saved to Assets/.</ControlTextureCreator_Description>
+	<TextureAdjuster>Texture Resizer</TextureAdjuster>
+	<TextureAdjuster_Description>Create an adjusted copy of a texture.
+Adjusted texture will be saved to Assets/.
+Useful when you need to resize or flip a control texture (SplatAlpha).</TextureAdjuster_Description>
+	<FilterMode>Filter Mode</FilterMode>
+	<TextureChannelPacker>Texture Channel Packer</TextureChannelPacker>
+	<TextureChannelPacker_Description>Pack textures with one single channel into a RGBA texture.</TextureChannelPacker_Description>
+	<TextureSize>Texture Size</TextureSize>
+	<Info>Info</Info>
+	<Warning>Warning</Warning>
+	<Error>Error</Error>
+	<Settings>Settings</Settings>
+	<Tools>Tools</Tools>
+	<Brushes>Brushes</Brushes>
+	<Size>Size</Size>
+	<Number>Number</Number>
+	<Speed>Speed</Speed>
+	<Height>Height</Height>
+	<Strength>Strength</Strength>
+	<Color>Color</Color>
+	<Flow>Flow</Flow>
+	<Intensity>Intensity</Intensity>
+	<Density>Density</Density>
+	<Reduction>Reduction</Reduction>
+	<VertexCount>Vertex Count</VertexCount>
+	<TriangleCount>Triangle Count</TriangleCount>
+	<IndexCount>Index Count</IndexCount>
+	<CellSize>Cell/Tile Size</CellSize>
+	<TexelDensity>Texel Density</TexelDensity>
+	<SplatTextureTilling>Splat Texture Tilling</SplatTextureTilling>
+	<HeightMap>Height-Map</HeightMap>
+	<Curve>Curve</Curve>
+	<Rotation>Rotation</Rotation>
+	<RepeatCount>Repeat Count</RepeatCount>
+	<Mesh>Mesh</Mesh>
+	<FileFormat>File Format</FileFormat>
+	<Material>Material</Material>
+	<MinWidth>MinWidth</MinWidth>
+	<MaxWidth>MaxWidth</MaxWidth>
+	<MinHeight>MinHeight</MinHeight>
+	<MaxHeight>MaxHeight</MaxHeight>
+	<Direction>Direction</Direction>
+	<AngleInDegrees>Angle(°)</AngleInDegrees>
+	<Mode>Mode</Mode>
+	<Type>Type</Type>
+	<Object>Object</Object>
+	<Prefab>Prefab</Prefab>
+	<FreeVersion>Free</FreeVersion>
+	<ProVersion>Pro</ProVersion>
+	<Grass>Grass</Grass>
+	<On>ON</On>
+	<Off>OFF</Off>
+	<Texture>Texture</Texture>
+	<ControlTexture>Control Texture</ControlTexture>
+	<LabelWidth>Label Width</LabelWidth>
+	<Interval>Interval</Interval>
+	<Minutes>Minute(s)</Minutes>
+	<Hotkey>Hotkey</Hotkey>
+	<NumPad>NumPad</NumPad>
+	<OverallVertexCount>Overall Vertex Count</OverallVertexCount>
+	<PerTileStatistics>Per-tile Statistics</PerTileStatistics>
+	<Scale>Scale</Scale>
+	<UnifiedScale>Use Unified Scale</UnifiedScale>
+	<Yes>Yes</Yes>
+	<No>No</No>
+	<OK>OK</OK>
+	<Cancel>Cancel</Cancel>
+	<Save>Save</Save>
+	<SaveAs>Save As</SaveAs>
+	<SaveLater>Save Later</SaveLater>
+	<Fill>Fill</Fill>
+	<Create>Create</Create>
+	<Delete>Delete</Delete>
+	<Randomize>Randomize</Randomize>
+	<Undo>Undo</Undo>
+	<Redo>Redo</Redo>
+	<SelectFile>Select a file</SelectFile>
+	<Reload>Reload</Reload>
+	<Add>Add</Add>
+	<Apply>Apply</Apply>
+	<Open>Open</Open>
+	<Download>Download</Download>
+	<Edit>Edit</Edit>
+	<Remove>Remove</Remove>
+	<CustomizeUI>Customize UI</CustomizeUI>
+	<Flip>Flip</Flip>
+	<Help>Help</Help>
+	<Adjust>Adjust</Adjust>
+	<Split>Split</Split>
+	<SwitchMode>Switch Mode</SwitchMode>
+	<AllowOverlap>Allow Overlap</AllowOverlap>
+	<DisableLighting>Disable Lighting</DisableLighting>
+	<Refresh>Refresh</Refresh>
+	<OpenInASE>Open shader in ASE</OpenInASE>
+	<Horizontal>Horizontal (along x)</Horizontal>
+	<Vertical>Vertical (along z)</Vertical>
+	<Immediately>Immediately</Immediately>
+	<ReadTheDocs>read the documentation</ReadTheDocs>
+	<DelayUntil7DaysLater>delay until 7 days layer</DelayUntil7DaysLater>
+	<AutoCheckForUpdates>automatically check for updates</AutoCheckForUpdates>
+	<Tooltip_AdjustControlMap>Modify the size of this control map; flip it vertically or/and horizontally</Tooltip_AdjustControlMap>
+	<Info_AutoSaveMeshImmediately>Modified mesh-terrain(s) will be automatically saved when mouse is released. If the editor becomes noticeably laggy, please disable *Auto Save Mesh*. Note undo/redo is disabled when auto-save is enabled.</Info_AutoSaveMeshImmediately>
+	<Info_AutoSaveMeshWithInterval>Modified mesh-terrain(s) will be automatically saved every (Interval) minutes. Note undo/redo will be unreliable when auto-save is enabled.</Info_AutoSaveMeshWithInterval>
+	<Info_UseTheSaveButtonToSaveMesh>You must save the mesh by clicking the Save button below! Ctrl+S WON'T work!</Info_UseTheSaveButtonToSaveMesh>
+	<Info_DirtyMeshSaved>Modified mesh-terrains has been saved.</Info_DirtyMeshSaved>
+	<Info_PleaseSelectAGameObjectWithVaildMesh>Please select a GameObject with a valid mesh.</Info_PleaseSelectAGameObjectWithVaildMesh>
+	<Info_PleaseSelectAGameObjectWithTerrain>Please select a GameObject with a valid Terrain.</Info_PleaseSelectAGameObjectWithTerrain>
+	<Info_LimitOfTexture5>When using MTE/XXX/5 Textures/XXXX/Fog, the layer5 shares Tilling and Offset with the layer4.</Info_LimitOfTexture5>
+	<Info_HotkeyTable>Hotkey Table
+
+F1        Height Tool: raise/lower
+F2        Height Tool: paint height
+F3        Height Tool: smooth height
+F4        Splat Texture Painter
+F5        Vertex Color Painter
+F6        Grass Painter
+F7        Object Painter
+F8        Flow Painter
+F9        Mesh Toolbox
+
+- +       Adjust brush size.
+[ ]       Adjust brush speed/strength/flow.
+
+PageUp    Undo (Fn+Up on Mac)
+PageDown  Redo (Fn+Down on Mac)
+
+~         Toggle selection wireframe.
+
+
+* Hotkey is only available when
+  1. The IME is off.
+  2. The editor or scene view has the focus.
+</Info_HotkeyTable>
+	<Info_PleaseSelectAMeshTerrain>Please select a mesh-terrain.</Info_PleaseSelectAMeshTerrain>
+	<Info_WillBeSavedInstantly>Your modification will be saved automatically.</Info_WillBeSavedInstantly>
+	<Info_SliderModeHint>Right click to switch slider mode: regular or logarithmic.</Info_SliderModeHint>
+	<Info_RefreshAlbedoAndSmoothnessTexturesOnTileContainer>Will re-generate albedo&amp;smoothness textures according to first block's material, and assign them to all blocks.</Info_RefreshAlbedoAndSmoothnessTexturesOnTileContainer>
+	<Info_FreeVersion_UsingSplatTexturesExcept4IsAProFeature>Only 4 textures can be used in MTE Free.
+Please remove or add the textures until there are only 4 textures. Also make sure the material uses a 4 Textures shader.</Info_FreeVersion_UsingSplatTexturesExcept4IsAProFeature>
+	<Info_FreeVersion_UsingPrefabMoreThan2IsAProFeature>Only first 2 prefabs can be used in MTE Free.</Info_FreeVersion_UsingPrefabMoreThan2IsAProFeature>
+	<Warning_ProFeature>MTE Pro feature</Warning_ProFeature>
+	<About>About Mesh Terrain Editor</About>
+	<CheckForUpdates>Check for updates</CheckForUpdates>
+	<AlreadyLatestRelease>Mesh Terrain Editor is up to date.</AlreadyLatestRelease>
+	<NewReleaseAvailable>New release of Mesh Terrain Editor is available.</NewReleaseAvailable>
+	<AuthorWebsite>Author's website</AuthorWebsite>
+	<Buy>Buy</Buy>
+	<Forum>Forum</Forum>
+	<InstantMessaging>Discord</InstantMessaging>
+	<EmailAuthor>Email the author</EmailAuthor>
+	<CopyInfo>© 2016-2021 Zou Wei. All Rights Reserved.</CopyInfo>
+	<About_AuthorWebsiteLink>https://zwcloud.net</About_AuthorWebsiteLink>
+	<BuyLink>https://assetstore.unity.com/packages/tools/terrain/mesh-terrain-editor-pro-57515</BuyLink>
+	<ForumLink>http://forum.unity3d.com/threads/mte.396808/</ForumLink>
+	<InstantMessagingLink>https://discord.gg/dQqp8B6</InstantMessagingLink>
+	<EmailAddress>zwcloud@hotmail.com</EmailAddress>
+	<EmailLink>mailto:zwcloud@hotmail.com</EmailLink>
+	<WelcomeToMTE>Welcome to Mesh Terrain Editor</WelcomeToMTE>
+	<CreatorShortcut>Creator</CreatorShortcut>
+	<ConverterShortcut>Converter</ConverterShortcut>
+	<EditorShortcut>Editor</EditorShortcut>
+	<Documentation>Documentation</Documentation>
+	<DocumentationDescription>Describes how to use Mesh Terrain Editor.</DocumentationDescription>
+	<ForumDescription>Exchange ideas and views on Mesh Terrain Editor.</ForumDescription>
+	<InstantMessagingDescription>Chat on Discord for issues and ideas on Mesh Terrain Editor.</InstantMessagingDescription>
+	<Email>Email</Email>
+	<EmailDescription>Please read the docs first. If it didn't help, email us.</EmailDescription>
+	<FeatureRequestAndBugReport>Feature Request &amp; Bug Report</FeatureRequestAndBugReport>
+	<FeatureRequestAndBugReportDescription>Request new features or suggest modifications to existing features.</FeatureRequestAndBugReportDescription>
+	<Video>Video</Video>
+	<VideoDescription>Introduction video for Mesh Terrain Editor.</VideoDescription>
+	<Short_CopyInfo>© 2016-2021 Zou Wei</Short_CopyInfo>
+	<IssueTrackerLink>https://github.com/zwcloud/MeshTerrainEditor-issues/issues</IssueTrackerLink>
+	<VideoLink>https://www.youtube.com/playlist?list=PLAPDf1098vzj2E-vib7KAy5K9UcYjqloj</VideoLink>
+	<ShowWelcomeAtStartUp>Show welcome at start up.</ShowWelcomeAtStartUp>
+	<Warning_Confirm>Are you sure?</Warning_Confirm>
+	<Warning_Confirm_UnrecoverableOperation>Are you sure? This operation cannot be undone.</Warning_Confirm_UnrecoverableOperation>
+	<Warning_ConfirmReplaceControlTexture>Are you sure you want to replace the control texture?</Warning_ConfirmReplaceControlTexture>
+	<Warning_MeshIsNotSaved>Do you want to save the changes you made on the mesh-terrain?
+
+You can save it later but your changes will be lost if you close Unity without saving it.</Warning_MeshIsNotSaved>
+	<Warning_PleaseSelectAPathInsideAssets>Please select a path inside the "Assets" directory</Warning_PleaseSelectAPathInsideAssets>
+	<Warning_TextureCountNotSupported>The terrain object has a different number of splat textures other than 2/3/4/5. Please remove or add the textures so the texture count is 2/3/4/5.</Warning_TextureCountNotSupported>
+	<Warning_SelectAGameObject>Please select a GameObject.</Warning_SelectAGameObject>
+	<Warning_GrassLoaderExists>Cannot create a new GrassLoader object: an existing GrassLoader has been added to GameObject {0}.</Warning_GrassLoaderExists>
+	<Warning_CannotAttachGrassLoaderToAGameObjectWithMeshFilter>Cannot attach GrassLoader to a GameObject with MeshFilter.</Warning_CannotAttachGrassLoaderToAGameObjectWithMeshFilter>
+	<Warning_AlreadyAttached>Already attached.</Warning_AlreadyAttached>
+	<ChooseGrassPointCloudDataFilePath>Choose grass-point-cloud data file's path</ChooseGrassPointCloudDataFilePath>
+	<Warning_FbxNotSupported>FBX support is disabled. To enable FBX, use Unity 2018.3 or higher and install FBX Exporter in the package manager.</Warning_FbxNotSupported>
+	<Warning_NoDetail>No Detail Defined</Warning_NoDetail>
+	<Warning_ShaderIsExperimental>This shader is experimental or unstable and is subject to change in a future release.
+Don't use it unless you know what you're doing.</Warning_ShaderIsExperimental>
+	<Warning_ASENotFound>Cannot find Amplify Shader Editor, some feature based on ASE will be disabled.
+Please upgrade ASE to latest version and restart Unity. If latest ASE has been installed in this project, please report the issue.</Warning_ASENotFound>
+	<Error_ShaderNotSupported>This shader is not supported on target platform!</Error_ShaderNotSupported>
+	<RateAndReview>Rate and review</RateAndReview>
+	<Info_InvoiceNumberHint>The invoice number can be found in two places.
+    1. The attached PDF file of the purchase confirmation email sent from Unity asset store in 48 hours after purchase. If you still have not received your invoice after 48 hours has passed, please contact Unity Customer Service.
+    2. Open https://assetstore.unity.com/orders, find the order for *Mesh Terrain Editor Pro*, and the invoice number is in the *Invoice Number* column.</Info_InvoiceNumberHint>
+	<OpenAssetStoreOrders>Open https://assetstore.unity.com/orders</OpenAssetStoreOrders>
+	<Activation>Activation</Activation>
+	<Activation_Header>Activate/Deactivate Mesh Terrain Editor Pro</Activation_Header>
+	<Activation_Description>Activate MTE Pro with invoice/serial number.</Activation_Description>
+	<ActivateProLicense>Activate MTE Pro</ActivateProLicense>
+	<Activating>Activating...</Activating>
+	<ActivateHint>Activate MTE Pro using the invoice/serial number. (require Internet access)</ActivateHint>
+	<DeactivateProLicense>Deactivate MTE Pro</DeactivateProLicense>
+	<Deactivating>Deactivating...</Deactivating>
+	<DeactivateHint>Deactivate MTE Pro on this machine, you can then reactivate it on another machine. MTE will revert to MTE Free on this machine. (require Internet access)</DeactivateHint>
+	<ManualActivate>Manual Activation</ManualActivate>
+	<ManualActivateHint>Activate MTE Pro manually for machines without direct access to the Internet.</ManualActivateHint>
+	<Error_AccessServerFailed>Something went wrong when trying to access the server.
+ Please check your Internet access and try again later. Error:
+{0}</Error_AccessServerFailed>
+	<Warning_ActivationFailed>Activation failed: the invoice/serial is not vaild or it doesn't match this computer. Please check your invoice/serial and try again.</Warning_ActivationFailed>
+	<Info_ActivationSucceeded>Mesh Terrain Editor Pro Activated!</Info_ActivationSucceeded>
+	<Info_ActivationHelp>If you need help for activation, please contact zwcloud@hotmail.com with your invoice number.</Info_ActivationHelp>
+	<ManualActivationHint1>Make sure your invoice/serial is valid.
+Then open the URL below in your webbrowser on a machine that has access to the Internet.
+You will get an activation code.
+The URL is already copied. Just Ctrl+V to paste it somewhere.</ManualActivationHint1>
+	<ManualActivationHint2>Paste the activation code below.</ManualActivationHint2>
+</StringTable>
