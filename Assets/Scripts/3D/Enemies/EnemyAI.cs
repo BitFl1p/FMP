@@ -9,38 +9,38 @@ public class EnemyAI : MonoBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
     public bool slidy;
-    Path path;
-    int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
-    Seeker seeker;
+    internal Path path;
+    internal int currentWaypoint = 0;
+    internal bool reachedEndOfPath = false;
+    internal Seeker seeker;
+    internal float distance;
     public Rigidbody rb;
-    bool leftLast; bool rightLast;
-    Vector3 direction, force;
+    internal bool leftLast; bool rightLast;
+    internal Vector3 direction = Vector3.zero;
     // Start is called before the first frame update
-    void Start()
+    internal virtual void OnEnable()
     {
-        target = FindObjectOfType<ThirdPersonMovement>().GetComponent<UnityEngine.Transform>();
+        target = FindObjectOfType<ThirdPersonMovement>().GetComponent<Transform>();
         seeker = GetComponent<Seeker>();
 
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
-
-    void UpdatePath()
+    internal virtual void FixedUpdate()
     {
-        if (seeker.IsDone()) seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
         PlayerSeen();
+        Attack();
     }
-    // Update is called once per frame
-
-    void OnPathComplete(Path p)
+    internal virtual void UpdatePath()
     {
-        if (!p.error)
-        {
-            path = p;
-            currentWaypoint = 0;
-        }
+        if (seeker.IsDone()) path = seeker.StartPath(rb.position, target.transform.position);
     }
-    public void PlayerSeen()
+    internal virtual void Attack()
+    {
+        if (reachedEndOfPath) GetComponentInChildren<Animator>().SetBool("Attacking", true); 
+        else GetComponentInChildren<Animator>().SetBool("Attacking", false);
+    }
+
+    internal virtual void PlayerSeen()
     {
         if (path == null)
         {
@@ -55,9 +55,15 @@ public class EnemyAI : MonoBehaviour
         {
             reachedEndOfPath = false;
         }
-        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x + (path.vectorPath[currentWaypoint].x - rb.position.x) * speed, -speed * 10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z + (path.vectorPath[currentWaypoint].z - rb.position.z) * speed, -speed * 10, speed * 10));
+        //rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x + (path.vectorPath[currentWaypoint].x - rb.position.x) * speed, -speed * 10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z + (path.vectorPath[currentWaypoint].z - rb.position.z) * speed, -speed * 10, speed * 10));
+        direction = (path.vectorPath[currentWaypoint]-rb.position).normalized;
+        direction.y = 0;
+        //Debug.DrawRay(rb.position, direction*100, Color.red, .5f);
+        rb.velocity += direction * speed;
+        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        distance = Vector3.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        Debug.Log(distance);
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;

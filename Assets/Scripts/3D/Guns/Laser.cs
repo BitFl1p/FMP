@@ -4,7 +4,6 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public float damageMultiplier;
-    public GameObject player;
     public List<GameObject> hits;
     public int damage;
     float count;
@@ -25,7 +24,7 @@ public class Laser : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Health>() != null && dealDamage) { foreach (GameObject hit in hits) hit.gameObject.GetComponent<Health>().TakeDamage(damage * player.GetComponent<Stats>().baseDamage); dealDamage = false; }
+        if (other.gameObject.GetComponent<Health>() != null && dealDamage) { foreach (GameObject hit in hits) hit.gameObject.GetComponent<Health>().TakeDamage(damage); dealDamage = false; }
     }
     private void OnTriggerEnter(Collider other)
     {

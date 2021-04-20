@@ -26,9 +26,9 @@ public class GunShop : MonoBehaviour
     {
         foreach (GameObject wep in availableWeapons) { Destroy(wep); }
         availableWeapons.Clear();
-        availableWeapons.Add(Instantiate(weapons[Random.Range(0, weapons.Length - 1)], transform));
+        availableWeapons.Add(Instantiate(weapons[Random.Range(0, weapons.Length)], transform));
         availableWeapons[0].transform.localPosition = new Vector3(-0.8f, 0, 0);
-        availableWeapons.Add(Instantiate(weapons[Random.Range(0, weapons.Length - 1)], transform));
+        availableWeapons.Add(Instantiate(weapons[Random.Range(0, weapons.Length)], transform));
         availableWeapons[1].transform.localPosition = new Vector3(0.8f, 0, 0);
     }
 }
