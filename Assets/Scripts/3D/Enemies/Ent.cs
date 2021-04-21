@@ -2,17 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-public class Ent : EnemyAI
+public class Ent : Entling
 {
-    public Transform hip;
-    public Vector3 offset;
-    internal override void FixedUpdate()
+    float count = 6;
+    public float[] maxCount;
+    internal override void Attack()
     {
-        base.FixedUpdate();
-        transform.position = rb.transform.position + offset;
-        hip.LookAt(target);
-        hip.localEulerAngles += new Vector3(0, -90, -20);
-        hip.localEulerAngles = new Vector3(0, hip.localEulerAngles.y, hip.localEulerAngles.z);
+        if (reachedEndOfPath)
+        {
+            foreach (GameObject hurtbox in hurtboxes) { hurtbox.GetComponent<DealDamage>().damage = damage; }
+            anim.SetBool("Attacking", true);
+        }
+        else
+        {
+            if(count <= 0)
+            {
+                anim.SetBool("Yeet", true);
+                count = Random.Range(maxCount[0], maxCount[1]);
+            }
+            else
+            {
+                anim.SetBool("Yeet", false);
+                count -= Time.deltaTime;
+            }
+            foreach (GameObject hurtbox in hurtboxes) { hurtbox.SetActive(false); }
+            anim.SetBool("Attacking", false);
+        }
     }
 
 }

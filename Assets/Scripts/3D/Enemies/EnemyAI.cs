@@ -5,10 +5,13 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    public float knockback;
+    public Animator anim;
+    public int damage;
+    public GameObject[] hurtboxes;
     public Transform target;
-    public float speed = 200f;
-    public float nextWaypointDistance = 3f;
-    public bool slidy;
+    public float speed = 200f, targetDist = 100;
+    public float nextWaypointDistance = 10f;
     internal Path path;
     internal int currentWaypoint = 0;
     internal bool reachedEndOfPath = false;
@@ -20,7 +23,8 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     internal virtual void OnEnable()
     {
-        target = FindObjectOfType<ThirdPersonMovement>().GetComponent<Transform>();
+        anim.SetBool("Attacking", false);
+        if(FindObjectOfType<ThirdPersonMovement>() != null) target = FindObjectOfType<ThirdPersonMovement>().GetComponent<Transform>();
         seeker = GetComponent<Seeker>();
 
         InvokeRepeating("UpdatePath", 0f, .5f);
@@ -32,12 +36,22 @@ public class EnemyAI : MonoBehaviour
     }
     internal virtual void UpdatePath()
     {
-        if (seeker.IsDone()) path = seeker.StartPath(rb.position, target.transform.position);
+        if(target == null) if (FindObjectOfType<ThirdPersonMovement>() != null) target = FindObjectOfType<ThirdPersonMovement>().GetComponent<Transform>();
+        if (seeker.IsDone() && target != null) path = seeker.StartPath(rb.position, target.transform.position);
     }
     internal virtual void Attack()
     {
-        if (reachedEndOfPath) GetComponentInChildren<Animator>().SetBool("Attacking", true); 
-        else GetComponentInChildren<Animator>().SetBool("Attacking", false);
+
+        if (reachedEndOfPath)
+        {
+            foreach (GameObject hurtbox in hurtboxes) { hurtbox.GetComponent<DealDamage>().damage = damage; hurtbox.GetComponent<DealDamage>().knockback = knockback; }
+            anim.SetBool("Attacking", true);
+        }
+        else
+        {
+            foreach (GameObject hurtbox in hurtboxes) { hurtbox.SetActive(false); }
+            anim.SetBool("Attacking", false);
+        }
     }
 
     internal virtual void PlayerSeen()
@@ -46,27 +60,34 @@ public class EnemyAI : MonoBehaviour
         {
             return;
         }
-        if (currentWaypoint >= path.vectorPath.Count)
+        if (Vector3.Distance(rb.position, target.position) < targetDist)
         {
+            direction = (target.position - rb.position).normalized;
+            direction.y = 0;
+            rb.velocity += direction * speed;
+            rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
+            currentWaypoint = 0;
+            reachedEndOfPath = true;
+            return;
+        }
+        else if (currentWaypoint >= path.vectorPath.Count)
+        {
+            currentWaypoint = 0;
             reachedEndOfPath = true;
             return;
         }
         else
         {
-            reachedEndOfPath = false;
-        }
-        //rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x + (path.vectorPath[currentWaypoint].x - rb.position.x) * speed, -speed * 10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z + (path.vectorPath[currentWaypoint].z - rb.position.z) * speed, -speed * 10, speed * 10));
-        direction = (path.vectorPath[currentWaypoint]-rb.position).normalized;
-        direction.y = 0;
-        //Debug.DrawRay(rb.position, direction*100, Color.red, .5f);
-        rb.velocity += direction * speed;
-        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
+            direction = (path.vectorPath[currentWaypoint] - rb.position).normalized;
+            direction.y = 0;
+            rb.velocity += direction * speed;
+            rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
 
-        distance = Vector3.Distance(rb.position, path.vectorPath[currentWaypoint]);
-        Debug.Log(distance);
-        if (distance < nextWaypointDistance)
-        {
-            currentWaypoint++;
+            if (Vector3.Distance(new Vector3(rb.position.x,0,rb.position.z), path.vectorPath[currentWaypoint]) < nextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+            reachedEndOfPath = false;
         }
     }
 }

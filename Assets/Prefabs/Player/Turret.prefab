@@ -140,7 +140,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 100
+  m_Radius: 200
   m_Center: {x: 0, y: 2.15, z: -2}
 --- !u!114 &1089437111519662242
 MonoBehaviour:
@@ -156,8 +156,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun2D: {fileID: 0}
   zap: {fileID: 0}
+  zap2D: {fileID: 0}
   gun: []
   sentry: {fileID: 1089437111519662240}
+  sentry2D: {fileID: 0}
+  entling: {fileID: 0}
+  firePoint: {fileID: 0}
+  speed: 0
 --- !u!114 &1089437111519662240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5856a1b8bc584f54bb7946818fe56a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  critChance: 0
   head: {fileID: 8400715642123240794}
   bullet: {fileID: 7466151638191574672, guid: d3b2e4c535fc9e1419052a30b093a3ae, type: 3}
   muzzle: {fileID: 1089437110327043894}

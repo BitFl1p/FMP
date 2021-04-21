@@ -8,6 +8,10 @@ public class AnimationEvents : MonoBehaviour
     public Gun[] gun;
     public AutoGun sentry;
     public AutoGun2D sentry2D;
+    public GameObject entling;
+    public Transform firePoint;
+    public float speed;
+    public EnemyProjectile bullet;
     public void GunDone()
     {
         foreach (Gun goon in gun)
@@ -30,12 +34,18 @@ public class AnimationEvents : MonoBehaviour
     public void SpawnSentry()
     {
 
-        if (sentry != null) Instantiate(sentry).transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+        if (sentry != null)
+        {
+            AutoGun instance = Instantiate(sentry);
+            instance.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+            instance.damage = GetComponent<SentryCase>().damage;
+        }
         if (sentry2D != null)
         {
             AutoGun2D instance = Instantiate(sentry2D);
             instance.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
             instance.axis = GetComponent<SentryCase2D>().axis;
+            instance.damage = GetComponent<SentryCase2D>().damage;
         }
 
 
@@ -47,5 +57,17 @@ public class AnimationEvents : MonoBehaviour
     public void Gun2DDone()
     {
         gun2D.done = true;
+    }
+    public void SpitEntling()
+    {
+        GameObject ling = Instantiate(entling);
+        ling.GetComponentInChildren<Rigidbody>().gameObject.transform.position = firePoint.position;
+        ling.GetComponentInChildren<Rigidbody>().velocity = firePoint.forward * speed;
+    }
+    public void SpitBullet()
+    {
+        Projectile instance = Instantiate(bullet);
+        firePoint.LookAt(GetComponentInParent<VineSpider>().target);
+        instance.SetData(GetComponentInParent<VineSpider>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position);
     }
 }

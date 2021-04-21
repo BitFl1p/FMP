@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
+    public GameObject self;
     public float maxHealth, currentHealth;
     public Slider healthSlid, damageSlid;
     internal virtual void OnEnable()
@@ -47,6 +48,6 @@ public class Health : MonoBehaviour
     }
     void Die()
     {
-        gameObject.SetActive(false);
+        Destroy(self);
     }
 }
