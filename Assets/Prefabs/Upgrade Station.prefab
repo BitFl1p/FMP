@@ -38099,8 +38099,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 46.69834, y: 24.320492, z: 48.33139}
-  m_Center: {x: -6.856098, y: 12.262611, z: 4.165695}
+  m_Size: {x: 32.623413, y: 24.320492, z: 48.33139}
+  m_Center: {x: 0.18136597, y: 12.262611, z: 4.165695}
 --- !u!65 &2145502971894795404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38138,7 +38138,6 @@ MonoBehaviour:
   - {fileID: 7330500181316840284, guid: aef85805f59ea284f87a144f3b34879a, type: 3}
   - {fileID: 3157770270021001348, guid: 6ef299fde9a1cb64a9ff8e7cc9666e15, type: 3}
   - {fileID: 3427541876488653137, guid: 48c529f0f014c274ba09804790b7f694, type: 3}
-  - {fileID: 6538470568188482941, guid: bfb3d212fe8bd88448ac7b7ae92e00ea, type: 3}
   - {fileID: 3376971141394504568, guid: 270b2b424ec4531479a96512c1032790, type: 3}
   upgrades: []
   anim: {fileID: 2145502970156698927}

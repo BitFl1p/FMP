@@ -487,7 +487,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9567c0816b804442802d29693e0b394, type: 2}
+  - {fileID: 2100000, guid: 1848177de15026f4d92167ed15a1d931, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -511,7 +511,7 @@ TrailRenderer:
   m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 5
+    widthMultiplier: 8
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -624,7 +624,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9567c0816b804442802d29693e0b394, type: 2}
+  - {fileID: 2100000, guid: 1848177de15026f4d92167ed15a1d931, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -648,7 +648,7 @@ TrailRenderer:
   m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 5
+    widthMultiplier: 8
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -898,7 +898,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9567c0816b804442802d29693e0b394, type: 2}
+  - {fileID: 2100000, guid: 1848177de15026f4d92167ed15a1d931, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -922,7 +922,7 @@ TrailRenderer:
   m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 5
+    widthMultiplier: 8
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1595,7 +1595,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9567c0816b804442802d29693e0b394, type: 2}
+  - {fileID: 2100000, guid: 1848177de15026f4d92167ed15a1d931, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1619,7 +1619,7 @@ TrailRenderer:
   m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 5
+    widthMultiplier: 8
     widthCurve:
       serializedVersion: 2
       m_Curve:

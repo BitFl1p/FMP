@@ -10,23 +10,45 @@ public class UpgradeStation : MonoBehaviour
     public Animator anim;
     bool reset;
     int upgradeToGive;
+    public Collider player;
+    public bool playerHere;
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
+        {
+            player = other;
+            playerHere = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            foreach (GameObject upgrade in upgrades) upgrade.SetActive(false);
+            anim.SetBool("Here", false);
+            player = other;
+            playerHere = false;
+        }
+    }
+    private void OnEnable()
+    {
+        Reset();
+    }
+    private void Update()
+    {
+        if (playerHere)
         {
             anim.SetBool("Here", true);
             foreach (GameObject upgrade in upgrades) upgrade.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.DrawRay(Camera.main.gameObject.transform.position, Camera.main.gameObject.transform.forward, Color.cyan, 2);
-                Stats playerStats = other.GetComponent<Stats>();
+                Stats playerStats = player.GetComponent<Stats>();
                 RaycastHit hit;
 
-                int layerMask = 1 << 9;
+                int layerMask = LayerMask.GetMask("Player", "Obstacle");
                 layerMask = ~layerMask;
                 if (Physics.Raycast(Camera.main.gameObject.transform.position, Camera.main.gameObject.transform.forward, out hit, Mathf.Infinity, layerMask))
                 {
-
                     if (hit.collider.gameObject.GetComponent<UpgradeHolder>() != null)
                     {
                         switch (hit.collider.gameObject.GetComponent<UpgradeHolder>().upgradeNum)
@@ -39,37 +61,25 @@ public class UpgradeStation : MonoBehaviour
                             case 6: playerStats.jumpAmount += 1; break;
                             case 7: playerStats.critChance += 2; break;
                         }
-                        reset = true;
+                        Reset();
                     }
                 }
             }
         }
+        
     }
-    private void OnEnable()
+    public void Reset()
     {
-        reset = true;
-    }
-    private void Update()
-    {
-        if (reset)
-        {
-            foreach (GameObject upgrade in upgrades) Destroy(upgrade);
-            upgrades.Clear();
-            for (int i = 1; i <= 3; i++) upgrades.Add(Instantiate(upgradePrefabs[Random.Range(0, upgradePrefabs.Length)], transform));
-            upgrades[0].transform.position = positions[0].position;
-            upgrades[1].transform.position = positions[1].position;
-            upgrades[2].transform.position = positions[2].position;
-            foreach (GameObject upgrade in upgrades) upgrade.SetActive(false);
-            reset = false;
-        }
+        foreach (GameObject upgrade in upgrades) Destroy(upgrade);
+        upgrades.Clear();
+        for (int i = 1; i <= 3; i++) upgrades.Add(Instantiate(upgradePrefabs[Random.Range(0, upgradePrefabs.Length)]));
+        upgrades[0].transform.position = positions[0].position;
+        upgrades[1].transform.position = positions[1].position;
+        upgrades[2].transform.position = positions[2].position;
+        foreach (GameObject upgrade in upgrades) upgrade.SetActive(false);
+        reset = false;
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            foreach (GameObject upgrade in upgrades) upgrade.SetActive(false);
-            anim.SetBool("Here", false);
-        }
-    }
+
+    
 }
