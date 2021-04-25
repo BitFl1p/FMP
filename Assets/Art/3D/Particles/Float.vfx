@@ -21,7 +21,7 @@ MonoBehaviour:
     x: 534
     y: -774
     width: 3120
-    height: 2804
+    height: 2782
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3742,7 +3742,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 97
           m_Value: 1000
         - m_ExpressionIndex: 99
-          m_Value: 0
+          m_Value: 0.98
         - m_ExpressionIndex: 100
           m_Value: 0
         - m_ExpressionIndex: 101
@@ -3812,11 +3812,11 @@ VisualEffectResource:
         - m_ExpressionIndex: 146
           m_Value: 0
         - m_ExpressionIndex: 147
-          m_Value: 0
+          m_Value: 0.98
         - m_ExpressionIndex: 150
           m_Value: 0
         - m_ExpressionIndex: 152
-          m_Value: 0
+          m_Value: 0.98
         - m_ExpressionIndex: 153
           m_Value: 0
         - m_ExpressionIndex: 154
@@ -14147,7 +14147,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"x":0.0,"y":0.9800000190734863,"z":0.0}'
     m_Space: 2147483647
   m_Property:
     name: 
@@ -14581,7 +14581,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"x":0.0,"y":0.9800000190734863,"z":0.0}'
     m_Space: 2147483647
   m_Property:
     name: 
@@ -15585,7 +15585,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"x":0.0,"y":0.9800000190734863,"z":0.0}'
     m_Space: 2147483647
   m_Property:
     name: 

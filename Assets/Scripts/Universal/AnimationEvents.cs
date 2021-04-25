@@ -67,7 +67,7 @@ public class AnimationEvents : MonoBehaviour
     public void SpitBullet()
     {
         Projectile instance = Instantiate(bullet);
-        firePoint.LookAt(GetComponentInParent<VineSpider>().target);
-        instance.SetData(GetComponentInParent<VineSpider>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        firePoint.LookAt(GetComponentInParent<EnemyAI>().target);
+        instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position);
     }
 }
