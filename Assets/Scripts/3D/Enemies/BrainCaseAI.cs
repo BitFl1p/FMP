@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class BrainCaseAI : EnemyAI
 {
-    float count = 7;
+    float count = Random.Range(3,4);
     internal override void FixedUpdate()
     {
         base.FixedUpdate();
         transform.LookAt(target);
+    }
+    internal override void UpdatePath()
+    {
+        if (target == null) if (FindObjectOfType<ThirdPersonMovement>() != null) target = FindObjectOfType<ThirdPersonMovement>().GetComponent<Transform>();
+        if (seeker.IsDone() && target != null) path = seeker.StartPath(new Vector3(rb.position.x, target.position.y, rb.position.y), target.transform.position);
     }
     internal override void Attack()
     {
         if(count <= 0)
         {
             anim.SetBool("Attacking", true);
-            count = 7;
+            count = Random.Range(3, 4);
         }
         else
         {
@@ -30,31 +35,31 @@ public class BrainCaseAI : EnemyAI
         {
             return;
         }
-        if (Vector3.Distance(rb.position, target.position) < targetDist)
+        if (Vector3.Distance(new Vector3(rb.position.x, target.position.y, rb.position.y), target.position) < targetDist)
         {
             direction = (target.position - rb.position).normalized;
             direction = -direction;
-            direction.y = 0;
+            direction.y = Random.Range(0, 1);
             rb.velocity += direction * speed;
-            rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
+            rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), Mathf.Clamp(rb.velocity.y, speed * -10, speed * 10), Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
             currentWaypoint = 0;
             reachedEndOfPath = true;
             return;
         }
-        else if (currentWaypoint >= path.vectorPath.Count)
+        else reachedEndOfPath = false;
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             currentWaypoint = 0;
             reachedEndOfPath = true;
             return;
         }
-        else
+        else reachedEndOfPath = false;
+        if(!reachedEndOfPath)
         {
             direction = (path.vectorPath[currentWaypoint] - rb.position).normalized;
-            direction.y = 0;
+            direction.y = Random.Range(0, 1);
             rb.velocity += direction * speed;
-            
             rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), Mathf.Clamp(rb.velocity.y, speed * -10, speed * 10), Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
-
             if (Vector3.Distance(new Vector3(rb.position.x, 0, rb.position.z), path.vectorPath[currentWaypoint]) < nextWaypointDistance)
             {
                 currentWaypoint++;
