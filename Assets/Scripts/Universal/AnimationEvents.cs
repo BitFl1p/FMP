@@ -12,6 +12,21 @@ public class AnimationEvents : MonoBehaviour
     public Transform firePoint;
     public float speed;
     public EnemyProjectile bullet;
+    public GameObject self;
+    public void DieMore()
+    {
+        Destroy(self);
+    }
+    public void Explode()
+    {
+        Collider[] nearby = Physics.OverlapSphere(transform.position, 100);
+        foreach (Collider thisGuy in nearby)
+        {
+            Rigidbody rb = thisGuy.GetComponent<Rigidbody>();
+            if (rb != null && thisGuy.GetComponent<AutoGun>() == null && rb.gameObject != self) { if (rb.gameObject.tag != "2D") rb.AddExplosionForce(self.GetComponent<TeslaSpider>().knockback, transform.position, 80, 18f, ForceMode.Impulse); }
+            if (thisGuy.GetComponent<PlayerHealth>()) thisGuy.GetComponent<PlayerHealth>().TakeDamage(self.GetComponent<TeslaSpider>().damage);
+        }
+    }
     public void GunDone()
     {
         foreach (Gun goon in gun)

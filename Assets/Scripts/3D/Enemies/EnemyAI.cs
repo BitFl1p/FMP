@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     public int damage;
     public GameObject[] hurtboxes;
     public Transform target;
-    public float speed = 200f, targetDist = 100;
+    public float speed = 5f, targetDist = 100;
     public float nextWaypointDistance = 10f;
     internal Path path;
     internal int currentWaypoint = 0;
