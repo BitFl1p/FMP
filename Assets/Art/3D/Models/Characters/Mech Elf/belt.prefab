@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144324761796435207}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -120,7 +120,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.1
+  m_Time: 5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.5
@@ -136,15 +136,6 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: -2.3728843
-        outSlope: -2.3728843
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.054704607
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -195,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6684629306414371402}
-  - component: {fileID: 4673877187011844952}
+  - component: {fileID: 4709203751412781737}
   - component: {fileID: 4997171768354215010}
   m_Layer: 0
   m_Name: belt
@@ -219,7 +210,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4673877187011844952
+--- !u!114 &4709203751412781737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +219,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1620003193948416750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2cfcacd6424f8a47a143317718dab42, type: 3}
+  m_Script: {fileID: 11500000, guid: 5303c52ca9208654b92851d00dbfb9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &4997171768354215010

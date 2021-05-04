@@ -13,6 +13,7 @@ public class AnimationEvents : MonoBehaviour
     public float speed;
     public EnemyProjectile bullet;
     public GameObject self;
+    public EnemyArrow arrow;
     public void DieMore()
     {
         Destroy(self);
@@ -85,4 +86,10 @@ public class AnimationEvents : MonoBehaviour
         firePoint.LookAt(GetComponentInParent<EnemyAI>().target);
         instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position);
     }
+    public void ShootArrow()
+    {
+        EnemyArrow instance = Instantiate(arrow);
+        instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, GetComponentInParent<EnemyAI>().target);
+    }
 }
+

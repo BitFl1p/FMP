@@ -11,7 +11,7 @@ public class EnemyProjectile : Projectile
             RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
             foreach (RaycastHit hit in hits)
             {
-                if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall")
+                if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Enemy")
                 {
                     if (hit.collider.gameObject.GetComponent<PlayerHealth>() != null)
                     {
