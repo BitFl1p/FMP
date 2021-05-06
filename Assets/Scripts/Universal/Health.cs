@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
             yield break;
         }
     }
-    void Die()
+    internal virtual void Die()
     {
         Destroy(self);
     }

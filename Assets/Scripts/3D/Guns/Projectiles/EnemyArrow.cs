@@ -24,8 +24,9 @@ public class EnemyArrow : EnemyProjectile
             Vector3 cross = Vector3.Cross(transform.forward, targetDelta);
 
             // apply torque along that axis according to the magnitude of the angle.
-            GetComponent<Rigidbody>().AddTorque(cross * angleDiff * speed);
-            //direction = Vector3.Cross(direction, target.position - transform.position).normalized;
+            GetComponent<Rigidbody>().AddTorque(cross * angleDiff * (speed*0.002f)) ;
+            GetComponent<Rigidbody>().velocity = transform.forward * speed;
+            //direction = Vector3.Cross(GetComponent<Rigidbody>().velocity.normalized, target.position - transform.position).normalized;
             //GetComponent<Rigidbody>().velocity = direction * speed;
             RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
             foreach (RaycastHit hit in hits)

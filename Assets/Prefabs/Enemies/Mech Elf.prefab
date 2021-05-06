@@ -256,9 +256,12 @@ MonoBehaviour:
   sentry2D: {fileID: 0}
   entling: {fileID: 0}
   firePoint: {fileID: 4535932109006307332}
-  speed: 5
-  bullet: {fileID: 4673877187011844952, guid: 5e9205fe5b156eb468fd4830e32612aa, type: 3}
+  speed: 2.5
+  bullet: {fileID: 0}
   self: {fileID: 4535932109739430731}
+  arrow: {fileID: 4709203751412781737, guid: 5e9205fe5b156eb468fd4830e32612aa, type: 3}
+  explodeBullet: {fileID: 0}
+  explode: {fileID: 0}
 --- !u!1 &4321271342434613812
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,13 +321,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4535932109006307333}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1522229376430144310}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &4535932109460699071
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +423,7 @@ GameObject:
   - component: {fileID: 5584129674054884913}
   m_Layer: 0
   m_Name: Mech Elf
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,8 +503,8 @@ MonoBehaviour:
   damage: 5
   hurtboxes: []
   target: {fileID: 0}
-  speed: 5
-  targetDist: 100
+  speed: 3
+  targetDist: 200
   nextWaypointDistance: 10
   rb: {fileID: 4535932109739430735}
 --- !u!54 &4535932109739430735

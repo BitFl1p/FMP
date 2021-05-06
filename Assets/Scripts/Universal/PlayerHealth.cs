@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Health
 {
@@ -34,6 +35,10 @@ public class PlayerHealth : Health
 
         healthSlid.maxValue = maxHealth;
         healthSlid.value = currentHealth;
+    }
+    internal override void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 

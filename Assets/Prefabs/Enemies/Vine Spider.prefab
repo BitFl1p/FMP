@@ -42,6 +42,9 @@ MonoBehaviour:
   speed: 3
   bullet: {fileID: 7669699405364971809, guid: 33d6dff82f57c7f4aaa9c2e505428ec9, type: 3}
   self: {fileID: 0}
+  arrow: {fileID: 0}
+  explodeBullet: {fileID: 0}
+  explode: {fileID: 0}
 --- !u!1 &3125080842437445958
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damaged: 0
-  knockback: 0
+  knockback: 100
 --- !u!1 &3125080842617788802
 GameObject:
   m_ObjectHideFlags: 0

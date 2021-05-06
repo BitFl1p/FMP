@@ -71,6 +71,10 @@ MonoBehaviour:
   firePoint: {fileID: 1504092746}
   speed: 500
   bullet: {fileID: 0}
+  self: {fileID: 0}
+  arrow: {fileID: 0}
+  explodeBullet: {fileID: 0}
+  explode: {fileID: 0}
 --- !u!96 &738731642300484225
 TrailRenderer:
   serializedVersion: 2
@@ -264,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damaged: 0
-  knockback: 0
+  knockback: 2000
 --- !u!1 &738731641352674456
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damaged: 0
-  knockback: 0
+  knockback: 2000
 --- !u!1 &738731641367746735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1065,7 @@ GameObject:
   - component: {fileID: 738731642176545992}
   m_Layer: 10
   m_Name: EntContainer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

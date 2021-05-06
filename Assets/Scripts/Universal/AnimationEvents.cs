@@ -14,6 +14,8 @@ public class AnimationEvents : MonoBehaviour
     public EnemyProjectile bullet;
     public GameObject self;
     public EnemyArrow arrow;
+    public EnemyExplodeBullet explodeBullet;
+    public EnemyExplode explode;
     public void DieMore()
     {
         Destroy(self);
@@ -90,6 +92,11 @@ public class AnimationEvents : MonoBehaviour
     {
         EnemyArrow instance = Instantiate(arrow);
         instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, GetComponentInParent<EnemyAI>().target);
+    }
+    public void ShootExploder()
+    {
+        EnemyExplodeBullet instance = Instantiate(explodeBullet);
+        instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
     }
 }
 

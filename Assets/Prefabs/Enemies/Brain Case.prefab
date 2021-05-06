@@ -74,47 +74,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &6206657696999447108
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6549099839615004514}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e8b95eea3a75dfb49ba60e95f09b131c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6206657696999447111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6549099839615004514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b576c8329e80ac4c8ba68eee1963ef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun2D: {fileID: 0}
-  zap: {fileID: 0}
-  zap2D: {fileID: 0}
-  gun: []
-  sentry: {fileID: 0}
-  sentry2D: {fileID: 0}
-  entling: {fileID: 0}
-  firePoint: {fileID: 6206657698054336762}
-  speed: 10
-  bullet: {fileID: 2498847161504896168, guid: 0ec2b292b5b208e4ea311daf366a881c, type: 3}
 --- !u!1 &6206657697015678048
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +564,7 @@ GameObject:
   - component: {fileID: 6206657698230340955}
   m_Layer: 0
   m_Name: Brain Case
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1179,6 +1138,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2
+--- !u!95 &6206657696999447108
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549099839615004514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e8b95eea3a75dfb49ba60e95f09b131c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6206657696999447111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549099839615004514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b576c8329e80ac4c8ba68eee1963ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun2D: {fileID: 0}
+  zap: {fileID: 0}
+  zap2D: {fileID: 0}
+  gun: []
+  sentry: {fileID: 0}
+  sentry2D: {fileID: 0}
+  entling: {fileID: 0}
+  firePoint: {fileID: 6206657698054336762}
+  speed: 10
+  bullet: {fileID: 2498847161504896168, guid: 0ec2b292b5b208e4ea311daf366a881c, type: 3}
+  self: {fileID: 0}
+  arrow: {fileID: 0}
+  explodeBullet: {fileID: 0}
+  explode: {fileID: 0}
 --- !u!1001 &6206657698589364787
 PrefabInstance:
   m_ObjectHideFlags: 0

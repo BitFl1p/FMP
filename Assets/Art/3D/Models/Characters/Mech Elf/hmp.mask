@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: hmp
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Bone.041
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Bone_end
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Cube
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Cube.004
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Cube.007
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Bone/Icosphere.003
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Cylinder.003
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Bone.012/Sphere.001
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Cylinder.004
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.004/Icosphere.001
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.016
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Bone.017_end
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Cylinder.002
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.016/Bone.017/Sphere
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.016/Cylinder.001
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.016/Icosphere.002
+    m_Weight: 0
+  - m_Path: Bone.041/Bone.008/Bone.018
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Bone.018_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Cone.001
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Cone.002
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Icosphere
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Bone.018/Torus.003
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Cone
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.008/Torus.005
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Bone.033
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Bone.033/Bone.033_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Bone.033/Cube.029
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Cube.027
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Bone.034/Cube.028
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Cylinder.008
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Bone.035/Sphere.003
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.036/Cylinder.007
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Bone.037
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Bone.037/Bone.037_end
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Bone.037/Cube.001
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Cube.002
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Bone.038/Cube.003
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Cylinder.005
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Bone.039/Sphere.002
+    m_Weight: 1
+  - m_Path: Bone.041/Bone.040/Cylinder.006
+    m_Weight: 1

@@ -44,11 +44,11 @@ public class BrainCaseAI : EnemyAI
         {
             direction = (target.position - rb.position).normalized;
             direction = -direction;
-            if (rb.position.y > target.position.y + 20)
+            if (rb.position.y > target.position.y + 40)
             {
                 direction.y = -1;
             }
-            else if (rb.position.y < target.position.y)
+            else if (rb.position.y < target.position.y + 20)
             {
                 direction.y = 1;
             }
@@ -72,12 +72,13 @@ public class BrainCaseAI : EnemyAI
         else reachedEndOfPath = false;
         if(!reachedEndOfPath)
         {
+
             direction = (path.vectorPath[currentWaypoint] - rb.position).normalized;
-            if (rb.position.y > target.position.y + 20)
+            if (rb.position.y > target.position.y + 40)
             {
                 direction.y = -1;
             }
-            else if (rb.position.y < target.position.y)
+            else if (rb.position.y < target.position.y + 20)
             {
                 direction.y = 1;
             }

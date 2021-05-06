@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damaged: 0
+  knockback: 200
 --- !u!65 &812498675627852267
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8d07d6ee42c4d44927f7a9b73d988b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockback: 0
   anim: {fileID: 8989100000423002774}
   damage: 5
   hurtboxes:
@@ -111,7 +113,6 @@ MonoBehaviour:
   speed: 5
   targetDist: 40
   nextWaypointDistance: 20
-  slidy: 0
   rb: {fileID: 812498677272512898}
   hip: {fileID: 796626644437551311}
   offset: {x: 0, y: 17, z: 0}
@@ -670,7 +671,7 @@ GameObject:
   - component: {fileID: 812498675903247479}
   m_Layer: 10
   m_Name: EntlingContainer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

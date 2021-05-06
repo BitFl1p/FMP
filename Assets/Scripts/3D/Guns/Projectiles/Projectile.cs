@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
     public void SetData(int damage, float critChance, Quaternion rotation, Vector3 direction, float speed, Vector3 pos)

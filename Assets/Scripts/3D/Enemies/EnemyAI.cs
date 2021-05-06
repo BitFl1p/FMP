@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-
+[RequireComponent(typeof(Seeker)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(EnemyHealth))]
 public class EnemyAI : MonoBehaviour
 {
     public float knockback;

@@ -13,11 +13,12 @@ public class DealDamage : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<PlayerHealth>() != null && !damaged)
+        if (other.GetComponent<PlayerHealth>() != null && !damaged)
         {
             other.attachedRigidbody.velocity += (transform.position - other.transform.position).normalized * knockback;
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             damaged = true;
+            other.GetComponent<Rigidbody>().AddExplosionForce(knockback, transform.position, 100, 80, ForceMode.Impulse);
         }
     }
     private void OnTriggerStay(Collider other)
@@ -26,6 +27,9 @@ public class DealDamage : MonoBehaviour
         {
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             damaged = true;
+            
+            other.GetComponent<Rigidbody>().AddExplosionForce(knockback, transform.position, 100, 80, ForceMode.Impulse); 
         }
     }
 }
+
