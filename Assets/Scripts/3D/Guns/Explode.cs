@@ -5,7 +5,7 @@ public class Explode : MonoBehaviour
 
     public ParticleSystem part1, part2;
     public float power = 8f, radius = 8f, upForce = 1f;
-    public void Wee(int damage, Vector3 pos)
+    public virtual void Wee(int damage, Vector3 pos)
     {
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[4].Play();
         transform.position = pos;

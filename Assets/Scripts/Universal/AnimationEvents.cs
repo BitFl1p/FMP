@@ -95,7 +95,7 @@ public class AnimationEvents : MonoBehaviour
     }
     public void ShootExploder()
     {
-        EnemyExplodeBullet instance = Instantiate(explodeBullet);
+        EnemyExplodeBullet instance = Instantiate(explodeBullet, firePoint.position, firePoint.rotation);
         instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
     }
 }

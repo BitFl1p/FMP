@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyExplode : Explode
 {
-    public new void Wee(int damage, Vector3 pos)
+    public override void Wee(int damage, Vector3 pos)
     {
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[4].Play();
         transform.position = pos;

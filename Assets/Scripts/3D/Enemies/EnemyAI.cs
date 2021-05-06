@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     internal bool reachedEndOfPath = false;
     internal Seeker seeker;
     internal float distance;
-    public Rigidbody rb;
+    [HideInInspector]public Rigidbody rb;
     internal bool leftLast; bool rightLast;
     internal Vector3 direction = Vector3.zero;
     // Start is called before the first frame update
@@ -26,7 +26,6 @@ public class EnemyAI : MonoBehaviour
         anim.SetBool("Attacking", false);
         if(FindObjectOfType<ThirdPersonMovement>() != null) target = FindObjectOfType<ThirdPersonMovement>().GetComponent<Transform>();
         seeker = GetComponent<Seeker>();
-
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
     internal virtual void FixedUpdate()
@@ -89,5 +88,9 @@ public class EnemyAI : MonoBehaviour
             }
             reachedEndOfPath = false;
         }
+    }
+    internal virtual void SetRB()
+    {
+        rb = GetComponent<Rigidbody>();
     }
 }
