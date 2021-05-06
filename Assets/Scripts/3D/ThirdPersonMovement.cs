@@ -15,6 +15,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform hip;
     public int jumpAmount;
     bool jumped;
+    float dashCount = 3;
+    public GameObject trail;
     private void Start()
     {
         jumpHeight = GetComponent<Stats>().jumpHeight;
@@ -102,8 +104,15 @@ public class ThirdPersonMovement : MonoBehaviour
         {
 
             moveDir = (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward);
-
-            rb.velocity = new Vector3(moveDir.x * (speed * GetComponent<Stats>().moveSpeed), rb.velocity.y, moveDir.z * (speed * GetComponent<Stats>().moveSpeed));
+            if(dashCount <= 0 && Input.GetKey(KeyCode.LeftShift))
+            {
+                rb.velocity = new Vector3(moveDir.x * (speed * GetComponent<Stats>().moveSpeed) * 10, rb.velocity.y, moveDir.z * (speed * GetComponent<Stats>().moveSpeed) * 10);
+                dashCount = 3;
+            }
+            else
+            {
+                rb.velocity = new Vector3(moveDir.x * (speed * GetComponent<Stats>().moveSpeed), rb.velocity.y, moveDir.z * (speed * GetComponent<Stats>().moveSpeed));
+            }
             anim.SetBool("Schmove", true);
 
         }
@@ -112,7 +121,17 @@ public class ThirdPersonMovement : MonoBehaviour
 
             anim.SetBool("Schmove", false);
         }
-        rb.velocity = new Vector3(GoTowardsZero(rb.velocity.x, System.Math.Abs(rb.velocity.x / drag)), rb.velocity.y, GoTowardsZero(rb.velocity.z, System.Math.Abs(rb.velocity.z / drag)));
+        if (dashCount > 0) dashCount -= Time.deltaTime;
+        if (dashCount < 2.8)
+        {
+            rb.velocity = new Vector3(GoTowardsZero(rb.velocity.x, System.Math.Abs(rb.velocity.x / drag)), rb.velocity.y, GoTowardsZero(rb.velocity.z, System.Math.Abs(rb.velocity.z / drag)));
+            trail.SetActive(false);
+        }
+        else
+        {
+            rb.velocity = new Vector3(moveDir.x * (speed * GetComponent<Stats>().moveSpeed) * 10, rb.velocity.y, moveDir.z * (speed * GetComponent<Stats>().moveSpeed) * 10);
+            trail.SetActive(true);
+        }
         anim.SetFloat("SpeedX", horizontal, Time.deltaTime * 2f, Time.deltaTime);
         anim.SetFloat("SpeedY", vertical, Time.deltaTime * 2f, Time.deltaTime);
     }

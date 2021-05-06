@@ -16,6 +16,7 @@ public class AnimationEvents : MonoBehaviour
     public EnemyArrow arrow;
     public EnemyExplodeBullet explodeBullet;
     public EnemyExplode explode;
+    public Transform firePoint2;
     public void DieMore()
     {
         Destroy(self);
@@ -97,6 +98,12 @@ public class AnimationEvents : MonoBehaviour
     {
         EnemyExplodeBullet instance = Instantiate(explodeBullet, firePoint.position, firePoint.rotation);
         instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
+    }
+    public void SummonTwo()
+    {
+        GameObject ling = Instantiate(entling);
+        ling.GetComponentInChildren<Rigidbody>().gameObject.transform.position = firePoint2.position;
+        ling.GetComponentInChildren<Rigidbody>().velocity = firePoint2.forward * speed;
     }
 }
 

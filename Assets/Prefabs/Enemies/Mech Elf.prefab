@@ -262,6 +262,7 @@ MonoBehaviour:
   arrow: {fileID: 4709203751412781737, guid: 5e9205fe5b156eb468fd4830e32612aa, type: 3}
   explodeBullet: {fileID: 0}
   explode: {fileID: 0}
+  firePoint2: {fileID: 0}
 --- !u!1 &4321271342434613812
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 0
   anim: {fileID: 8041260221368380527}
-  damage: 5
+  damage: 20
   hurtboxes: []
   target: {fileID: 0}
   speed: 3

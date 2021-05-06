@@ -599,7 +599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 0
   anim: {fileID: 6206657696999447108}
-  damage: 4
+  damage: 10
   hurtboxes: []
   target: {fileID: 0}
   speed: 5
@@ -1183,6 +1183,7 @@ MonoBehaviour:
   arrow: {fileID: 0}
   explodeBullet: {fileID: 0}
   explode: {fileID: 0}
+  firePoint2: {fileID: 0}
 --- !u!1001 &6206657698589364787
 PrefabInstance:
   m_ObjectHideFlags: 0

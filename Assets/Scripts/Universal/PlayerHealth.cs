@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Health
 {
+    public GameObject visuals;
     float count = 0;
     float damageCount;
     internal override void OnEnable()
@@ -38,7 +39,10 @@ public class PlayerHealth : Health
     }
     internal override void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        visuals.SetActive(false);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
