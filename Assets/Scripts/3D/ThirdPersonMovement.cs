@@ -15,7 +15,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform hip;
     public int jumpAmount;
     bool jumped;
-    float dashCount = 3;
+    float dashCount = 0;
     public GameObject trail;
     private void Start()
     {

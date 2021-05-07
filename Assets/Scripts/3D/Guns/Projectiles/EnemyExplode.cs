@@ -19,7 +19,7 @@ public class EnemyExplode : Explode
             if (rb != null && thisGuy.GetComponent<AutoGun>() == null) { if (rb.gameObject.tag != "2D") rb.AddExplosionForce(power, transform.position, radius, upForce, ForceMode.Impulse); }
 
             Health health = thisGuy.GetComponent<Health>();
-            if (health != null && thisGuy.GetComponent<AutoGun>() == null) if (thisGuy.gameObject.tag == "Enemy") thisGuy.GetComponent<PlayerHealth>().TakeDamage((int)Mathf.Ceil(damage * 0.6f)); else health.TakeDamage(damage);
+            if (health != null && thisGuy.GetComponent<AutoGun>() == null) if (!(thisGuy.gameObject.tag == "Enemy")) health.TakeDamage(damage);
         }
 
     }
