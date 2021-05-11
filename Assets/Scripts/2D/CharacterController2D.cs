@@ -10,6 +10,8 @@ public class CharacterController2D : MonoBehaviour
     Rigidbody rb;
     Animator anim;
     float lastMove;
+    public bool clampDisabled;
+    public float knockCount;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -46,9 +48,60 @@ public class CharacterController2D : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (moveInput != Vector2.zero)
         {
-            if (axis == "XY") if (flip) rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x + (Input.GetAxisRaw("Horizontal") * speed), speed * -5, speed * 5), rb.velocity.y, 0); else rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x + (-1 * Input.GetAxisRaw("Horizontal") * speed), speed * -5, speed * 5), rb.velocity.y, 0);
+            if (axis == "XY")
+            {
+                if (flip)
+                {
+                    rb.velocity = new Vector3(rb.velocity.x + (Input.GetAxisRaw("Horizontal") * speed), rb.velocity.y, 0);
+                }
+                else
+                {
+                    rb.velocity = new Vector3(rb.velocity.x + (-1 * Input.GetAxisRaw("Horizontal") * speed), rb.velocity.y, 0);
+                }
+                if (clampDisabled)
+                {
+                    knockCount -= Time.deltaTime;
+                    if (knockCount <= 0)
+                    {
+                        clampDisabled = false;
+                        knockCount = 1;
+                    }
+                }
+                else
+                {
+                    rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -5, speed * 5), rb.velocity.y, 0);
+                }
+            }
+                
+                    
 
-            if (axis == "ZY") if (flip) rb.velocity = new Vector3(0, rb.velocity.y, Mathf.Clamp(rb.velocity.z + (-1 * Input.GetAxisRaw("Horizontal") * speed), speed * -5, speed * 5)); else rb.velocity = new Vector3(0, rb.velocity.y, Mathf.Clamp(rb.velocity.z + (Input.GetAxisRaw("Horizontal") * speed), speed * -5, speed * 5));
+            if (axis == "ZY")
+            {
+                if (flip)
+                {
+                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z + (-1 * Input.GetAxisRaw("Horizontal") * speed));
+                }
+
+                else
+                {
+                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z + (Input.GetAxisRaw("Horizontal") * speed));
+                }
+                if (clampDisabled)
+                {
+                    knockCount -= Time.deltaTime;
+                    if (knockCount <= 0)
+                    {
+                        clampDisabled = false;
+                        knockCount = 1;
+                    }
+                }
+                else
+                {
+                    rb.velocity = new Vector3(0, rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -5, speed * 5));
+                }
+            }
+                
+                    
             lastMove = Input.GetAxisRaw("Horizontal");
         }
 
