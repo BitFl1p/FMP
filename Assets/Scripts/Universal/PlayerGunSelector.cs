@@ -14,6 +14,6 @@ public class PlayerGunSelector : MonoBehaviour
         if (guns[wepNum].GetComponent<GunBase>() != null) guns[wepNum].GetComponent<GunBase>().damageMultiplier = damage;
         guns[wepNum].SetActive(true);
     }
-    public int getWepNum() { return wepNum; }
-    public float getDamage() { return damage; }
+    public int getWepNum() { foreach (GameObject gun in guns) { if (gun.activeSelf) wepNum = gun.GetComponent<GunBase>().wepNum; } return wepNum; }
+    public float getDamage() { foreach (GameObject gun in guns) { if (gun.activeSelf) damage = gun.GetComponent<GunBase>().damageMultiplier; } return damage; }
 }

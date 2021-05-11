@@ -11,7 +11,6 @@ public class ZapCannon : GunBase
     public ParticleSystem[] steam;
     public BigBall laser;
     public Animator anim;
-    public int damage;
     float fireCount;
     bool cooling = false, animPlaying = false;
     public float maxFire, speed;

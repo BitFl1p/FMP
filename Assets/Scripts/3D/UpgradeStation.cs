@@ -8,8 +8,6 @@ public class UpgradeStation : MonoBehaviour
     public GameObject[] upgradePrefabs;
     public List<GameObject> upgrades;
     public Animator anim;
-    bool reset;
-    int upgradeToGive;
     public Collider player;
     public bool playerHere;
     private void OnTriggerStay(Collider other)
@@ -77,7 +75,6 @@ public class UpgradeStation : MonoBehaviour
         upgrades[1].transform.position = positions[1].position;
         upgrades[2].transform.position = positions[2].position;
         foreach (GameObject upgrade in upgrades) upgrade.SetActive(false);
-        reset = false;
     }
 
 

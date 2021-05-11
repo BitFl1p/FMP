@@ -11,11 +11,11 @@ public class ZapCannon2D : GunBase
     public ParticleSystem[] steam;
     public BigBall2D laser;
     public Animator anim;
-    public int damage = 5;
     float fireCount;
     bool cooling = false, animPlaying = false;
     public float maxFire, speed;
     bool fired = false;
+
     void OnEnable()
     {
         anim = GetComponent<Animator>();

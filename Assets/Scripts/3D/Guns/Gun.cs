@@ -15,7 +15,6 @@ public class Gun : GunBase
     public float speed;
     public Transform firePoint;
     public bool done = true;
-    public float damage;
     public Animator anim;
     public int clipSize;
     int ammo;

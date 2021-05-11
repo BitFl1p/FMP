@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MechElf : EnemyAI
 {
-    bool attacking;
     internal override void FixedUpdate()
     {
         anim.SetBool("Schmove", true); transform.LookAt(transform.position + rb.velocity); transform.eulerAngles += new Vector3(0, 90, 0);
@@ -20,12 +19,10 @@ public class MechElf : EnemyAI
         if (Vector3.Distance(rb.position, target.position) < targetDist)
         {
             anim.SetBool("Attacking", true);
-            attacking = true;
         }
         else
         {
             anim.SetBool("Attacking", false);
-            attacking = false;
         }
     }
 }

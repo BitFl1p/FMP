@@ -24,11 +24,11 @@ public class Projectile2D : Projectile
             {
                 if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
                 {
-                    if (hit.collider.gameObject.GetComponent<Health>() != null)
+                    if (hit.collider.gameObject.GetComponent<EnemyHealth2D>() != null)
                     {
                         float rand = Random.Range(0, 100);
-                        if (rand <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 2);
-                        else hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                        if (rand <= critChance) hit.collider.gameObject.GetComponent<EnemyHealth2D>().TakeDamage(damage * 2);
+                        else hit.collider.gameObject.GetComponent<EnemyHealth2D>().TakeDamage(damage);
                     }
                     itHit = true;
                 }

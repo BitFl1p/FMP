@@ -14,9 +14,9 @@ public class ThirdPersonMovement : MonoBehaviour
     Animator anim;
     public Transform hip;
     public int jumpAmount;
-    bool jumped;
     float dashCount = 0;
     public GameObject trail;
+    bool dashing;
     private void Start()
     {
         jumpHeight = GetComponent<Stats>().jumpHeight;
@@ -121,7 +121,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
             anim.SetBool("Schmove", false);
         }
-        if (dashCount > 0) dashCount -= Time.deltaTime;
         if (dashCount < 2.8)
         {
             rb.velocity = new Vector3(GoTowardsZero(rb.velocity.x, System.Math.Abs(rb.velocity.x / drag)), rb.velocity.y, GoTowardsZero(rb.velocity.z, System.Math.Abs(rb.velocity.z / drag)));
@@ -129,9 +128,14 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
+
             rb.velocity = new Vector3(moveDir.x * (speed * GetComponent<Stats>().moveSpeed) * 10, rb.velocity.y, moveDir.z * (speed * GetComponent<Stats>().moveSpeed) * 10);
             trail.SetActive(true);
+            dashing = true;
         }
+        if (dashCount > 0) { if (dashing && dashCount < 2.8) { dashing = false; rb.velocity = Vector3.zero; } dashCount -= Time.deltaTime; }
+        
+        
         anim.SetFloat("SpeedX", horizontal, Time.deltaTime * 2f, Time.deltaTime);
         anim.SetFloat("SpeedY", vertical, Time.deltaTime * 2f, Time.deltaTime);
     }

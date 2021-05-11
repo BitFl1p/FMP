@@ -9,7 +9,6 @@ public class LaserGun : GunBase
     public ParticleSystem[] steam;
     public Laser laser;
     public Animator anim;
-    public float damage;
     float fireCount;
     bool cooling = false, animPlaying = false, alreadyPlaying = false;
     public float maxFire;

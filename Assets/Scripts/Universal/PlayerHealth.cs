@@ -39,8 +39,8 @@ public class PlayerHealth : Health
     }
     internal override void Die()
     {
-        GetComponent<CapsuleCollider>().enabled = false;
-        GetComponent<Rigidbody>().isKinematic = true;
+        //GetComponent<CapsuleCollider>().enabled = false;
+        //GetComponent<Rigidbody>().isKinematic = true;
         visuals.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

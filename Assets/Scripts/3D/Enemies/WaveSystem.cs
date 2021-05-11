@@ -7,7 +7,7 @@ public class WaveSystem : MonoBehaviour
     public GameObject[] enemyPrefabs;
     public Transform[] locations;
     public float waveNum;
-    public class Wave
+    public struct Wave
     {
         public float vineSpider;
         public float entling;

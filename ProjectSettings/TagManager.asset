@@ -25,8 +25,8 @@ TagManager:
   - Enemy
   - Obstacle
   - EntSphere
-  - 
-  - 
+  - Enemy2D
+  - Player2D
   - 
   - 
   - 

@@ -31,6 +31,7 @@ public class CharacterController2D : MonoBehaviour
     }
     void Update()
     {
+        speed = GetComponent<Stats>().moveSpeed;
         if (axis == "XY")
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, lockPos.position.z);
