@@ -76,7 +76,7 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 jumpHeight = GetComponent<Stats>().jumpHeight;
                 jumpAmount = GetComponent<Stats>().jumpAmount;
-                if (input.Player3D.Jump.triggered)
+                if (InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame)
                 {
                     rb.velocity = new Vector3(rb.velocity.x, Mathf.Sqrt((jumpHeight * GetComponent<Stats>().jumpHeight) * -2f * gravity), rb.velocity.z);
                     jumpAmount = GetComponent<Stats>().jumpAmount - 1;
@@ -89,7 +89,7 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             else if (jumpAmount >= 1)
             {
-                if (input.Player3D.Jump.triggered)
+                if (InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame)
                 {
                     rb.velocity = new Vector3(rb.velocity.x, Mathf.Sqrt((jumpHeight * GetComponent<Stats>().jumpHeight) * -2f * gravity), rb.velocity.z);
                     jumpAmount--;

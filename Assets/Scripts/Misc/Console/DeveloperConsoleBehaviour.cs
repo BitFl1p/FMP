@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class DeveloperConsoleBehaviour : MonoBehaviour
@@ -19,7 +20,10 @@ public class DeveloperConsoleBehaviour : MonoBehaviour
     private static DeveloperConsoleBehaviour instance;
 
     private DeveloperConsole developerConsole;
-
+    bool triggered;
+    [HideInInspector]public bool cheats;
+    [HideInInspector]public bool cheatsWereEnabled;
+    [HideInInspector]public bool god;
     private DeveloperConsole DeveloperConsole
     {
         get
@@ -38,27 +42,32 @@ public class DeveloperConsoleBehaviour : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    private void FixedUpdate() { if (cheats) { cheatsWereEnabled = true; } }
 
     public void Toggle(CallbackContext context)
     {
-        if (!context.action.triggered) { return; }
-        if (uiCanvas.activeSelf)
+        if (!(InputSystem.GetDevice<Keyboard>().slashKey.isPressed&& InputSystem.GetDevice<Keyboard>().leftShiftKey.isPressed&&InputSystem.GetDevice<Keyboard>().leftCtrlKey.isPressed)) { triggered = false;  return; }
+        if (!triggered)
         {
-            Time.timeScale = pausedTimeScale;
-            uiCanvas.SetActive(false);
-            mainUI.SetActive(true);
-            Cursor.lockState = CursorLockMode.Locked;
+            if (uiCanvas.activeSelf)
+            {
+                Time.timeScale = pausedTimeScale;
+                uiCanvas.SetActive(false);
+                mainUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                pausedTimeScale = Time.timeScale;
+                Time.timeScale = 0;
+                uiCanvas.SetActive(true);
+                mainUI.SetActive(false);
+                inputField.ActivateInputField();
+                inputField.Select();
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
-        else
-        {
-            pausedTimeScale = Time.timeScale;
-            Time.timeScale = 0;
-            uiCanvas.SetActive(true);
-            mainUI.SetActive(false);
-            inputField.ActivateInputField();
-            inputField.Select();
-            Cursor.lockState = CursorLockMode.None;
-        }
+        triggered = true;
     }
     public void ProcessCommand(string inputValue)
     {

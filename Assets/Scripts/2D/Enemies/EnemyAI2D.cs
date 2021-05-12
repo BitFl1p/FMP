@@ -12,13 +12,13 @@ public class EnemyAI2D : MonoBehaviour
     public Transform target;
     public float speed = 5f, targetDist = 100;
     [HideInInspector] public Rigidbody rb;
-    [HideInInspector] public bool isGounded, walled;
+    [HideInInspector] public bool isGrounded, walled;
     internal virtual void OnEnable()
     {
         if (axis == "XY") GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         else GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         SetRB();
-        if (FindObjectOfType<CharacterController2D>() != null) target = FindObjectOfType<CharacterController2D>().gameObject.transform;
+        if (target == null) if (FindObjectOfType<CharacterController2D>() != null) target = FindObjectOfType<CharacterController2D>().gameObject.transform;
         InvokeRepeating("UpdatePath", 0f, .5f);
         if (axis == "XY") transform.eulerAngles = new Vector3(0, 0, 0);
         else transform.eulerAngles = new Vector3(0, 90, 0);
@@ -30,7 +30,7 @@ public class EnemyAI2D : MonoBehaviour
     }
     internal virtual void UpdatePath()
     {
-        if (target == null) if (FindObjectOfType<CharacterController2D>() != null) target = FindObjectOfType<CharacterController2D>().gameObject.transform;
+        if (target == null) {if (FindObjectOfType<CharacterController2D>() != null) { target = FindObjectOfType<CharacterController2D>().gameObject.transform; } }
         else PlayerSeen();
     }
     internal virtual void Attack()
@@ -70,12 +70,21 @@ public class EnemyAI2D : MonoBehaviour
             }
             else
             {
-                if (targetDir.y <= 0 && targetDir.y >= 180) rb.velocity -= new Vector3(1, 0, 0) * speed;
-                else rb.velocity += new Vector3(1, 0, 0) * speed;
+                if (targetDir.y >= 45 && targetDir.y <= 135)
+                {
+                    rb.velocity -= new Vector3(1, 0, 0) * speed;
+                    transform.eulerAngles = new Vector3(0, 180, 0);
+                }
+                else
+                {
+                    rb.velocity += new Vector3(1, 0, 0) * speed;
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                }
 
                 rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, 0);
+
             }
-            if(walled && isGounded)
+            if(walled && isGrounded)
             {
                 rb.velocity += new Vector3(0, speed*5, 0);
             }

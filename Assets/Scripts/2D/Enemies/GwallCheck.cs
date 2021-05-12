@@ -9,16 +9,16 @@ public class GwallCheck : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (wall && other.gameObject.tag == "Ground") guy.walled = true;
-        else if (ground && other.gameObject.tag == "Ground") guy.isGounded = true;
+        else if (ground && other.gameObject.tag == "Ground") guy.isGrounded = true;
     }
     private void OnTriggerExit(Collider other)
     {
         if (wall && other.gameObject.tag == "Ground") guy.walled = false;
-        else if (ground && other.gameObject.tag == "Ground") guy.isGounded = false;
+        else if (ground && other.gameObject.tag == "Ground") guy.isGrounded = false;
     }
     private void OnTriggerStay(Collider other)
     {
         if (wall && other.gameObject.tag == "Ground") guy.walled = true;
-        else if (ground && other.gameObject.tag == "Ground") guy.isGounded = true;
+        else if (ground && other.gameObject.tag == "Ground") guy.isGrounded = true;
     }
 }

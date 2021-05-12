@@ -28,7 +28,8 @@ public class EnemyAI : MonoBehaviour
     }
     internal virtual void FixedUpdate()
     {
-        PlayerSeen();
+        if (target == null) { if (FindObjectOfType<CharacterController2D>() != null) { target = FindObjectOfType<CharacterController2D>().gameObject.transform; } }
+        else PlayerSeen();
         Attack();
     }
     internal virtual void UpdatePath()

@@ -17,3 +17,8 @@ MonoBehaviour:
   - ping "message" - will parrot back anything you say
   - clear - will clear the console
   - help - you literally just used it
+  - cheats on/off - will disable/reenable cheats (note that this will disable any
+    rewards or achievements you get on the playthrough where you activate cheats)
+  - ---------CHEATS---------
+  - grav (num) (num) (num) - changes the gravity
+  - god on/off - will disable/reenable damage to the player

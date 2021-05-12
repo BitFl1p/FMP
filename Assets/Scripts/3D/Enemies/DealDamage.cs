@@ -33,6 +33,10 @@ public class DealDamage : MonoBehaviour
             DealKnockback(other); 
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<PlayerHealth>() != null && damaged) { damaged = false; }
+    }
     void DealKnockback(Collider other)
     {
         if (other.gameObject.GetComponent<ThirdPersonMovement>() != null)

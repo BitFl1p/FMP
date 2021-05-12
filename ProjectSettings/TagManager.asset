@@ -27,7 +27,7 @@ TagManager:
   - EntSphere
   - Enemy2D
   - Player2D
-  - 
+  - Enemy2DNoColl
   - 
   - 
   - 

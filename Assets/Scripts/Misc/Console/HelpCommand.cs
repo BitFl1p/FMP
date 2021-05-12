@@ -9,7 +9,8 @@ public class HelpCommand : ConsoleCommand
     public override bool Process(string[] args)
     {
         DeveloperConsoleBehaviour devcon = FindObjectOfType<DeveloperConsoleBehaviour>();
-        foreach(string command in commands) devcon.Out(command);
+        if (args.Length != 0) { devcon.Out("Invalid syntax, this command takes no arguments"); return false; }
+        foreach (string command in commands) devcon.Out(command);
         return true;
     }
 }
