@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ZapCannon2D : GunBase
@@ -26,7 +27,7 @@ public class ZapCannon2D : GunBase
         ammoSlider.value = fireCount;
 
 
-        if (Input.GetKey(KeyCode.C) && !cooling && done)
+        if (InputSystem.GetDevice<Keyboard>().cKey.isPressed && !cooling && done)
         {
             firePoint.localScale = Vector3.one * (fireCount / maxFire);
             fireCount += Time.deltaTime;

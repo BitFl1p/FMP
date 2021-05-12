@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class LaserGun : GunBase
@@ -12,13 +13,13 @@ public class LaserGun : GunBase
     float fireCount;
     bool cooling = false, animPlaying = false, alreadyPlaying = false;
     public float maxFire;
-    void Update()
+    internal virtual void Update()
     {
         ammoSlider.maxValue = maxFire;
         ammoSlider.value = maxFire - fireCount;
         Wepnep();
 
-        if (Input.GetButton("Fire1") && !cooling)
+        if (InputSystem.GetDevice<Mouse>().leftButton.isPressed && !cooling)
         {
             if (!alreadyPlaying) { Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[5].Play(); alreadyPlaying = true; }
             anim.SetBool("Shoot", true);

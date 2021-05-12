@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Gun : GunBase
 {
@@ -18,18 +19,27 @@ public class Gun : GunBase
     public Animator anim;
     public int clipSize;
     int ammo;
-    bool reload, steaming;
+    bool steaming;
+    InputMaster input;
     void Start()
     {
         ammo = clipSize;
     }
+    private void OnEnable()
+    {
+        input = new InputMaster();
+        input.Enable();
+    }
+    private void OnDisable()
+    {
+        input.Disable();
+    }
     void Update()
     {
-
+        
         if (ammo <= 0 && !(reloadTime <= 0))
         {
             ammoSlider.value = ammoSlider.maxValue;
-            reload = true;
             Reload(reloadTime * player.GetComponent<Stats>().baseReloadTime);
         }
         else
@@ -42,7 +52,7 @@ public class Gun : GunBase
         {
 
             anim.SetBool("Shoot", false);
-            if (Input.GetButton("Fire1") && !reload)
+            if (InputSystem.GetDevice<Mouse>().leftButton.isPressed)
             {
                 ammo--;
                 done = false;
@@ -75,7 +85,6 @@ public class Gun : GunBase
         if (reloadCount <= 0)
         {
             steaming = false;
-            reload = false;
             ammo = clipSize;
         }
     }

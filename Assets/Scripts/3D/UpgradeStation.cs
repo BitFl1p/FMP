@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UpgradeStation : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class UpgradeStation : MonoBehaviour
         {
             anim.SetBool("Here", true);
             foreach (GameObject upgrade in upgrades) upgrade.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (InputSystem.GetDevice<Keyboard>().cKey.wasPressedThisFrame)
             {
                 Stats playerStats = player.GetComponent<Stats>();
                 RaycastHit hit;

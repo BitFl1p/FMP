@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Portal : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Portal : MonoBehaviour
         if (other.tag == "Player" && goes2D)
         {
             player3D = other.gameObject;
-            if (Input.GetKeyDown(KeyCode.E))
+            if (InputSystem.GetDevice<Keyboard>().eKey.wasPressedThisFrame)
             {
                 vCam2D.SetActive(true);
                 player2D.SetActive(true);
@@ -26,7 +27,7 @@ public class Portal : MonoBehaviour
         else if (other.tag == "Player" && !goes2D)
         {
             player2D = other.gameObject;
-            if (Input.GetKeyDown(KeyCode.V))
+            if (InputSystem.GetDevice<Keyboard>().vKey.wasPressedThisFrame)
             {
                 vCam3D.SetActive(true);
                 player3D.SetActive(true);

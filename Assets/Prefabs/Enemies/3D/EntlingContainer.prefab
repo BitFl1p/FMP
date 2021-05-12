@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ab3805444659f4588b375eab1c4405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upForce: 80
   damage: 1
   damaged: 0
   knockback: 200
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0

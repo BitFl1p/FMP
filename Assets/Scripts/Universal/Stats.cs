@@ -10,4 +10,5 @@ public class Stats : MonoBehaviour
     public int jumpAmount;
     public float critChance;
     public float baseReloadTime;
+    public float Coins2D, Coins3D;
 }

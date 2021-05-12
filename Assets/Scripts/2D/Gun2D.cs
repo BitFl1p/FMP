@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Gun2D : GunBase
 {
@@ -18,7 +19,7 @@ public class Gun2D : GunBase
     Animator anim;
     public int clipSize;
     int ammo;
-    bool reload, steaming;
+    bool steaming;
 
     void Start()
     {
@@ -35,7 +36,6 @@ public class Gun2D : GunBase
         if (ammo <= 0 && !(reloadTime <= 0))
         {
             ammoSlider.value = 0;
-            reload = true;
             Reload(reloadTime);
         }
         else
@@ -48,7 +48,7 @@ public class Gun2D : GunBase
         {
 
             anim.SetBool("Shoot", false);
-            if (Input.GetKey(KeyCode.C) && !reload)
+            if (InputSystem.GetDevice<Keyboard>().cKey.isPressed)
             {
                 ammo--;
                 done = false;
@@ -79,7 +79,6 @@ public class Gun2D : GunBase
         if (reloadCount <= 0)
         {
             steaming = false;
-            reload = false;
             ammo = clipSize;
         }
     }

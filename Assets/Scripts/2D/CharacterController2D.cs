@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -12,14 +13,14 @@ public class CharacterController2D : MonoBehaviour
     float lastMove;
     public bool clampDisabled;
     public float knockCount;
-    void Start()
+    InputMaster input;
+    private void Awake()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
-
+        input = new InputMaster();
     }
     private void OnEnable()
     {
+        input.Enable();
         if (!flip)
         {
             if (axis == "ZY") transform.eulerAngles = new Vector3(180, -90, -180);
@@ -30,6 +31,16 @@ public class CharacterController2D : MonoBehaviour
             if (axis == "ZY") transform.eulerAngles = new Vector3(180, 90, -180);
             else transform.eulerAngles = new Vector3(180, 0, -180);
         }
+    }
+    private void OnDisable()
+    {
+        input.Disable();
+    }
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+
     }
     void Update()
     {
@@ -45,18 +56,18 @@ public class CharacterController2D : MonoBehaviour
             transform.position = new Vector3(lockPos.position.x, transform.position.y, transform.position.z);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        Vector2 moveInput = input.Player2D.Move.ReadValue<Vector2>();
         if (moveInput != Vector2.zero)
         {
             if (axis == "XY")
             {
-                if (flip)
+                if (flip && !clampDisabled)
                 {
-                    rb.velocity = new Vector3(rb.velocity.x + (Input.GetAxisRaw("Horizontal") * speed), rb.velocity.y, 0);
+                    rb.velocity = new Vector3(rb.velocity.x + (input.Player2D.Move.ReadValue<Vector2>().x * speed), rb.velocity.y, 0);
                 }
-                else
+                else if(!clampDisabled)
                 {
-                    rb.velocity = new Vector3(rb.velocity.x + (-1 * Input.GetAxisRaw("Horizontal") * speed), rb.velocity.y, 0);
+                    rb.velocity = new Vector3(rb.velocity.x + (-1 * input.Player2D.Move.ReadValue<Vector2>().x * speed), rb.velocity.y, 0);
                 }
                 if (clampDisabled)
                 {
@@ -64,7 +75,7 @@ public class CharacterController2D : MonoBehaviour
                     if (knockCount <= 0)
                     {
                         clampDisabled = false;
-                        knockCount = 1;
+                        knockCount = 0.25f;
                     }
                 }
                 else
@@ -77,14 +88,14 @@ public class CharacterController2D : MonoBehaviour
 
             if (axis == "ZY")
             {
-                if (flip)
+                if (flip && !clampDisabled)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z + (-1 * Input.GetAxisRaw("Horizontal") * speed));
+                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z + (-1 * input.Player2D.Move.ReadValue<Vector2>().x * speed));
                 }
 
-                else
+                else if (!clampDisabled)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z + (Input.GetAxisRaw("Horizontal") * speed));
+                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z + (input.Player2D.Move.ReadValue<Vector2>().x * speed));
                 }
                 if (clampDisabled)
                 {
@@ -102,11 +113,11 @@ public class CharacterController2D : MonoBehaviour
             }
                 
                     
-            lastMove = Input.GetAxisRaw("Horizontal");
+            lastMove = input.Player2D.Move.ReadValue<Vector2>().x;
         }
 
-        if (isGrounded && Input.GetKey(KeyCode.Space)) { rb.velocity = new Vector3(rb.velocity.x, jumpPow, rb.velocity.z); }
-        if (Input.GetAxisRaw("Horizontal") != 0) anim.SetBool("Moving", true); else anim.SetBool("Moving", false);
+        if (isGrounded && InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame) { rb.velocity = new Vector3(rb.velocity.x, jumpPow, rb.velocity.z); }
+        if (input.Player2D.Move.ReadValue<Vector2>().x != 0) anim.SetBool("Moving", true); else anim.SetBool("Moving", false);
         if (!flip)
         {
             if (axis == "ZY") if (lastMove < 0) transform.eulerAngles = new Vector3(180, -90, -180); else transform.eulerAngles = new Vector3(180, 90, -180);

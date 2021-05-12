@@ -28,10 +28,10 @@ public class Laser : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy") hits.Add(other.gameObject);
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy2D") hits.Add(other.gameObject);
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Enemy") hits.Remove(other.gameObject);
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy2D") hits.Remove(other.gameObject);
     }
 }

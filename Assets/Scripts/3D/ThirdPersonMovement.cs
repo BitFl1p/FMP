@@ -1,5 +1,6 @@
 ﻿using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class ThirdPersonMovement : MonoBehaviour
 {
     Rigidbody rb;
@@ -17,6 +18,9 @@ public class ThirdPersonMovement : MonoBehaviour
     float dashCount = 0;
     public GameObject trail;
     bool dashing;
+    public bool clampDisabled;
+    public float knockCount;
+    InputMaster input;
     private void Start()
     {
         jumpHeight = GetComponent<Stats>().jumpHeight;
@@ -24,12 +28,20 @@ public class ThirdPersonMovement : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponentInChildren<Rigidbody>();
     }
+    private void OnEnable()
+    {
+        input = new InputMaster();
+        input.Enable();
+    }
+    private void OnDisable()
+    {
+        input.Disable();
+    }
     private void FixedUpdate()
     {
         anim.SetBool("Grounded", grounded);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
         Jump();
         Move();
         Aim();
@@ -64,24 +76,26 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 jumpHeight = GetComponent<Stats>().jumpHeight;
                 jumpAmount = GetComponent<Stats>().jumpAmount;
-
-                if (Input.GetButtonDown("Jump"))
+                if (input.Player3D.Jump.triggered)
                 {
                     rb.velocity = new Vector3(rb.velocity.x, Mathf.Sqrt((jumpHeight * GetComponent<Stats>().jumpHeight) * -2f * gravity), rb.velocity.z);
                     jumpAmount = GetComponent<Stats>().jumpAmount - 1;
                     grounded = false;
                     jumpCount = 0.2f;
                 }
+                
+                
 
             }
             else if (jumpAmount >= 1)
             {
-                if (Input.GetButtonDown("Jump"))
+                if (input.Player3D.Jump.triggered)
                 {
                     rb.velocity = new Vector3(rb.velocity.x, Mathf.Sqrt((jumpHeight * GetComponent<Stats>().jumpHeight) * -2f * gravity), rb.velocity.z);
                     jumpAmount--;
                     jumpCount = 0.2f;
                 }
+                
             }
         }
         if (jumpCount > 0)
@@ -92,9 +106,10 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     void Move()
     {
+        Keyboard kb = InputSystem.GetDevice<Keyboard>();
         speed = GetComponent<Stats>().moveSpeed;
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        horizontal = input.Player3D.Move.ReadValue<Vector2>().x;
+        vertical = input.Player3D.Move.ReadValue<Vector2>().y;
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, cam.eulerAngles.y, ref turnSmoothVelocity, turnSmoothTime);
@@ -104,7 +119,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
 
             moveDir = (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward);
-            if(dashCount <= 0 && Input.GetKey(KeyCode.LeftShift))
+            if(dashCount <= 0 && kb.shiftKey.isPressed)
             {
                 rb.velocity = new Vector3(moveDir.x * (speed * GetComponent<Stats>().moveSpeed) * 10, rb.velocity.y, moveDir.z * (speed * GetComponent<Stats>().moveSpeed) * 10);
                 dashCount = 3;

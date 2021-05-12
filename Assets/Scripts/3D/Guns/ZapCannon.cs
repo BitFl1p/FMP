@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ZapCannon : GunBase
@@ -24,7 +25,7 @@ public class ZapCannon : GunBase
         anim.SetInteger("WepNum", wepNum);
         firePoint.localScale = Vector3.one * 8f * (fireCount / maxFire);
 
-        if (Input.GetButton("Fire1") && !cooling && done)
+        if (InputSystem.GetDevice<Mouse>().leftButton.isPressed && !cooling && done)
         {
             fireCount += Time.deltaTime;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DealDamage : MonoBehaviour
 {
-    public int upForce = 80;
+    public float upForce = 80;
     public int damage;
     public bool damaged = false;
     public float knockback;
@@ -19,6 +19,7 @@ public class DealDamage : MonoBehaviour
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             damaged = true;
             //Debug.Log((new Vector3(transform.position.z * 3, (-transform.position.x - transform.position.z) / 20, transform.position.z * 3) - other.transform.position).normalized * 10);
+
             DealKnockback(other);
         }
     }
@@ -34,10 +35,18 @@ public class DealDamage : MonoBehaviour
     }
     void DealKnockback(Collider other)
     {
-        other.gameObject.GetComponent<CharacterController2D>().clampDisabled = true;
-        other.gameObject.GetComponent<CharacterController2D>().knockCount = 1;
-        Debug.Log((other.transform.position - transform.position).normalized - (other.transform.position - transform.position).normalized / 2 + new Vector3(0, 0.5f, 0) * knockback);
-        other.attachedRigidbody.velocity += (other.transform.position - transform.position).normalized - (other.transform.position - transform.position).normalized/ 2 + new Vector3(0,0.5f,0) * knockback;
+        if (other.gameObject.GetComponent<ThirdPersonMovement>() != null)
+        {
+            other.gameObject.GetComponent<ThirdPersonMovement>().clampDisabled = true;
+            other.gameObject.GetComponent<ThirdPersonMovement>().knockCount = 0.25f;
+        }
+        else if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        {
+            other.gameObject.GetComponent<CharacterController2D>().clampDisabled = true;
+            other.gameObject.GetComponent<CharacterController2D>().knockCount = 0.25f;
+        }
+        //Debug.Log(((other.transform.position - transform.position).normalized  - new Vector3(0, upForce, 0)).normalized * knockback);
+        other.attachedRigidbody.velocity += ((other.transform.position - transform.position).normalized - new Vector3(0, upForce, 0)).normalized * knockback;
         
     }
 }
