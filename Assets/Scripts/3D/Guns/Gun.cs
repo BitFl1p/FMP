@@ -39,8 +39,9 @@ public class Gun : GunBase
         
         if (ammo <= 0 && !(reloadTime <= 0))
         {
+            anim.SetBool("Shoot", false);
             ammoSlider.value = ammoSlider.maxValue;
-            Reload(reloadTime * player.GetComponent<Stats>().baseReloadTime);
+            Reload(reloadTime);
         }
         else
         {
@@ -48,7 +49,7 @@ public class Gun : GunBase
             ammoSlider.value = ammo;
         }
         anim.SetInteger("WepNum", wepNum);
-        if (done)
+        if (done&&!steaming)
         {
 
             anim.SetBool("Shoot", false);

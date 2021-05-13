@@ -22,3 +22,5 @@ MonoBehaviour:
   - ---------CHEATS---------
   - grav (num) (num) (num) - changes the gravity
   - god on/off - will disable/reenable damage to the player
+  - stats (regen/ maxhealth/ damage/ jumpheight/ speed/ jumpcount/ crit/ coins2d/
+    coins3d) (number) - changes the value of a chosen stat

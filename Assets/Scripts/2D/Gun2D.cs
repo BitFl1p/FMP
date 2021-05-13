@@ -35,6 +35,7 @@ public class Gun2D : GunBase
         }
         if (ammo <= 0 && !(reloadTime <= 0))
         {
+            anim.SetBool("Shoot", false);
             ammoSlider.value = 0;
             Reload(reloadTime);
         }
@@ -44,7 +45,7 @@ public class Gun2D : GunBase
             ammoSlider.value = ammo;
         }
 
-        if (done)
+        if (done&&!steaming)
         {
 
             anim.SetBool("Shoot", false);

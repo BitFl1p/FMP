@@ -19,7 +19,7 @@ public class GravityCommand : ConsoleCommand
 
                 if (!float.TryParse(arg, out float value))
                 {
-                    devcon.Out("Invalid syntax, this command requires 3 float values");
+                    devcon.Out("Invalid syntax, this command requires 3 numbers (decimals allowed)");
                     return false;
                 }
                 else

@@ -8,19 +8,20 @@ public class Brain2D : EnemyAI2D
     {
 
         Vector3 targetDir = (target.position - transform.position).normalized;
+        Vector3 targetAngle = Quaternion.LookRotation((target.position - transform.position).normalized, Vector3.up).eulerAngles;
         if (target.gameObject.activeInHierarchy)
         {
 
             if (axis == "ZY")
             {
                 rb.velocity = new Vector3(0, Mathf.Clamp(targetDir.y * speed, speed * -10, speed * 10), Mathf.Clamp(targetDir.z * speed, speed * -10, speed * 10));
-                if (targetDir.y >= 135 && targetDir.y <= 225) { transform.eulerAngles = new Vector3(0, 90, 0); }
+                if (targetAngle.y >= 135 && targetAngle.y <= 225) { transform.eulerAngles = new Vector3(0, 90, 0); }
                 else { transform.eulerAngles = new Vector3(0, -90, 0); }
             }
             else
             {
                 rb.velocity = new Vector3(Mathf.Clamp(targetDir.x * speed, speed * -10, speed * 10), Mathf.Clamp(targetDir.y * speed, speed * -10, speed * 10), 0);
-                if (targetDir.y >= 45 && targetDir.y <= 135) { transform.eulerAngles = new Vector3(0, 180, 0); }
+                if (targetAngle.y >= 45 && targetAngle.y <= 135) { transform.eulerAngles = new Vector3(0, 180, 0); }
                 else { transform.eulerAngles = new Vector3(0, 0, 0); }
             }
         }

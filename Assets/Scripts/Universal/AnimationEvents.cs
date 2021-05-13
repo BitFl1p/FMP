@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+[RequireComponent(typeof(Animator))]
 public class AnimationEvents : MonoBehaviour
 {
     public Gun2D gun2D;
@@ -92,7 +92,9 @@ public class AnimationEvents : MonoBehaviour
     public void ShootArrow()
     {
         EnemyArrow instance = Instantiate(arrow);
-        instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, GetComponentInParent<EnemyAI>().target);
+        if(GetComponentInParent<EnemyAI>() != null) instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, GetComponentInParent<EnemyAI>().target);
+        if(GetComponentInParent<MechElf2D>() != null) instance.SetData(GetComponentInParent<MechElf2D>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, GetComponentInParent<MechElf2D>().target);
+
     }
     public void ShootExploder()
     {
@@ -104,6 +106,12 @@ public class AnimationEvents : MonoBehaviour
         GameObject ling = Instantiate(entling);
         ling.GetComponentInChildren<Rigidbody>().gameObject.transform.position = firePoint2.position;
         ling.GetComponentInChildren<Rigidbody>().velocity = firePoint2.forward * speed;
+    }
+    public void Explode2D()
+    {
+        EnemyExplode instance = Instantiate(explode, transform.position, transform.rotation);
+        instance.Wee(GetComponentInParent<EnemyAI2D>().damage, transform.position);
+        Destroy(self);
     }
 }
 

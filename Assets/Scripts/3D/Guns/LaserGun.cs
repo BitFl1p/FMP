@@ -10,8 +10,8 @@ public class LaserGun : GunBase
     public ParticleSystem[] steam;
     public Laser laser;
     public Animator anim;
-    float fireCount;
-    bool cooling = false, animPlaying = false, alreadyPlaying = false;
+    internal float fireCount;
+    internal bool cooling = false, animPlaying = false, alreadyPlaying = false;
     public float maxFire;
     internal virtual void Update()
     {

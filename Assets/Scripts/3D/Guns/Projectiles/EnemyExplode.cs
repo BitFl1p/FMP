@@ -9,8 +9,8 @@ public class EnemyExplode : Explode
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[4].Play();
         transform.position = pos;
 
-        part1.Play();
-        part2.Play();
+        if(part1 != null) part1.Play();
+        if (part1 != null) part2.Play();
 
         Collider[] nearby = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider thisGuy in nearby)

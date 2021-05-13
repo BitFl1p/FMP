@@ -49,7 +49,7 @@ public class EnemyAI2D : MonoBehaviour
 
     internal virtual void PlayerSeen()
     {
-
+        if (target == null) return;
         Vector3 targetDir = Quaternion.LookRotation((target.position - transform.position).normalized, Vector3.up).eulerAngles;
         if (target.gameObject.activeInHierarchy)
         {

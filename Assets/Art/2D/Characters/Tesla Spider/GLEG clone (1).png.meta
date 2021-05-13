@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: fb8514a570fe0e649862e099956c5077
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2531773268618704040
+    second: GLEG clone (1)_0
+  - first:
+      213: 7258582860596020804
+    second: GLEG clone (1)_1
+  - first:
+      213: 2947552573667581074
+    second: GLEG clone (1)_2
+  - first:
+      213: -4145607537452106587
+    second: GLEG clone (1)_3
+  - first:
+      213: 8490580084797730790
+    second: GLEG clone (1)_4
+  - first:
+      213: -1443169503109733670
+    second: GLEG clone (1)_5
+  - first:
+      213: -2323180271268675861
+    second: GLEG clone (1)_6
+  - first:
+      213: 8122119872519815854
+    second: GLEG clone (1)_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -157,11 +181,179 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GLEG clone (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 154
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4f8d7bf5aa22320800000000000000
+      internalID: 2531773268618704040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GLEG clone (1)_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 154
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446809277aaabb460800000000000000
+      internalID: 7258582860596020804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GLEG clone (1)_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 154
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c9e3ee27fc7e820800000000000000
+      internalID: 2947552573667581074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GLEG clone (1)_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 77
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac3cf7b8e7d776c0800000000000000
+      internalID: -4145607537452106587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GLEG clone (1)_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 77
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efef532a9994d570800000000000000
+      internalID: 8490580084797730790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GLEG clone (1)_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 77
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad2a770bbf4d8fbe0800000000000000
+      internalID: -1443169503109733670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GLEG clone (1)_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beeb5dd1ad762cfd0800000000000000
+      internalID: -2323180271268675861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GLEG clone (1)_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea24fa0cdf097b070800000000000000
+      internalID: 8122119872519815854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: eef20b6d61383a847ad18d4714173ba4
     internalID: 0
     vertices: []
     indices: 
