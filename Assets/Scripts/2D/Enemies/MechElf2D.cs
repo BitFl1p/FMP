@@ -56,7 +56,8 @@ public class MechElf2D : EnemyAI2D
             }
             if (walled && isGrounded)
             {
-                rb.velocity += new Vector3(0, speed * 5, 0);
+                rb.velocity = new Vector3(rb.velocity.x, speed * 5, rb.velocity.z);
+                isGrounded = false;
             }
 
         }

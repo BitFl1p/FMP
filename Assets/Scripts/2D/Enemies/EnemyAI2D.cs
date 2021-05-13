@@ -12,7 +12,7 @@ public class EnemyAI2D : MonoBehaviour
     public Transform target;
     public float speed = 5f, targetDist = 100;
     [HideInInspector] public Rigidbody rb;
-    [HideInInspector] public bool isGrounded, walled;
+    public bool isGrounded, walled;
     internal virtual void OnEnable()
     {
         if (axis == "XY") GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
@@ -87,6 +87,7 @@ public class EnemyAI2D : MonoBehaviour
             if(walled && isGrounded)
             {
                 rb.velocity += new Vector3(0, speed*5, 0);
+                isGrounded = false;
             }
             
         }

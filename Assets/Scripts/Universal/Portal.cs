@@ -5,6 +5,7 @@ public class Portal : MonoBehaviour
 {
     public GameObject vCam3D, player3D, vCam2D, player2D, endPortal;
     public bool goes2D;
+    public string axis = "XY";
 
     private void OnTriggerStay(Collider other)
     {
@@ -13,6 +14,9 @@ public class Portal : MonoBehaviour
             player3D = other.gameObject;
             if (InputSystem.GetDevice<Keyboard>().eKey.wasPressedThisFrame)
             {
+                if (axis == "XY") { player2D.GetComponent<CharacterController2D>().lastMove = 1; }
+                if (axis == "ZY") { player2D.GetComponent<CharacterController2D>().lastMove = 1; }
+                
                 vCam2D.SetActive(true);
                 player2D.SetActive(true);
                 PlayerGunSelector gunSel2D = player2D.GetComponent<PlayerGunSelector>();
