@@ -87,6 +87,7 @@ public class Gun : GunBase
         {
             steaming = false;
             ammo = clipSize;
+            done = true;
         }
     }
     void FirePistol()
@@ -94,6 +95,7 @@ public class Gun : GunBase
 
         muzzle?.Play();
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[0].Play();
+        StartCoroutine(Camera.main.GetComponentInParent<CameraShake>().Shake(0.1f, 0.2f));
         Instantiate(bullet).GetComponent<Bullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
 
@@ -102,6 +104,7 @@ public class Gun : GunBase
     void FireShotgun()
     {
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[1].Play();
+        StartCoroutine(Camera.main.GetComponentInParent<CameraShake>().Shake(0.2f, 0.4f));
         muzzle?.Play();
         for (int i = 0; i <= 6; i++) Instantiate(bullet).GetComponent<Bullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position);
         anim.SetBool("Shoot", true);

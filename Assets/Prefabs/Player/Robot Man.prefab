@@ -6022,6 +6022,7 @@ MonoBehaviour:
   jumpPow: 100
   isGrounded: 0
   axis: ZY
+  lastMove: 0
   clampDisabled: 0
   knockCount: 0
 --- !u!65 &4840172138496348578
@@ -15918,7 +15919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0
-  wepNum: 4
+  wepNum: 5
   damage: 0.2
   player: {fileID: 4840172138496348582}
   ammoSlider: {fileID: 0}
