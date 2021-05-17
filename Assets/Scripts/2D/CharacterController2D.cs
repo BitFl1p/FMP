@@ -14,6 +14,8 @@ public class CharacterController2D : MonoBehaviour
     public bool clampDisabled;
     public float knockCount;
     InputMaster input;
+    public float drag;
+
     private void Awake()
     {
         input = new InputMaster();
@@ -61,14 +63,6 @@ public class CharacterController2D : MonoBehaviour
         {
             if (axis == "XY")
             {
-                if (flip && !clampDisabled)
-                {
-                    rb.velocity = new Vector3(rb.velocity.x + (input.Player2D.Move.ReadValue<Vector2>().x * speed), rb.velocity.y, lockPos.position.z);
-                }
-                else if(!clampDisabled)
-                {
-                    rb.velocity = new Vector3(rb.velocity.x + (-1 * input.Player2D.Move.ReadValue<Vector2>().x * speed), rb.velocity.y, lockPos.position.z);
-                }
                 if (clampDisabled)
                 {
                     knockCount -= Time.deltaTime;
@@ -77,26 +71,29 @@ public class CharacterController2D : MonoBehaviour
                         clampDisabled = false;
                         knockCount = 0.25f;
                     }
+
                 }
                 else
                 {
-                    rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -5, speed * 5), rb.velocity.y, lockPos.position.z);
+                    if (flip)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x + (input.Player2D.Move.ReadValue<Vector2>().x * speed), rb.velocity.y, lockPos.position.z);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x + (-1 * input.Player2D.Move.ReadValue<Vector2>().x * speed), rb.velocity.y, lockPos.position.z);
+                    }
+
                 }
+
+                rb.velocity = new Vector3(Mathf.Clamp(GoTowardsZero(rb.velocity.x, drag), speed * -10, speed * 10), rb.velocity.y, lockPos.position.z);
+                
             }
                 
                     
 
             if (axis == "ZY")
             {
-                if (flip && !clampDisabled)
-                {
-                    rb.velocity = new Vector3(lockPos.position.x, rb.velocity.y, rb.velocity.z + (-1 * input.Player2D.Move.ReadValue<Vector2>().x * speed));
-                }
-
-                else if (!clampDisabled)
-                {
-                    rb.velocity = new Vector3(lockPos.position.x, rb.velocity.y, rb.velocity.z + (input.Player2D.Move.ReadValue<Vector2>().x * speed));
-                }
                 if (clampDisabled)
                 {
                     knockCount -= Time.deltaTime;
@@ -105,16 +102,39 @@ public class CharacterController2D : MonoBehaviour
                         clampDisabled = false;
                         knockCount = 1;
                     }
+                    return;
                 }
                 else
                 {
-                    rb.velocity = new Vector3(lockPos.position.x, rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -5, speed * 5));
+                    if (flip)
+                    {
+                        rb.velocity = new Vector3(lockPos.position.x, rb.velocity.y, rb.velocity.z + (-1 * input.Player2D.Move.ReadValue<Vector2>().x * speed));
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector3(lockPos.position.x, rb.velocity.y, rb.velocity.z + (input.Player2D.Move.ReadValue<Vector2>().x * speed));
+                    }
                 }
+                
+                
+                rb.velocity = new Vector3(lockPos.position.x, rb.velocity.y, Mathf.Clamp(GoTowardsZero(rb.velocity.z, drag), speed * -4, speed * 4));
             }
                 
                     
             lastMove = input.Player2D.Move.ReadValue<Vector2>().x;
         }
+        if (!clampDisabled)
+        {
+            if (axis == "XY")
+            {
+                rb.velocity = new Vector3(Mathf.Clamp(GoTowardsZero(rb.velocity.x, drag), speed * -4, speed * 4), rb.velocity.y, lockPos.position.z);
+            }
+            if (axis == "ZY")
+            {
+                rb.velocity = new Vector3(lockPos.position.x, rb.velocity.y, Mathf.Clamp(GoTowardsZero(rb.velocity.z, drag), speed * -6, speed * 6));
+            }
+        }
+        
 
         if (isGrounded && InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame) { rb.velocity = new Vector3(rb.velocity.x, jumpPow, rb.velocity.z); }
         if (input.Player2D.Move.ReadValue<Vector2>().x != 0) anim.SetBool("Moving", true); else anim.SetBool("Moving", false);
@@ -131,5 +151,21 @@ public class CharacterController2D : MonoBehaviour
         
         anim.SetBool("Jump", !isGrounded);
 
+    }
+    float GoTowardsZero(float value, float speed)
+    {
+        if (value > speed)
+        {
+            value -= speed;
+        }
+        else if (value < -speed)
+        {
+            value += speed;
+        }
+        else
+        {
+            value = 0;
+        }
+        return value;
     }
 }

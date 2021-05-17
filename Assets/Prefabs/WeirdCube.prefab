@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 363321267996137640}
   - component: {fileID: 7338816093480696762}
   - component: {fileID: 6969874449551800069}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (5)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332912510453130995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -87,7 +87,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332912510453130995}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -106,9 +106,9 @@ GameObject:
   - component: {fileID: 4952997970530585736}
   - component: {fileID: 9155953204835798404}
   - component: {fileID: 5972223332465626914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (8)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512816245103053589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -181,7 +181,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512816245103053589}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -197,9 +197,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6225680660259225223}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WeirdCube
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 724089471300143199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 14.3, z: 49.49}
   m_Children:
   - {fileID: 8830043946745706239}
   - {fileID: 7253083968144156213}
@@ -242,9 +242,9 @@ GameObject:
   - component: {fileID: 4474748703648806786}
   - component: {fileID: 1861249609427281002}
   - component: {fileID: 7121613992553281934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (7)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556615161312287574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -317,7 +317,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556615161312287574}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -336,9 +336,9 @@ GameObject:
   - component: {fileID: 6685315873849754584}
   - component: {fileID: 6831327394135469946}
   - component: {fileID: 5471834200956682256}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,7 +372,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2809354212779360437}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -411,7 +411,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2809354212779360437}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -430,9 +430,9 @@ GameObject:
   - component: {fileID: 4025069233399212975}
   - component: {fileID: 6524984804952271892}
   - component: {fileID: 1218851499474303770}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (6)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,7 +466,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2946220039683484298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -505,7 +505,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2946220039683484298}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -524,9 +524,9 @@ GameObject:
   - component: {fileID: 4078714511312999470}
   - component: {fileID: 6200551368183983588}
   - component: {fileID: 8959029359769472444}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,7 +560,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5271114171471317256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -599,7 +599,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5271114171471317256}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -618,9 +618,9 @@ GameObject:
   - component: {fileID: 3570530062519094935}
   - component: {fileID: 1458488519063129737}
   - component: {fileID: 9113935585986769934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (11)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,7 +654,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6774799204224710549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -693,7 +693,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6774799204224710549}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -712,9 +712,9 @@ GameObject:
   - component: {fileID: 9217013881485139760}
   - component: {fileID: 1725828467993545481}
   - component: {fileID: 4509387707987670343}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (4)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -748,7 +748,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6944905131131692091}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -787,7 +787,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6944905131131692091}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -806,9 +806,9 @@ GameObject:
   - component: {fileID: 8519798875977551879}
   - component: {fileID: 6341351500195353800}
   - component: {fileID: 8655423146045534290}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (3)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,7 +853,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: b7888d72f4f27264f8cd2067f9a3337a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -881,7 +881,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6960731503726156257}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -900,9 +900,9 @@ GameObject:
   - component: {fileID: 6743341991660312388}
   - component: {fileID: 8960925628661218306}
   - component: {fileID: 3397074328706940621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (10)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,7 +936,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7198238715704610099}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -975,7 +975,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7198238715704610099}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -994,9 +994,9 @@ GameObject:
   - component: {fileID: 692380140809514956}
   - component: {fileID: 5709043469270724473}
   - component: {fileID: 5641140136755220250}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (2)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1030,7 +1030,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7575817845300261628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1069,7 +1069,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7575817845300261628}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1088,9 +1088,9 @@ GameObject:
   - component: {fileID: 5359395336293518108}
   - component: {fileID: 3982981987639765813}
   - component: {fileID: 1227319617031985254}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (9)
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1135,7 +1135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: b7888d72f4f27264f8cd2067f9a3337a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1163,7 +1163,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8525889692005581475}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 40e3ef4506241ac4c8f787319be7d776, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4

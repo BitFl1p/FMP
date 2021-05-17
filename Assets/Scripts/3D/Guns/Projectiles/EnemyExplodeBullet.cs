@@ -11,7 +11,11 @@ public class EnemyExplodeBullet : EnemyProjectile
 
     }
     internal EnemyExplode explode;
-
+    internal override void Aim()
+    {
+        base.Aim();
+        transform.eulerAngles += new Vector3(0, -90, 0);
+    }
     internal override void Kill()
     {
         float rand = Random.Range(0, 100);

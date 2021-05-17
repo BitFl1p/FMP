@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5434616718398272739}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5434616718653664116}
   - component: {fileID: 5434616718653664119}
   - component: {fileID: 5434616718653664107}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gerald's drone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 5434616718664573895}
   - component: {fileID: 5434616718664573894}
   - component: {fileID: 5434616718664573889}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 5434616718833865139}
   - component: {fileID: 5434616718833865137}
   - component: {fileID: 5434616718833865136}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5434616718857955599}
   - component: {fileID: 5434616718857955596}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: DamageSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5434616719061897766}
   - component: {fileID: 5434616719061897767}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 5434616719166921501}
   - component: {fileID: 5434616719166921491}
   - component: {fileID: 5434616719166921490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5333,7 +5333,7 @@ GameObject:
   - component: {fileID: 5434616719216950894}
   - component: {fileID: 5434616719216950892}
   - component: {fileID: 5434616719216950895}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5407,7 +5407,7 @@ GameObject:
   - component: {fileID: 5434616719260989939}
   - component: {fileID: 5434616719260989937}
   - component: {fileID: 5434616719260989936}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5481,7 +5481,7 @@ GameObject:
   - component: {fileID: 5434616719325478021}
   - component: {fileID: 5434616719325478011}
   - component: {fileID: 5434616719325478010}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Float (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5588,7 +5588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5434616719552198570}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5626,7 +5626,7 @@ GameObject:
   - component: {fileID: 5434616719634734395}
   - component: {fileID: 5434616719634734393}
   - component: {fileID: 5434616719634734392}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5700,7 +5700,7 @@ GameObject:
   - component: {fileID: 5434616719844911506}
   - component: {fileID: 5434616719844911504}
   - component: {fileID: 5434616719844911507}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10452,7 +10452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5434616719856029395}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10490,7 +10490,7 @@ GameObject:
   - component: {fileID: 5434616719858738512}
   - component: {fileID: 5434616719858738518}
   - component: {fileID: 5434616719858738513}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10562,7 +10562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5434616719897874233}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10600,7 +10600,7 @@ GameObject:
   - component: {fileID: 5434616720004599044}
   - component: {fileID: 5434616720004599546}
   - component: {fileID: 5434616720004599045}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10740,10 +10740,35 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5546747315237514756, guid: bd1de580fc2aabe42839032f9719aba1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5317621499353570459, guid: bd1de580fc2aabe42839032f9719aba1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bd1de580fc2aabe42839032f9719aba1,
         type: 3}
       propertyPath: m_Name
       value: Gerald's drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd1de580fc2aabe42839032f9719aba1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735102090226358198, guid: bd1de580fc2aabe42839032f9719aba1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512510688612296998, guid: bd1de580fc2aabe42839032f9719aba1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd1de580fc2aabe42839032f9719aba1, type: 3}

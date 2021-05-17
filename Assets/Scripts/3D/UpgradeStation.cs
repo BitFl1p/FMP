@@ -11,6 +11,7 @@ public class UpgradeStation : MonoBehaviour
     public Animator anim;
     public Collider player;
     public bool playerHere;
+    public int price;
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -39,8 +40,9 @@ public class UpgradeStation : MonoBehaviour
         {
             anim.SetBool("Here", true);
             foreach (GameObject upgrade in upgrades) upgrade.SetActive(true);
-            if (InputSystem.GetDevice<Keyboard>().cKey.wasPressedThisFrame)
+            if (InputSystem.GetDevice<Keyboard>().eKey.wasPressedThisFrame)
             {
+                if (player.GetComponent<Stats>().Coins3D < price) return;
                 Stats playerStats = player.GetComponent<Stats>();
                 RaycastHit hit;
 
@@ -60,6 +62,12 @@ public class UpgradeStation : MonoBehaviour
                             case 6: playerStats.jumpAmount += 1; break;
                             case 7: playerStats.critChance += 2; break;
                         }
+                        player.GetComponent<Stats>().Coins3D -= price;
+                        price += (int)(price * 0.25);
+                        foreach(UpgradeStation shop in FindObjectsOfType<UpgradeStation>())
+                        {
+                            shop.price = price;
+                        }
                         Reset();
                     }
                 }
@@ -73,8 +81,11 @@ public class UpgradeStation : MonoBehaviour
         upgrades.Clear();
         for (int i = 1; i <= 3; i++) upgrades.Add(Instantiate(upgradePrefabs[Random.Range(0, upgradePrefabs.Length)]));
         upgrades[0].transform.position = positions[0].position;
+        upgrades[0].transform.SetAsFirstSibling();
         upgrades[1].transform.position = positions[1].position;
+        upgrades[1].transform.SetAsFirstSibling();
         upgrades[2].transform.position = positions[2].position;
+        upgrades[2].transform.SetAsFirstSibling();
         foreach (GameObject upgrade in upgrades) upgrade.SetActive(false);
     }
 

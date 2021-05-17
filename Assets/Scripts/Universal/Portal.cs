@@ -16,7 +16,7 @@ public class Portal : MonoBehaviour
             {
                 if (axis == "XY") { player2D.GetComponent<CharacterController2D>().lastMove = 1; }
                 if (axis == "ZY") { player2D.GetComponent<CharacterController2D>().lastMove = 1; }
-                
+                SetStats(player3D.GetComponent<Stats>(), player2D.GetComponent<Stats>());
                 vCam2D.SetActive(true);
                 player2D.SetActive(true);
                 PlayerGunSelector gunSel2D = player2D.GetComponent<PlayerGunSelector>();
@@ -33,6 +33,7 @@ public class Portal : MonoBehaviour
             player2D = other.gameObject;
             if (InputSystem.GetDevice<Keyboard>().vKey.wasPressedThisFrame)
             {
+                SetStats(player2D.GetComponent<Stats>(), player3D.GetComponent<Stats>());
                 vCam3D.SetActive(true);
                 player3D.SetActive(true);
                 PlayerGunSelector gunSel2D = player2D.GetComponent<PlayerGunSelector>();
@@ -46,6 +47,18 @@ public class Portal : MonoBehaviour
         }
 
 
+    }
+    void SetStats(Stats toGet, Stats toSet)
+    {
+        toSet.baseRegen = toGet.baseRegen;
+        toSet.maxHealth = toGet.maxHealth;
+        toSet.baseDamage = toGet.baseDamage;
+        toSet.jumpHeight = toGet.jumpHeight;
+        toSet.moveSpeed = toGet.moveSpeed;
+        toSet.jumpAmount = toGet.jumpAmount;
+        toSet.critChance = toGet.critChance;
+        toSet.Coins2D = toGet.Coins2D;
+        toSet.Coins3D = toGet.Coins3D;
     }
 
 }

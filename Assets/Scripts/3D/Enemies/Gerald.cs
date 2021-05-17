@@ -51,4 +51,23 @@ public class Gerald : EnemyAI
             }
         }
     }
+    internal override void PlayerSeen()
+    {
+        if (Vector3.Distance(rb.position, target.position) < targetDist)
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            direction = (target.position - rb.position).normalized;
+            direction.y = 0;
+            rb.velocity += direction * speed;
+            rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
+            currentWaypoint = 0;
+            reachedEndOfPath = true;
+            return;
+        }
+    }
 }

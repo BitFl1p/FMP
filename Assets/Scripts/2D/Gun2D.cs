@@ -82,6 +82,10 @@ public class Gun2D : GunBase
             steaming = false;
             ammo = clipSize;
         }
+        else
+        {
+            done = true;
+        }
     }
     void FirePistol()
     {

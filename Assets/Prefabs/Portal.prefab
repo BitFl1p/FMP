@@ -248,8 +248,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.17159, z: 2.203843}
-  m_Center: {x: -1.9934036e-16, y: -0.08579555, z: -0.037888534}
+  m_Size: {x: 3.6697352, y: 2.480675, z: 3.800057}
+  m_Center: {x: 0.17547299, y: 0.17776936, z: -0.83599794}
 --- !u!114 &1074837674832996298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +268,7 @@ MonoBehaviour:
   player2D: {fileID: 0}
   endPortal: {fileID: 0}
   goes2D: 1
+  axis: 
 --- !u!1 &1074837674947124520
 GameObject:
   m_ObjectHideFlags: 0

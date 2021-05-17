@@ -99,7 +99,9 @@ public class AnimationEvents : MonoBehaviour
     public void ShootExploder()
     {
         EnemyExplodeBullet instance = Instantiate(explodeBullet, firePoint.position, firePoint.rotation);
-        instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
+        if (GetComponentInParent<EnemyAI>() != null) instance.SetData(GetComponentInParent<EnemyAI>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
+        if (GetComponentInParent<MechElf2D>() != null) instance.SetData(GetComponentInParent<MechElf2D>().damage, 0, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
+
     }
     public void SummonTwo()
     {

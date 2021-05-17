@@ -5930,7 +5930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4840172138496348581
 Transform:
   m_ObjectHideFlags: 0
@@ -5938,7 +5938,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4840172138496348582}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -3, y: -16.68, z: 157}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
@@ -5952,7 +5952,7 @@ Transform:
   - {fileID: 4840172137679418953}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: 180, y: -90, z: -180}
 --- !u!212 &4840172138496348580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6025,6 +6025,7 @@ MonoBehaviour:
   lastMove: 0
   clampDisabled: 0
   knockCount: 0
+  drag: 2
 --- !u!65 &4840172138496348578
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6094,6 +6095,8 @@ MonoBehaviour:
   critChance: 2
   Coins2D: 0
   Coins3D: 0
+  CoinText2D: {fileID: 0}
+  CoinText3D: {fileID: 0}
 --- !u!114 &4840172138496348590
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -49,6 +49,10 @@ public class DealDamage : MonoBehaviour
             other.gameObject.GetComponent<CharacterController2D>().clampDisabled = true;
             other.gameObject.GetComponent<CharacterController2D>().knockCount = 0.25f;
         }
+        else
+        {
+            return;
+        }
         //Debug.Log(((other.transform.position - transform.position).normalized  - new Vector3(0, upForce, 0)).normalized * knockback);
         other.attachedRigidbody.velocity += ((other.transform.position - transform.position).normalized - new Vector3(0, upForce, 0)).normalized * knockback;
         

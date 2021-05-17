@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     internal Seeker seeker;
     [HideInInspector]public Rigidbody rb;
     internal Vector3 direction = Vector3.zero;
+
     // Start is called before the first frame update
     internal virtual void OnEnable()
     {
@@ -91,5 +92,10 @@ public class EnemyAI : MonoBehaviour
     internal virtual void SetRB()
     {
         rb = GetComponent<Rigidbody>();
+    }
+    public int moneyToDrop;
+    internal virtual void OnDestroy()
+    {
+        target.GetComponent<Stats>().Coins3D += moneyToDrop;
     }
 }

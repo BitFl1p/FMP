@@ -96,4 +96,9 @@ public class EnemyAI2D : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+    public int moneyToDrop;
+    internal virtual void OnDestroy()
+    {
+        target.GetComponent<Stats>().Coins2D += moneyToDrop;
+    }
 }

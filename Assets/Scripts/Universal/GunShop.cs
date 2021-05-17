@@ -9,16 +9,23 @@ public class GunShop : MonoBehaviour
     public int WaveNum;
     public PlayerGunSelector player;
     public int wepNum;
+    public int price;
     private void OnEnable()
     {
         Restock();
     }
     private void Update()
     {
-        if (purchase)
+        if (purchase && !(player.GetComponent<Stats>().Coins2D < price))
         {
-            player.ChangeWeapon(WaveNum, wepNum);
+            player.ChangeWeapon(FindObjectOfType<WaveSystem>().waveNum, wepNum);
+            player.GetComponent<Stats>().Coins2D -= price;
+            price += (int)(price * 0.25);
             Restock();
+            purchase = false;
+        }
+        else
+        {
             purchase = false;
         }
     }
