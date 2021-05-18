@@ -6,7 +6,6 @@ public class GunShop : MonoBehaviour
     public GameObject[] weapons;
     public List<GameObject> availableWeapons;
     public bool purchase;
-    public int WaveNum;
     public PlayerGunSelector player;
     public int wepNum;
     public int price;
@@ -18,7 +17,7 @@ public class GunShop : MonoBehaviour
     {
         if (purchase && !(player.GetComponent<Stats>().Coins2D < price))
         {
-            player.ChangeWeapon(FindObjectOfType<WaveSystem>().waveNum, wepNum);
+            player.ChangeWeapon(FindObjectOfType<WaveSystem>().waveNum+1, wepNum);
             player.GetComponent<Stats>().Coins2D -= price;
             price += (int)(price * 0.25);
             Restock();

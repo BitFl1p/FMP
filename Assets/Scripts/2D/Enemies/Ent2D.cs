@@ -7,6 +7,7 @@ public class Ent2D : EnemyAI2D
     float count;
     internal override void Attack()
     {
+        if (target == null) { if (FindObjectOfType<CharacterController2D>() != null && FindObjectOfType<CharacterController2D>().gameObject.activeInHierarchy) target = FindObjectOfType<CharacterController2D>().gameObject.transform; else return; }
         if (Vector3.Distance(rb.position, target.position) < targetDist && target.gameObject.activeInHierarchy)
         {
             foreach (GameObject hurtbox in hurtboxes) { hurtbox.GetComponent<DealDamage>().damage = damage; hurtbox.GetComponent<DealDamage>().knockback = knockback; }

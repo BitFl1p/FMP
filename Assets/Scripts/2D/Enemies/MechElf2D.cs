@@ -7,7 +7,7 @@ public class MechElf2D : EnemyAI2D
     internal override void Attack() { }
     internal override void PlayerSeen()
     {
-        if (target == null) return;
+        if (target == null) { if (FindObjectOfType<CharacterController2D>() != null && FindObjectOfType<CharacterController2D>().gameObject.activeInHierarchy) target = FindObjectOfType<CharacterController2D>().gameObject.transform; else return; }
         Vector3 targetDir = Quaternion.LookRotation((target.position - transform.position).normalized, Vector3.up).eulerAngles;
         if (target.gameObject.activeInHierarchy)
         {

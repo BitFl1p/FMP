@@ -21,10 +21,19 @@ public class WaveSystem : MonoBehaviour
     public GameObject vcam;
     public GameObject player;
     public bool start = true;
+    bool waveSwitch = false;
+    float waveTimer;
+    public float waveDelay;
+    public List<int[]> he;
     [System.Serializable] public class Wave { public int[] values = new int[8]; }
     private void Awake()
     {
         count = spawnInterval;
+        waveTimer = waveDelay;
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        Awake();
     }
     private void FixedUpdate()
     {
@@ -39,19 +48,35 @@ public class WaveSystem : MonoBehaviour
         
         if (waveDone)
         {
-            waveNum++;
-            waveDone = false;
-            enemiesInScene.Clear();
-            start = true;
-            /*switch (waveNum)
+            if (waveSwitch)
             {
-                case 1:
-                case 2:
+                waveNum++;
+                waveDone = false;
+                enemiesInScene.Clear();
+                waveSwitch = false;
+                waveTimer = waveDelay;
+                start = true;
+                
+
+            }
+            else
+            {
+                waveTimer -= Time.deltaTime;
+                if(waveTimer <= 0)
+                {
+                    waveSwitch = true;
+                }
+                start = false;
+            }
+            switch (waveNum)
+            {
+                case 0:
                 case 4:
-                case 5:
                 case 7:
-                case 8:
-                    FindObjectOfType<AudioManager>().SwitchTrack(new List<int> { 4, 5, 6, 9});
+                    if (start)
+                    {
+                        FindObjectOfType<AudioManager>().SwitchTrack(new List<int> { 4, 5, 6, 9 });
+                    }
                     break;
                 case 3:
                     if (start)
@@ -66,7 +91,10 @@ public class WaveSystem : MonoBehaviour
                     }
                     break;
                 case 9:
-                    FindObjectOfType<AudioManager>().SwitchTrack(7);
+                    if (start)
+                    {
+                        FindObjectOfType<AudioManager>().SwitchTrack(9);
+                    }
                     break;
                 case 10:
                     if (start)
@@ -83,7 +111,10 @@ public class WaveSystem : MonoBehaviour
                         SpawnEnemy();
                     }
                     break;
-            }*/
+                default:
+                    start = false;
+                    break;
+            }
 
         }
 
@@ -104,7 +135,7 @@ public class WaveSystem : MonoBehaviour
             waveDone = false;
             return;
         }
-        if (Random.Range(0, 2) == 1)
+        if(Random.Range(0, 4) != 1)
         {
             for (int i = 0; i < waves[waveNum].values.Length; i++)
             {
@@ -120,6 +151,7 @@ public class WaveSystem : MonoBehaviour
                 {
                     if (enemy != null) waveDone = false;
                 }
+                if (waveDone) start = true;
                 return;
             }
             else
@@ -150,6 +182,7 @@ public class WaveSystem : MonoBehaviour
                 {
                     if (enemy != null) waveDone = false;
                 }
+                if(waveDone) start = true;
                 return;
             }
             else
@@ -165,5 +198,6 @@ public class WaveSystem : MonoBehaviour
                 return;
             }
         }
+        
     }
 }

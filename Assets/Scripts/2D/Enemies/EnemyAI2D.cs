@@ -13,15 +13,13 @@ public class EnemyAI2D : MonoBehaviour
     public float speed = 5f, targetDist = 100;
     [HideInInspector] public Rigidbody rb;
     public bool isGrounded, walled;
+    bool start;
     internal virtual void OnEnable()
     {
-        if (axis == "XY") GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        else GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        start = true;
         SetRB();
-        if (target == null) if (FindObjectOfType<CharacterController2D>() != null) target = FindObjectOfType<CharacterController2D>().gameObject.transform;
+        if (target == null) if (FindObjectOfType<CharacterController2D>() != null&& FindObjectOfType<CharacterController2D>().gameObject.activeInHierarchy) target = FindObjectOfType<CharacterController2D>().gameObject.transform;
         InvokeRepeating("UpdatePath", 0f, .5f);
-        if (axis == "XY") transform.eulerAngles = new Vector3(0, 0, 0);
-        else transform.eulerAngles = new Vector3(0, 90, 0);
     }
     internal virtual void FixedUpdate()
     {
@@ -30,11 +28,26 @@ public class EnemyAI2D : MonoBehaviour
     }
     internal virtual void UpdatePath()
     {
+        if (start)
+        {
+            if (axis == "XY")
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                transform.eulerAngles = new Vector3(0, 90, 0);
+            }
+            start = false;
+        }
         if (target == null) {if (FindObjectOfType<CharacterController2D>() != null) { target = FindObjectOfType<CharacterController2D>().gameObject.transform; } }
         else PlayerSeen();
     }
     internal virtual void Attack()
     {
+        if (target == null) { if (FindObjectOfType<CharacterController2D>() != null && FindObjectOfType<CharacterController2D>().gameObject.activeInHierarchy) target = FindObjectOfType<CharacterController2D>().gameObject.transform; else return; }
         if (Vector3.Distance(rb.position, target.position) < targetDist)
         {
             foreach (GameObject hurtbox in hurtboxes) { hurtbox.GetComponent<DealDamage>().damage = damage; hurtbox.GetComponent<DealDamage>().knockback = knockback; }
@@ -49,7 +62,8 @@ public class EnemyAI2D : MonoBehaviour
 
     internal virtual void PlayerSeen()
     {
-        if (target == null) return;
+        if (target == null) { if (FindObjectOfType<CharacterController2D>() != null && FindObjectOfType<CharacterController2D>().gameObject.activeInHierarchy) target = FindObjectOfType<CharacterController2D>().gameObject.transform; else return; } 
+
         Vector3 targetDir = Quaternion.LookRotation((target.position - transform.position).normalized, Vector3.up).eulerAngles;
         if (target.gameObject.activeInHierarchy)
         {
