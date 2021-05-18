@@ -399,11 +399,12 @@ MonoBehaviour:
   hurtboxes:
   - {fileID: 6953548269654327765}
   target: {fileID: 0}
-  speed: 4
+  speed: 3
   targetDist: 20
   rb: {fileID: 0}
-  isGounded: 0
+  isGrounded: 0
   walled: 0
+  moneyToDrop: 20
 --- !u!65 &6953548269890938359
 BoxCollider:
   m_ObjectHideFlags: 0

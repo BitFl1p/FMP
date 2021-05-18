@@ -13,6 +13,7 @@ public class Entling : EnemyAI
     internal override void FixedUpdate()
     {
         base.FixedUpdate();
+        if (target == null) return;
         transform.position = rb.transform.position + offset;
         hip.LookAt(target);
         hip.localEulerAngles += new Vector3(0, -90, -20);

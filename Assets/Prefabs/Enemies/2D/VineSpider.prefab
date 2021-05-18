@@ -95,8 +95,9 @@ MonoBehaviour:
   speed: 4
   targetDist: 20
   rb: {fileID: 0}
-  isGounded: 0
+  isGrounded: 0
   walled: 0
+  moneyToDrop: 20
 --- !u!65 &7121721213566255526
 BoxCollider:
   m_ObjectHideFlags: 0

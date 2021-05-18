@@ -18,11 +18,23 @@ public class EnemyAI2D : MonoBehaviour
     {
         start = true;
         SetRB();
-        if (target == null) if (FindObjectOfType<CharacterController2D>() != null&& FindObjectOfType<CharacterController2D>().gameObject.activeInHierarchy) target = FindObjectOfType<CharacterController2D>().gameObject.transform;
         InvokeRepeating("UpdatePath", 0f, .5f);
+        InvokeRepeating("UpdateTarget", 0f, 2f);
+        if (target == null) target = FindObjectOfType<CharacterController2D>()?.transform; if (target == null) return;
     }
     internal virtual void FixedUpdate()
     {
+        if (target == null || !target.gameObject.activeInHierarchy)
+        {
+            if (axis == "XY")
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 90, 0);
+            }
+        }
         PlayerSeen();
         Attack();
     }
@@ -40,14 +52,16 @@ public class EnemyAI2D : MonoBehaviour
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                 transform.eulerAngles = new Vector3(0, 90, 0);
             }
+            
             start = false;
         }
-        if (target == null) {if (FindObjectOfType<CharacterController2D>() != null) { target = FindObjectOfType<CharacterController2D>().gameObject.transform; } }
+        rb.angularVelocity = Vector3.zero;
+        if (target == null) return;
         else PlayerSeen();
     }
     internal virtual void Attack()
     {
-        if (target == null) { if (FindObjectOfType<CharacterController2D>() != null && FindObjectOfType<CharacterController2D>().gameObject.activeInHierarchy) target = FindObjectOfType<CharacterController2D>().gameObject.transform; else return; }
+        if (target == null) if (FindObjectOfType<CharacterController2D>() != null) target = FindObjectOfType<CharacterController2D>().transform; if (target == null) return;
         if (Vector3.Distance(rb.position, target.position) < targetDist)
         {
             foreach (GameObject hurtbox in hurtboxes) { hurtbox.GetComponent<DealDamage>().damage = damage; hurtbox.GetComponent<DealDamage>().knockback = knockback; }
@@ -59,42 +73,31 @@ public class EnemyAI2D : MonoBehaviour
             anim.SetBool("Attacking", false);
         }
     }
-
+    internal virtual void UpdateTarget()
+    {
+        if (target == null) target = FindObjectOfType<CharacterController2D>()?.transform; if (target == null) return;
+        if (target.gameObject.activeInHierarchy == false) target = null;
+    }
     internal virtual void PlayerSeen()
     {
-        if (target == null) { if (FindObjectOfType<CharacterController2D>() != null && FindObjectOfType<CharacterController2D>().gameObject.activeInHierarchy) target = FindObjectOfType<CharacterController2D>().gameObject.transform; else return; } 
-
+        if (target == null) return;
+        
         Vector3 targetDir = Quaternion.LookRotation((target.position - transform.position).normalized, Vector3.up).eulerAngles;
         if (target.gameObject.activeInHierarchy)
         {
             if (axis == "ZY")
             {
-                if (targetDir.y >= 135 && targetDir.y <= 225)
-                {
-                    rb.velocity -= new Vector3(0, 0, 1) * speed;
-                    transform.eulerAngles = new Vector3(0,90,0);
-                }
-                else
-                {
-                    rb.velocity += new Vector3(0, 0, 1) * speed;
-                    transform.eulerAngles = new Vector3(0, -90, 0);
-                }
-
+                if (targetDir.y >= 135 && targetDir.y <= 225) transform.eulerAngles = new Vector3(0, 90, 0);
+                else transform.eulerAngles = new Vector3(0, 270, 0);
+                rb.velocity += new Vector3(0, 0, (target.position.z - transform.position.z)).normalized * speed;
                 rb.velocity = new Vector3(0, rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
             }
             else
             {
-                if (targetDir.y >= 45 && targetDir.y <= 135)
-                {
-                    rb.velocity -= new Vector3(1, 0, 0) * speed;
-                    transform.eulerAngles = new Vector3(0, 180, 0);
-                }
-                else
-                {
-                    rb.velocity += new Vector3(1, 0, 0) * speed;
-                    transform.eulerAngles = new Vector3(0, 0, 0);
-                }
-
+                if (targetDir.y >= 45 && targetDir.y <= 135) transform.eulerAngles = new Vector3(0, 0, 0);
+                else rb.velocity += new Vector3((target.position.x - transform.position.x), 0, 0).normalized * speed; transform.eulerAngles = new Vector3(0, 180, 0);
+                
+                rb.velocity += new Vector3((target.position.x - transform.position.x), 0, 0).normalized * speed;
                 rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, 0);
 
             }
@@ -103,7 +106,12 @@ public class EnemyAI2D : MonoBehaviour
                 rb.velocity += new Vector3(0, speed*5, 0);
                 isGrounded = false;
             }
-            
+
+        }
+        else
+        {
+            if (axis == "XY") transform.eulerAngles = new Vector3(0, 0, 0);
+            else transform.eulerAngles = new Vector3(0, 90, 0);
         }
     }
     internal virtual void SetRB()

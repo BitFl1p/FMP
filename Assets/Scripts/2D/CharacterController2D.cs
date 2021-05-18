@@ -25,13 +25,13 @@ public class CharacterController2D : MonoBehaviour
         input.Enable();
         if (!flip)
         {
-            if (axis == "ZY") transform.eulerAngles = new Vector3(180, -90, -180);
-            else transform.eulerAngles = new Vector3(180, 180, -180);
+            if (axis == "ZY") if (lastMove < 0) transform.eulerAngles = new Vector3(180, -90, -180); else transform.eulerAngles = new Vector3(180, 90, -180);
+            else if (lastMove < 0) transform.eulerAngles = new Vector3(180, 180, -180); else transform.eulerAngles = new Vector3(180, 0, -180);
         }
         else
         {
-            if (axis == "ZY") transform.eulerAngles = new Vector3(180, 90, -180);
-            else transform.eulerAngles = new Vector3(180, 0, -180);
+            if (axis == "ZY") if (lastMove < 0) transform.eulerAngles = new Vector3(180, 90, -180); else transform.eulerAngles = new Vector3(180, -90, -180);
+            else if (lastMove < 0) transform.eulerAngles = new Vector3(180, 0, -180); else transform.eulerAngles = new Vector3(180, 180, -180);
         }
     }
     private void OnDisable()
@@ -44,7 +44,7 @@ public class CharacterController2D : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
     }
-    void Update()
+    void FixedUpdate()
     {
         speed = GetComponent<Stats>().moveSpeed;
         if (axis == "XY")

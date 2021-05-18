@@ -242,6 +242,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  moneyToDrop: 20
 --- !u!114 &303785917935271661
 MonoBehaviour:
   m_ObjectHideFlags: 0

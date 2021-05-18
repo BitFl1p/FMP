@@ -7,6 +7,7 @@ public class TeslaSpider : EnemyAI
     bool attacking;
     internal override void FixedUpdate()
     {
+        if (target == null) return;
         if (!attacking) PlayerSeen();
         Attack();
         transform.LookAt(transform.position+rb.velocity.normalized);

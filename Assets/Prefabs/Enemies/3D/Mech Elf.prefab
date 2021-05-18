@@ -455,7 +455,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.5287476
+  m_Radius: 3.52
   m_Height: 16.145382
   m_Direction: 1
   m_Center: {x: -0.5771694, y: -1.9073086, z: 0}
@@ -508,6 +508,7 @@ MonoBehaviour:
   targetDist: 200
   nextWaypointDistance: 10
   rb: {fileID: 4535932109739430735}
+  moneyToDrop: 20
 --- !u!54 &4535932109739430735
 Rigidbody:
   m_ObjectHideFlags: 0

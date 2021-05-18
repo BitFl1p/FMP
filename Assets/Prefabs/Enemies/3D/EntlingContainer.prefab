@@ -72,8 +72,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4, y: 4, z: 7.332303}
+  m_Center: {x: 1.6571881e-14, y: -7.840467e-15, z: -1.1661417}
 --- !u!95 &8989100000423002774
 Animator:
   serializedVersion: 3
@@ -115,6 +115,7 @@ MonoBehaviour:
   targetDist: 40
   nextWaypointDistance: 20
   rb: {fileID: 812498677272512898}
+  moneyToDrop: 10
   hip: {fileID: 796626644437551311}
   offset: {x: 0, y: 17, z: 0}
 --- !u!114 &812498675627852264

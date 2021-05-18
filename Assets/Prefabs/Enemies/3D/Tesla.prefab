@@ -297,6 +297,7 @@ MonoBehaviour:
   targetDist: 20
   nextWaypointDistance: 10
   rb: {fileID: 4279071556101416381}
+  moneyToDrop: 10
 --- !u!114 &4279071556101416379
 MonoBehaviour:
   m_ObjectHideFlags: 0

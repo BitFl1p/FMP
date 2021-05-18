@@ -157,6 +157,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  moneyToDrop: 40
 --- !u!65 &6495696865203228262
 BoxCollider:
   m_ObjectHideFlags: 0

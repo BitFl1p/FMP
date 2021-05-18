@@ -387,6 +387,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  moneyToDrop: 10
 --- !u!1001 &2292839034886133212
 PrefabInstance:
   m_ObjectHideFlags: 0

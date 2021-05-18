@@ -420,8 +420,9 @@ MonoBehaviour:
   speed: 4
   targetDist: 100
   rb: {fileID: 0}
-  isGounded: 0
+  isGrounded: 0
   walled: 0
+  moneyToDrop: 100
 --- !u!1001 &570061266640771002
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1080,6 +1080,7 @@ MonoBehaviour:
   targetDist: 300
   nextWaypointDistance: 10
   rb: {fileID: 6349750429009721617}
+  moneyToDrop: 500
 --- !u!65 &6349750429009721618
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -25,17 +25,22 @@ public class EnemyAI : MonoBehaviour
         anim.SetBool("Attacking", false);
         if(FindObjectOfType<ThirdPersonMovement>() != null) target = FindObjectOfType<ThirdPersonMovement>().gameObject.transform;
         seeker = GetComponent<Seeker>();
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        InvokeRepeating("UpdatePath", 0f, .5f); 
+        InvokeRepeating("UpdateTarget", 0f, 2f);
+    }
+    internal virtual void UpdateTarget()
+    {
+        if(target == null) target = FindObjectOfType<ThirdPersonMovement>()?.gameObject.transform; if (target == null) return;
+        if (!target.gameObject.activeInHierarchy) target = null; 
     }
     internal virtual void FixedUpdate()
     {
-        if (target == null) { if (FindObjectOfType<CharacterController2D>() != null) { target = FindObjectOfType<CharacterController2D>().gameObject.transform; } }
-        else PlayerSeen();
+        if(target!=null)PlayerSeen();
         Attack();
     }
     internal virtual void UpdatePath()
     {
-        if(target == null) if (FindObjectOfType<ThirdPersonMovement>() != null) target = FindObjectOfType<ThirdPersonMovement>().gameObject.transform;
+        if (target == null) return;
         if (seeker.IsDone() && target != null) path = seeker.StartPath(rb.position, target.transform.position);
     }
     internal virtual void Attack()

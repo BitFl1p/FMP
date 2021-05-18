@@ -976,6 +976,7 @@ MonoBehaviour:
   targetDist: 100
   nextWaypointDistance: 20
   rb: {fileID: 738731642084218169}
+  moneyToDrop: 100
   hip: {fileID: 837787912780618057}
   offset: {x: 0, y: 80, z: 0}
   maxCount:

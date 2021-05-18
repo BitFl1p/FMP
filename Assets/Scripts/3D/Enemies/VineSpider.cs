@@ -9,6 +9,7 @@ public class VineSpider : EnemyAI
     internal override void FixedUpdate()
     {
         base.FixedUpdate();
+        if (target == null) return;
         transform.LookAt(target);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         transform.eulerAngles += new Vector3(0, 90, 0);

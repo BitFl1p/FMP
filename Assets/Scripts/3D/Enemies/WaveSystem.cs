@@ -25,6 +25,7 @@ public class WaveSystem : MonoBehaviour
     float waveTimer;
     public float waveDelay;
     public List<int[]> he;
+    bool geraldSpawned;
     [System.Serializable] public class Wave { public int[] values = new int[8]; }
     private void Awake()
     {
@@ -99,15 +100,7 @@ public class WaveSystem : MonoBehaviour
                 case 10:
                     if (start)
                     {
-                        FindObjectOfType<AudioManager>().SwitchTrack(8);
-                        start = false;
-                        map.SetActive(false);
-                        arena.SetActive(true);
-                        vcam.SetActive(true);
-                        RenderSettings.skybox = endSkybox;
-                        player.gameObject.SetActive(true);
-                        player.transform.position = new Vector3(37, 40, 497);
-                        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        geraldSpawned = false;
                         SpawnEnemy();
                     }
                     break;
@@ -127,13 +120,31 @@ public class WaveSystem : MonoBehaviour
         spawnables.Clear();
         if(waveNum == 10)
         {
-            GameObject enemyToSpawn = enemyPrefabs3D[enemyPrefabs3D.Length-1];
-            waves[waveNum].values[spawnables[enemyPrefabs3D.Length - 1]]--;
-            GameObject instance = Instantiate(enemyToSpawn);
-            instance.transform.position = new Vector3(230, 130, 750);
-            enemiesInScene.Add(instance);
-            waveDone = false;
-            return;
+            if (!geraldSpawned)
+            {
+                FindObjectOfType<AudioManager>().SwitchTrack(8);
+                start = false;
+                map.SetActive(false);
+                arena.SetActive(true);
+                vcam.SetActive(true);
+                RenderSettings.skybox = endSkybox;
+                player.gameObject.SetActive(true);
+                player.transform.position = new Vector3(37, 40, 497);
+                player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                geraldSpawned = true; 
+                GameObject enemyToSpawn = enemyPrefabs3D[enemyPrefabs3D.Length - 1];
+                waves[waveNum].values[waves[waveNum].values.Length -1]--;
+                GameObject instance = Instantiate(enemyToSpawn);
+                instance.transform.position = new Vector3(230, 130, 750);
+                enemiesInScene.Add(instance);
+                waveDone = false;
+                return;
+            }
+            else
+            {
+                return;
+            }
+            
         }
         if(Random.Range(0, 4) != 1)
         {

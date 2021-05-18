@@ -6,8 +6,8 @@ public class TankMan : EnemyAI
 {
     internal override void FixedUpdate()
     {
-        Attack();
-        PlayerSeen();
+        base.FixedUpdate();
+        if (target == null) return;
         transform.LookAt(target); transform.eulerAngles += new Vector3(0, 90, 0);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }

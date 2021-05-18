@@ -12,12 +12,13 @@ public class BrainCaseAI : EnemyAI
     }
     internal override void FixedUpdate()
     {
-        base.FixedUpdate();
+        base.FixedUpdate(); 
+        if (target == null) return;
         transform.LookAt(target);
     }
     internal override void UpdatePath()
     {
-        if (target == null) if (FindObjectOfType<ThirdPersonMovement>() != null) target = FindObjectOfType<ThirdPersonMovement>().GetComponent<Transform>();
+        if (target == null) return;
         if (seeker.IsDone() && target != null) path = seeker.StartPath(new Vector3(rb.position.x, target.position.y, rb.position.y), target.transform.position);
     }
     internal override void Attack()

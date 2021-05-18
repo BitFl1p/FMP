@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public float volume;
     public float maxVol;
     bool done;
-    List<int> tracksToPlay;
+    List<int> tracksToPlay = new List<int> { };
     int currentIndex = 0;
 
     void Update()
