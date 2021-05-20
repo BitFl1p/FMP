@@ -89,7 +89,7 @@ public class Gun2D : GunBase
     }
     void FirePistol()
     {
-
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[0].Play();
         Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Bullet2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis);
         anim.SetBool("Shoot", true);
 
@@ -97,7 +97,7 @@ public class Gun2D : GunBase
     }
     void FireShotgun()
     {
-
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[1].Play();
         for (int i = 0; i <= 6; i++) Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Bullet2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, InaccuracyCalc(), speed, firePoint.position, axis);
 
         anim.SetBool("Shoot", true);
@@ -105,7 +105,7 @@ public class Gun2D : GunBase
     }
     void FireBoomer()
     {
-
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[2].Play();
         Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Boomerang2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, player);
         anim.SetBool("Shoot", true);
 
@@ -113,6 +113,7 @@ public class Gun2D : GunBase
     }
     void FireExploder()
     {
+        Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[2].Play();
         Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<ExplodeBullet2D>().SetData((int)(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, axis, explode);
         anim.SetBool("Shoot", true);
 

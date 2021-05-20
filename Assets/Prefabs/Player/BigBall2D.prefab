@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4857805654575586569}
   - component: {fileID: 4857805654575586568}
   - component: {fileID: 6228659855957784601}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BigBall2D
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 2669823372642924856}
   - component: {fileID: 816275809722488061}
   - component: {fileID: 4871712449298732351}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -16,21 +16,11 @@ public class Portal : MonoBehaviour
             {
                 CharacterController2D playerCon = player2D.GetComponent<CharacterController2D>();
                 playerCon.lastMove = 1; 
-                /*if (!playerCon.flip)
-                {
-                    if (axis == "ZY") player2D.transform.eulerAngles = new Vector3(180, 180, -180);
-                    else player2D.transform.eulerAngles = new Vector3(180, 90, -180);
-                }
-                else
-                {
-                    if (axis == "ZY") player2D.transform.eulerAngles = new Vector3(180, 90, -180);
-                    else player2D.transform.eulerAngles = new Vector3(180, 0, -180);
-                }*/
                 SetStats(player3D.GetComponent<Stats>(), player2D.GetComponent<Stats>());
                 player2D.SetActive(true);
                 PlayerGunSelector gunSel2D = player2D.GetComponent<PlayerGunSelector>();
                 PlayerGunSelector gunSel3D = player3D.GetComponent<PlayerGunSelector>();
-                gunSel2D.ChangeWeapon(gunSel3D.getDamage(), gunSel3D.getWepNum());
+                gunSel2D.ChangeWeapon(gunSel3D.damage, gunSel3D.wepNum);
                 player2D.transform.position = endPortal.transform.position;
                 player3D.SetActive(false);
                 vCam3D.SetActive(false);
@@ -48,7 +38,7 @@ public class Portal : MonoBehaviour
                 player3D.SetActive(true);
                 PlayerGunSelector gunSel2D = player2D.GetComponent<PlayerGunSelector>();
                 PlayerGunSelector gunSel3D = player3D.GetComponent<PlayerGunSelector>();
-                gunSel3D.ChangeWeapon(gunSel2D.getDamage(), gunSel2D.getWepNum());
+                gunSel3D.ChangeWeapon(gunSel2D.damage, gunSel2D.wepNum);
                 player3D.transform.position = endPortal.transform.position;
                 player2D.SetActive(false);
                 vCam2D.SetActive(false);

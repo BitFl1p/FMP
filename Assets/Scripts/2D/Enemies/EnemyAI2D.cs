@@ -121,7 +121,7 @@ public class EnemyAI2D : MonoBehaviour
             }
             if(walled && isGrounded)
             {
-                rb.velocity += new Vector3(0, speed*5, 0);
+                rb.velocity += new Vector3(0, speed*15, 0);
                 isGrounded = false;
             }
 

@@ -3,6 +3,7 @@
 public class BigBall : Projectile
 {
     int count = 0;
+    float damCount = 1;
     internal override void Shoot()
     {
         if (start)
@@ -24,8 +25,18 @@ public class BigBall : Projectile
     private void OnTriggerEnter(Collider other)
     {
         Health health = other.GetComponent<Health>();
-        health?.TakeDamage(damage);
-        count++;
+        if (health)
+        {
+            health.TakeDamage(damage);
+            count++;
+            damCount = 1;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        damCount -= Time.deltaTime;
+        if(damCount < 0) OnTriggerEnter(other);
+
     }
 
 
