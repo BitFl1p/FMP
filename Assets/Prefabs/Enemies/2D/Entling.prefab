@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 6953548269890938357}
   - component: {fileID: 6953548269890938356}
   - component: {fileID: 6953548269890938359}
+  - component: {fileID: 687834342959121373}
   m_Layer: 13
   m_Name: Entling
   m_TagString: Enemy
@@ -399,11 +400,12 @@ MonoBehaviour:
   hurtboxes:
   - {fileID: 6953548269654327765}
   target: {fileID: 0}
-  speed: 3
+  speed: 2
   targetDist: 20
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  flip: 0
   moneyToDrop: 20
 --- !u!65 &6953548269890938359
 BoxCollider:
@@ -418,6 +420,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59206843, y: 1.376448, z: 1.037645}
   m_Center: {x: 0.03142965, y: -0.058224022, z: -2.5530632e-18}
+--- !u!114 &687834342959121373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953548269890938361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6953548269983384940
 GameObject:
   m_ObjectHideFlags: 0

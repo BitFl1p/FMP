@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class ThirdPersonMovement : MonoBehaviour
 {
     Rigidbody rb;
@@ -21,6 +22,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public bool clampDisabled;
     public float knockCount;
     InputMaster input;
+    [SerializeField] Image shift, arrow;
     private void Start()
     {
         jumpHeight = GetComponent<Stats>().jumpHeight;
@@ -122,7 +124,7 @@ public class ThirdPersonMovement : MonoBehaviour
             if(dashCount <= 0 && kb.shiftKey.isPressed)
             {
                 rb.velocity = new Vector3(moveDir.x * (speed * GetComponent<Stats>().moveSpeed) * 10, rb.velocity.y, moveDir.z * (speed * GetComponent<Stats>().moveSpeed) * 10);
-                dashCount = 3;
+                dashCount = 4;
             }
             else
             {
@@ -136,7 +138,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             anim.SetBool("Schmove", false);
         }
-        if (dashCount < 2.8)
+        if (dashCount < 3.8)
         {
             rb.velocity = new Vector3(GoTowardsZero(rb.velocity.x, System.Math.Abs(rb.velocity.x / drag)), rb.velocity.y, GoTowardsZero(rb.velocity.z, System.Math.Abs(rb.velocity.z / drag)));
             trail.SetActive(false);
@@ -148,7 +150,22 @@ public class ThirdPersonMovement : MonoBehaviour
             trail.SetActive(true);
             dashing = true;
         }
-        if (dashCount > 0) { if (dashing && dashCount < 2.8) { dashing = false; rb.velocity = Vector3.zero; } dashCount -= Time.deltaTime; }
+        if (dashCount > 0) 
+        {
+            shift.color = new Color(0.5f, 0.5f, 0.5f);
+            arrow.color = new Color(0.5f, 0.5f, 0.5f);
+            if (dashing && dashCount < 3.8) 
+            { 
+                dashing = false; 
+                rb.velocity = Vector3.zero; 
+            } 
+            dashCount -= Time.deltaTime;
+        }
+        else
+        {
+            shift.color = new Color(1,1,1);
+            arrow.color = new Color(1, 1, 1);
+        }
         
         
         anim.SetFloat("SpeedX", horizontal, Time.deltaTime * 2f, Time.deltaTime);

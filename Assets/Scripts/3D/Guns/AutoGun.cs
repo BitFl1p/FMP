@@ -34,10 +34,10 @@ public class AutoGun : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Health>() != null && other.gameObject.tag == "Enemy")
+        if (other.gameObject.GetComponent<EnemyHealth>() != null && other.gameObject.layer == 10)
         {
 
-            head.LookAt(FindObjectOfType<Health>().transform.position);
+            head.LookAt(FindObjectOfType<EnemyHealth>().transform.position);
             if (done)
             {
                 anim.SetBool("Shoot", false);

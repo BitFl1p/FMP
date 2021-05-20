@@ -133,7 +133,7 @@ public class WaveSystem : MonoBehaviour
                 player.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 geraldSpawned = true; 
                 GameObject enemyToSpawn = enemyPrefabs3D[enemyPrefabs3D.Length - 1];
-                waves[waveNum].values[waves[waveNum].values.Length -1]--;
+                //waves[waveNum].values[waves[waveNum].values.Length -1]--;
                 GameObject instance = Instantiate(enemyToSpawn);
                 instance.transform.position = new Vector3(230, 130, 750);
                 enemiesInScene.Add(instance);
@@ -205,6 +205,7 @@ public class WaveSystem : MonoBehaviour
                 Transform spawnLoc = locations2D[Random.Range(0, locations2D.Count-1)];
                 instance.transform.position = spawnLoc.position;
                 instance.GetComponent<EnemyAI2D>().axis = spawnLoc.GetComponent<AxisHolder>().axis;
+                instance.GetComponent<EnemyAI2D>().flip = spawnLoc.GetComponent<AxisHolder>().flip;
                 enemiesInScene.Add(instance);
                 return;
             }

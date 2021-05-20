@@ -6,7 +6,7 @@ public class PlayerHealth : Health
     public GameObject visuals;
     float count = 0;
     float damageCount;
-    [HideInInspector] public bool godMode = false;
+    public bool godMode = false;
     internal override void OnEnable()
     {
         base.OnEnable();

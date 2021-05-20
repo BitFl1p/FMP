@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 6495696865203228256}
   - component: {fileID: 6495696865203228257}
   - component: {fileID: 6495696865203228262}
+  - component: {fileID: 8247184030651735045}
   m_Layer: 13
   m_Name: Mech Elf
   m_TagString: Enemy
@@ -157,6 +158,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  flip: 0
   moneyToDrop: 40
 --- !u!65 &6495696865203228262
 BoxCollider:
@@ -171,6 +173,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0411355, y: 2.0813513, z: 1.037645}
   m_Center: {x: -0.013551712, y: -0.057306767, z: -2.946314e-17}
+--- !u!114 &8247184030651735045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495696865203228260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6495696865357321253
 GameObject:
   m_ObjectHideFlags: 0

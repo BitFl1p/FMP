@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 570061267872124192}
   - component: {fileID: 570061267872124193}
   - component: {fileID: 570061267872124195}
+  - component: {fileID: 3662291138474930189}
   m_Layer: 13
   m_Name: Ent
   m_TagString: Enemy
@@ -422,7 +423,26 @@ MonoBehaviour:
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  flip: 0
   moneyToDrop: 100
+--- !u!114 &3662291138474930189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570061267872124223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &570061266640771002
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 6640682212202130076}
   - component: {fileID: 6640682212202130075}
   - component: {fileID: 6640682212202130074}
+  - component: {fileID: 3672430028896624138}
   m_Layer: 13
   m_Name: Tank
   m_TagString: 2D
@@ -179,6 +180,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  flip: 0
+  moneyToDrop: 0
 --- !u!54 &6640682212202130075
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,6 +217,24 @@ MonoBehaviour:
   damageSlid: {fileID: 4633157793898023040}
   healthCanvas: {fileID: 184359750477939986}
   axis: ZY
+--- !u!114 &3672430028896624138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640682212202130072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6640682212317825960
 GameObject:
   m_ObjectHideFlags: 0

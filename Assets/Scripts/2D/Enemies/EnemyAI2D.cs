@@ -12,7 +12,7 @@ public class EnemyAI2D : MonoBehaviour
     public Transform target;
     public float speed = 5f, targetDist = 100;
     [HideInInspector] public Rigidbody rb;
-    public bool isGrounded, walled;
+    public bool isGrounded, walled, flip;
     bool start;
     internal virtual void OnEnable()
     {
@@ -83,20 +83,38 @@ public class EnemyAI2D : MonoBehaviour
         if (target == null) return;
         
         Vector3 targetDir = Quaternion.LookRotation((target.position - transform.position).normalized, Vector3.up).eulerAngles;
+        Debug.Log(new Vector3((target.position.x - transform.position.x), 0, 0).normalized.x);
+        Debug.Log(new Vector3(0, 0, (target.position.z - transform.position.z)).normalized.z);
         if (target.gameObject.activeInHierarchy)
         {
             if (axis == "ZY")
             {
-                if (targetDir.y >= 135 && targetDir.y <= 225) transform.eulerAngles = new Vector3(0, 90, 0);
-                else transform.eulerAngles = new Vector3(0, 270, 0);
+                if (!flip)
+                {
+                    if (new Vector3(0, 0, (target.position.z - transform.position.z)).normalized.z > 0) transform.eulerAngles = new Vector3(0, 90, 0);
+                    else transform.eulerAngles = new Vector3(0, 270, 0);
+                }
+                else
+                {
+                    if (new Vector3(0, 0, (target.position.z - transform.position.z)).normalized.z > 0) transform.eulerAngles = new Vector3(0, 270, 0);
+                    else transform.eulerAngles = new Vector3(0, 90, 0);
+                }
                 rb.velocity += new Vector3(0, 0, (target.position.z - transform.position.z)).normalized * speed;
                 rb.velocity = new Vector3(0, rb.velocity.y, Mathf.Clamp(rb.velocity.z, speed * -10, speed * 10));
             }
             else
             {
-                if (targetDir.y >= 45 && targetDir.y <= 135) transform.eulerAngles = new Vector3(0, 0, 0);
-                else rb.velocity += new Vector3((target.position.x - transform.position.x), 0, 0).normalized * speed; transform.eulerAngles = new Vector3(0, 180, 0);
-                
+                if (!flip)
+                {
+                    if (new Vector3((target.position.x - transform.position.x), 0, 0).normalized.x > 0) transform.eulerAngles = new Vector3(0, 0, 0);
+                    else transform.eulerAngles = new Vector3(0, 180, 0);
+                }
+                else
+                {
+                    if (new Vector3((target.position.x - transform.position.x), 0, 0).normalized.x > 0) transform.eulerAngles = new Vector3(0, 180, 0);
+                    else transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+
                 rb.velocity += new Vector3((target.position.x - transform.position.x), 0, 0).normalized * speed;
                 rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, speed * -10, speed * 10), rb.velocity.y, 0);
 
@@ -121,6 +139,6 @@ public class EnemyAI2D : MonoBehaviour
     public int moneyToDrop;
     internal virtual void OnDestroy()
     {
-        target.GetComponent<Stats>().Coins2D += moneyToDrop;
+        if(target != null) target.GetComponent<Stats>().Coins2D += moneyToDrop;
     }
 }

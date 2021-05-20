@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 2292839035691711722}
   - component: {fileID: 2292839035691711719}
   - component: {fileID: 1224461384716024111}
+  - component: {fileID: -756656556119786526}
   m_Layer: 13
   m_Name: Tesla Spider
   m_TagString: Enemy
@@ -387,7 +388,26 @@ MonoBehaviour:
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  flip: 0
   moneyToDrop: 10
+--- !u!114 &-756656556119786526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292839035691711726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &2292839034886133212
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7121721213566255529}
   - component: {fileID: 7121721213566255527}
   - component: {fileID: 7121721213566255526}
+  - component: {fileID: -3345722412430559657}
   m_Layer: 13
   m_Name: VineSpider
   m_TagString: Enemy
@@ -92,11 +93,12 @@ MonoBehaviour:
   hurtboxes:
   - {fileID: 7121721214204222674}
   target: {fileID: 0}
-  speed: 4
+  speed: 3
   targetDist: 20
   rb: {fileID: 0}
   isGrounded: 0
   walled: 0
+  flip: 0
   moneyToDrop: 20
 --- !u!65 &7121721213566255526
 BoxCollider:
@@ -111,6 +113,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1290776, y: 1.2742466, z: 1.037645}
   m_Center: {x: 0.19058102, y: -0.0071232915, z: 8.443936e-16}
+--- !u!114 &-3345722412430559657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121721213566255525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7121721213656269991
 GameObject:
   m_ObjectHideFlags: 0

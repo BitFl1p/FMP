@@ -731,6 +731,7 @@ GameObject:
   - component: {fileID: 3125080842844435765}
   - component: {fileID: 3125080842844435766}
   - component: {fileID: 3125080842844435767}
+  - component: {fileID: 1428104506740370687}
   m_Layer: 10
   m_Name: Vine Spider
   m_TagString: Enemy
@@ -855,6 +856,24 @@ MonoBehaviour:
   maxCount:
   - 4
   - 5
+--- !u!114 &1428104506740370687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125080842844435761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3125080843235404402
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,9 +2252,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 096ecade89239f14fb3f0611197db5aa, type: 3}
---- !u!4 &3230273925179366666 stripped
+--- !u!4 &5029875621508284673 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 096ecade89239f14fb3f0611197db5aa,
+  m_CorrespondingSourceObject: {fileID: -1255605710908113952, guid: 096ecade89239f14fb3f0611197db5aa,
     type: 3}
   m_PrefabInstance: {fileID: 3125080843768871649}
   m_PrefabAsset: {fileID: 0}
@@ -2263,9 +2282,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3125080843768871649}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5029875621508284673 stripped
+--- !u!4 &3230273925179366666 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -1255605710908113952, guid: 096ecade89239f14fb3f0611197db5aa,
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 096ecade89239f14fb3f0611197db5aa,
     type: 3}
   m_PrefabInstance: {fileID: 3125080843768871649}
   m_PrefabAsset: {fileID: 0}

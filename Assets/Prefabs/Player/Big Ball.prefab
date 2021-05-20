@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7099970220442415855}
   - component: {fileID: 1504557628450780004}
   - component: {fileID: 2884618357544842232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4794,7 +4794,7 @@ GameObject:
   - component: {fileID: 94931195068723295}
   - component: {fileID: 3213022122546949832}
   - component: {fileID: 1003851509171292534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Big Ball
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -4829,13 +4829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946dfd1ac0e89d342a41d1fc3f080bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  rotation: {x: 0, y: 0, z: 0, w: 0}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 0
-  pos: {x: 0, y: 0, z: 0}
-  lastPos: {x: 0, y: 0, z: 0}
-  explode: {fileID: 5062369786994558321, guid: dd22ccd6cc6dc8b45a1ab73dcc9c2059, type: 3}
 --- !u!135 &3213022122546949832
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4861,6 +4854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320baa3d393c09c42adafa751380f49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quickdie: 0
   timer: 10
 --- !u!1 &8962686910448611897
 GameObject:
@@ -4873,7 +4867,7 @@ GameObject:
   - component: {fileID: 6051761161869298946}
   - component: {fileID: 8955640248686080529}
   - component: {fileID: 6716268752614698465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
