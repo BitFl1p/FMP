@@ -83,8 +83,6 @@ public class EnemyAI2D : MonoBehaviour
         if (target == null) return;
         
         Vector3 targetDir = Quaternion.LookRotation((target.position - transform.position).normalized, Vector3.up).eulerAngles;
-        Debug.Log(new Vector3((target.position.x - transform.position.x), 0, 0).normalized.x);
-        Debug.Log(new Vector3(0, 0, (target.position.z - transform.position.z)).normalized.z);
         if (target.gameObject.activeInHierarchy)
         {
             if (axis == "ZY")

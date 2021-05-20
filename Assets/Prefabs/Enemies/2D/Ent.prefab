@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 570061267872124223}
-  maxHealth: 200
+  maxHealth: 1000
   currentHealth: 0
   healthSlid: {fileID: 4598829407386759297}
   damageSlid: {fileID: 1985377757504201181}

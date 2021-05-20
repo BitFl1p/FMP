@@ -15,7 +15,14 @@ public class AutoGun2D : MonoBehaviour
     public Animator anim;
     public Explode2D explosion;
     bool detected;
-
+    private void Awake()
+    {
+        OnEnable();
+    }
+    private void Start()
+    {
+        OnEnable();
+    }
     private void OnEnable()
     {
 

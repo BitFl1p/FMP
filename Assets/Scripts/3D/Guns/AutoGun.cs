@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections.Generic;
 public class AutoGun : MonoBehaviour
 {
     public float critChance;
@@ -13,6 +13,7 @@ public class AutoGun : MonoBehaviour
     public Animator anim;
     public Explode explosion;
     bool detected;
+    List<Transform> enemies = new List<Transform> { };
 
 
     private void Update()
@@ -32,19 +33,53 @@ public class AutoGun : MonoBehaviour
         AutoGun[] sentries = FindObjectsOfType<AutoGun>();
         if (sentries.Length > 2) for (int i = 0; i < sentries.Length; i++) if (i > 2) sentries[i].Explode();
     }
+    Transform GetClosestEnemy(List<Transform> enemies)
+    {
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (Transform t in enemies)
+        {
+            if (t)
+            {
+                float dist = Vector3.Distance(t.position, currentPos);
+                if (dist < minDist)
+                {
+                    tMin = t;
+                    minDist = dist;
+                }
+            }
+            
+        }
+        return tMin;
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<EnemyHealth>() != null && other.gameObject.layer == 10)
         {
-
-            head.LookAt(FindObjectOfType<EnemyHealth>().transform.position);
+            if(!enemies.Contains(other.transform)) enemies.Add(other.transform);
+            enemies.RemoveAll(item => item == null);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<EnemyHealth>() != null && other.gameObject.layer == 10)
+        {
+            if(enemies.Contains(other.transform)) enemies.Remove(other.transform);
+            enemies.RemoveAll(item => item == null);
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (enemies != null)
+        {
+            head.LookAt(GetClosestEnemy(enemies));
             if (done)
             {
                 anim.SetBool("Shoot", false);
                 done = false;
                 Shoot();
             }
-
         }
     }
 

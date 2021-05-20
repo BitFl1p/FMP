@@ -22,7 +22,7 @@ public class CharacterController2D : MonoBehaviour
     }
     private void OnEnable()
     {
-        input.Enable();
+        input?.Enable();
         if (!flip)
         {
             if (axis == "ZY") if (lastMove < 0) transform.eulerAngles = new Vector3(180, -90, -180); else transform.eulerAngles = new Vector3(180, 90, -180);
@@ -36,7 +36,7 @@ public class CharacterController2D : MonoBehaviour
     }
     private void OnDisable()
     {
-        input.Disable();
+        input?.Disable();
     }
     void Start()
     {
@@ -58,7 +58,7 @@ public class CharacterController2D : MonoBehaviour
             transform.position = new Vector3(lockPos.position.x, transform.position.y, transform.position.z);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
-        Vector2 moveInput = input.Player2D.Move.ReadValue<Vector2>();
+        Vector2 moveInput = (Vector2)input?.Player2D.Move.ReadValue<Vector2>();
         if (moveInput != Vector2.zero)
         {
             if (axis == "XY")

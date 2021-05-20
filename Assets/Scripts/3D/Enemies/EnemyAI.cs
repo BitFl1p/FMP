@@ -101,6 +101,6 @@ public class EnemyAI : MonoBehaviour
     public int moneyToDrop;
     internal virtual void OnDestroy()
     {
-        target.GetComponent<Stats>().Coins3D += moneyToDrop;
+        if(target) target.GetComponent<Stats>().Coins3D += moneyToDrop;
     }
 }
