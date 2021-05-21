@@ -18,7 +18,7 @@ public class SentryCase2D : Projectile2D
     }
     internal override void Aim()
     {
-        if (axis != "XY") transform.eulerAngles = new Vector3(0, 0, 0);
+        if (axis == "XY") transform.eulerAngles = new Vector3(0, 0, 0);
         else transform.eulerAngles = new Vector3(0, 90, 0);
 
     }

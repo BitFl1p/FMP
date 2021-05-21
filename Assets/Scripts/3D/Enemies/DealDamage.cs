@@ -54,7 +54,7 @@ public class DealDamage : MonoBehaviour
             return;
         }
         //Debug.Log(((other.transform.position - transform.position).normalized  - new Vector3(0, upForce, 0)).normalized * knockback);
-        other.attachedRigidbody.velocity += ((other.transform.position - transform.position).normalized - new Vector3(0, upForce, 0)).normalized * knockback;
+        if(other.attachedRigidbody) other.attachedRigidbody.velocity += ((other.transform.position - transform.position).normalized - new Vector3(0, upForce, 0)).normalized * knockback;
         
     }
 }

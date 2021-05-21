@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 public class AutoGun : MonoBehaviour
 {
     public float critChance;
@@ -71,7 +72,7 @@ public class AutoGun : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (enemies != null)
+        if (enemies.Any())
         {
             head.LookAt(GetClosestEnemy(enemies));
             if (done)

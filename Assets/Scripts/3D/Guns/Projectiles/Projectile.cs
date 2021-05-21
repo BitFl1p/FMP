@@ -30,7 +30,17 @@ public class Projectile : MonoBehaviour
     }
     internal virtual void Shoot()
     {
-        if (!start)
+        
+        if (start)
+        {
+            speed = speed * 100;
+            transform.position = pos;
+            GetComponent<Rigidbody>().velocity = direction * speed;
+
+            transform.rotation = rotation;
+            start = false;
+        }
+        else
         {
             RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
             foreach (RaycastHit hit in hits)
@@ -48,16 +58,6 @@ public class Projectile : MonoBehaviour
                 }
             }
         }
-        if (start)
-        {
-            speed = speed * 100;
-            transform.position = pos;
-            GetComponent<Rigidbody>().velocity = direction * speed;
-
-            transform.rotation = rotation;
-            start = false;
-        }
-        
         if (itHit) Kill();
         lastPos = transform.position;
     }

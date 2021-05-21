@@ -10,10 +10,8 @@ public class AudioManager : MonoBehaviour
     public bool musicCanPlay;
     public float volume;
     public float maxVol;
-    bool done;
     List<int> tracksToPlay = new List<int> { };
-    int currentIndex = 0;
-
+    bool done = true;
     void Update()
     {
         foreach (AudioSource sf in sfx) { sf.volume = volume * maxVol; }
@@ -22,12 +20,11 @@ public class AudioManager : MonoBehaviour
         {
             if (!musicTracks[currentTrack].isPlaying)
             {
-                if(tracksToPlay != null &&tracksToPlay.Count >= 1)
+                if(tracksToPlay != null &&tracksToPlay.Count >= 1&& !done)
                 {
-                    currentIndex += Random.Range(0, tracksToPlay.Count);
-                    currentTrack = tracksToPlay[currentIndex];
+                    currentTrack = tracksToPlay[Random.Range(0, tracksToPlay.Count - 1)];
+                    done = true;
                 }
-                done = true;
                 musicTracks[currentTrack].Play();
             }
         }
@@ -42,11 +39,12 @@ public class AudioManager : MonoBehaviour
         currentTrack = newTrack;
         tracksToPlay.Clear();
         musicTracks[currentTrack].Play();
+        done = false;
     }
     public void SwitchTrack(List<int> newTracks)
     {
         foreach(AudioSource track in musicTracks) track.Stop();
-        currentIndex = -1;
         tracksToPlay = newTracks;
+        done = false;
     }
 }

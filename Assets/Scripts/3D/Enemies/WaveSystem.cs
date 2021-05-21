@@ -67,47 +67,48 @@ public class WaveSystem : MonoBehaviour
                 {
                     waveSwitch = true;
                 }
-                start = false;
             }
+        }
+        if (start)
+        {
             switch (waveNum)
             {
                 case 0:
-                case 4:
-                case 7:
+                case 3:
+                case 6:
                     if (start)
                     {
                         FindObjectOfType<AudioManager>().SwitchTrack(new List<int> { 4, 5, 6, 9 });
                     }
                     break;
-                case 3:
+                case 2:
                     if (start)
                     {
                         FindObjectOfType<AudioManager>().SwitchTrack(7);
                     }
                     break;
-                case 6:
+                case 5:
                     if (start)
                     {
                         FindObjectOfType<AudioManager>().SwitchTrack(2);
                     }
                     break;
-                case 9:
+                case 8:
                     if (start)
                     {
                         FindObjectOfType<AudioManager>().SwitchTrack(9);
                     }
                     break;
-                case 10:
+                case 9:
                     if (start)
                     {
                         geraldSpawned = false;
                         SpawnEnemy();
                     }
                     break;
-                default:
-                    start = false;
-                    break;
+                    
             }
+            start = false;
 
         }
 

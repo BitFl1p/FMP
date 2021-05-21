@@ -96,7 +96,7 @@ public class Gun : GunBase
         muzzle?.Play();
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[0].Play();
         StartCoroutine(Camera.main.GetComponentInParent<CameraShake>().Shake(0.1f, 0.2f));
-        Instantiate(bullet).GetComponent<Bullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, 0)).GetComponent<Bullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
 
 
@@ -114,7 +114,7 @@ public class Gun : GunBase
     {
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[2].Play();
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<Boomerang>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, gameObject);
+        Instantiate(bullet,firePoint.position,Quaternion.Euler(0,0,0)).GetComponent<Boomerang>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, gameObject);
         anim.SetBool("Shoot", true);
 
 
@@ -123,14 +123,14 @@ public class Gun : GunBase
     {
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[2].Play();
         muzzle?.Play();
-        Instantiate(bullet).GetComponent<ExplodeBullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
+        Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, 0)).GetComponent<ExplodeBullet>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position, explode);
         anim.SetBool("Shoot", true);
 
     }
     void ThrowSentry()
     {
         Camera.main.gameObject.GetComponentInParent<AudioManager>().sfx[3].Play();
-        Instantiate(bullet).GetComponent<SentryCase>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
+        Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, 0)).GetComponent<SentryCase>().SetData((int)Mathf.Ceil(damage * player.GetComponent<Stats>().baseDamage * damageMultiplier), player.GetComponent<Stats>().critChance, firePoint.rotation, firePoint.forward, speed, firePoint.position);
         anim.SetBool("Shoot", true);
     }
     Vector3 InaccuracyCalc() { return new Vector3(firePoint.forward.x + (firePoint.forward.x * Random.Range(-0.1f, 0.1f)), firePoint.forward.y + (firePoint.forward.y * Random.Range(-0.3f, 0.3f)), firePoint.forward.z + (firePoint.forward.z * Random.Range(-0.1f, 0.1f))).normalized; }

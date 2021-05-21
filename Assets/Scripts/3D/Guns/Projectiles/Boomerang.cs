@@ -19,20 +19,24 @@ public class Boomerang : Projectile
             transform.rotation = rotation;
             start = false;
         }
-        GetComponent<Rigidbody>().velocity += player.transform.position - transform.position;
-        GetComponent<Rigidbody>().velocity += new Vector3(0, speed / 1000, 0);
-        RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
-        foreach (RaycastHit hit in hits)
+        else
         {
-            if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
+            GetComponent<Rigidbody>().velocity += player.transform.position - transform.position;
+            GetComponent<Rigidbody>().velocity += new Vector3(0, speed / 1000, 0);
+            RaycastHit[] hits = Physics.RaycastAll(new Ray(lastPos, (transform.position - lastPos).normalized), (transform.position - lastPos).magnitude);
+            foreach (RaycastHit hit in hits)
             {
-                if (hit.collider.gameObject.GetComponent<Health>() != null)
+                if (hit.collider.isTrigger == false && hit.collider.gameObject.tag != "OuterWall" && hit.collider.gameObject.tag != "Player")
                 {
-                    hit.collider.gameObject.GetComponent<Health>().TakeDamage(damage);
+                    if (hit.collider.gameObject.GetComponent<Health>() != null)
+                    {
+                        hit.collider.gameObject.GetComponent<Health>().TakeDamage(damage);
+                    }
+                    itHit = true;
                 }
-                itHit = true;
             }
         }
+        
         if (itHit) Kill();
         lastPos = transform.position;
 

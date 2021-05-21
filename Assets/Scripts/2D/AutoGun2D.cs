@@ -47,14 +47,14 @@ public class AutoGun2D : MonoBehaviour
         if (done) anim.SetBool("Shoot", false); //anim.enabled = false;
         if (enemyLeft && done)
         {
-            head.eulerAngles = leftVector;
+            head.localEulerAngles = leftVector;
             anim.SetBool("Shoot", false);
             done = false;
             Shoot();
         }
         else if (enemyRight && done)
         {
-            head.eulerAngles = rightVector;
+            head.localEulerAngles = rightVector;
             anim.SetBool("Shoot", false);
             done = false;
             Shoot();
