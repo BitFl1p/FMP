@@ -24,14 +24,27 @@ public class Laser : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Health>() != null && dealDamage) { foreach (GameObject hit in hits) hit.gameObject.GetComponent<Health>().TakeDamage(damage); dealDamage = false; }
+        
+        if (other.gameObject.GetComponent<Health>()) 
+        {
+            if (dealDamage)
+            {
+                hits.RemoveAll(item => item == null);
+                foreach (GameObject hit in hits) hit.gameObject.GetComponent<Health>().TakeDamage(damage);
+                dealDamage = false;
+            }
+            hits.RemoveAll(item => item == null);
+            if ((other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy2D") && !hits.Contains(other.gameObject)) hits.Add(other.gameObject);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
+        hits.RemoveAll(item => item == null);
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy2D") hits.Add(other.gameObject);
     }
     private void OnTriggerExit(Collider other)
     {
+        hits.RemoveAll(item => item == null);
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy2D") hits.Remove(other.gameObject);
     }
 }

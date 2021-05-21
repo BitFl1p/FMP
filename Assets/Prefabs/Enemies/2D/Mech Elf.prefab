@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 6495696865203228260}
-  maxHealth: 50
+  maxHealth: 400
   currentHealth: 0
   healthSlid: {fileID: 7070168365646177379}
   damageSlid: {fileID: 5062433956391875903}
@@ -188,7 +188,7 @@ MonoBehaviour:
   outlineMode: 4
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 10
-  precomputeOutline: 0
+  precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
 --- !u!1 &6495696865357321253

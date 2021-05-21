@@ -6117,6 +6117,8 @@ MonoBehaviour:
   - {fileID: 4840172138848690616}
   - {fileID: 4840172138019528006}
   - {fileID: 4840172137679418954}
+  wepNum: 0
+  damage: 0
 --- !u!114 &4840172138496348589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15923,7 +15925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMultiplier: 0
   wepNum: 5
-  damage: 0.2
+  damage: 1
   player: {fileID: 4840172138496348582}
   ammoSlider: {fileID: 0}
   steam:
@@ -20715,11 +20717,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2879075778138201634, guid: 1e1657d08e9d2334eb8f8dc021c11067,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2879075778138201634, guid: 1e1657d08e9d2334eb8f8dc021c11067,
-        type: 3}
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
@@ -20863,15 +20860,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 2879075779369058261, guid: 1e1657d08e9d2334eb8f8dc021c11067,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 2879075779389176804, guid: 1e1657d08e9d2334eb8f8dc021c11067,
         type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2879075779389176805, guid: 1e1657d08e9d2334eb8f8dc021c11067,
         type: 3}
@@ -20907,6 +20899,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666133821612886346, guid: 1e1657d08e9d2334eb8f8dc021c11067,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 6.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666133821612886346, guid: 1e1657d08e9d2334eb8f8dc021c11067,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e1657d08e9d2334eb8f8dc021c11067, type: 3}

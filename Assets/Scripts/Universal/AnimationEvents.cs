@@ -79,7 +79,7 @@ public class AnimationEvents : MonoBehaviour
     }
     public void SpitEntling()
     {
-        GameObject ling = Instantiate(entling, firePoint.position, Quaternion.Euler(0,0,0));
+        GameObject ling = Instantiate(entling, firePoint.position, Quaternion.Euler(-90,0,0));
         ling.GetComponentInChildren<Rigidbody>().gameObject.transform.position = firePoint.position;
         ling.GetComponentInChildren<Rigidbody>().velocity = firePoint.forward * speed;
     }

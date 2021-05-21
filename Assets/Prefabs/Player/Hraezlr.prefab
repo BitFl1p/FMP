@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2879075778138201635}
   - component: {fileID: 5666133821612886346}
-  m_Layer: 0
+  - component: {fileID: -402323088876412118}
+  m_Layer: 8
   m_Name: Hraezlr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,8 +48,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3, y: 3, z: 32.542942}
+  m_Center: {x: 0, y: 0, z: 15.771471}
+--- !u!54 &-402323088876412118
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879075778138201634}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2879075778208696682
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +80,7 @@ GameObject:
   - component: {fileID: 2879075778208696598}
   - component: {fileID: 2879075778208696681}
   - component: {fileID: 2879075778208696680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2879075778608368506}
   - component: {fileID: 2879075778608368507}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,19 +305,28 @@ LineRenderer:
   - {x: 0, y: 0, z: 30}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 2
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 0
+        inSlope: 2.6529255
+        outSlope: 2.6529255
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.103296705
+      - serializedVersion: 3
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -352,7 +378,7 @@ GameObject:
   - component: {fileID: 2879075779369058258}
   - component: {fileID: 2879075779369058256}
   - component: {fileID: 2879075779369058259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5133,7 +5159,7 @@ GameObject:
   - component: {fileID: 2879075779389176805}
   - component: {fileID: 2879075779389176803}
   - component: {fileID: 2879075779389176802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5149,7 +5175,7 @@ Transform:
   m_GameObject: {fileID: 2879075779389176804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 30}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 2879075778138201635}
   m_RootOrder: 2
@@ -9914,7 +9940,7 @@ GameObject:
   - component: {fileID: 2879075779667114666}
   - component: {fileID: 2879075779667114664}
   - component: {fileID: 2879075779667114667}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
