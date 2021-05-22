@@ -7,7 +7,6 @@ public class ZapCannon2D : GunBase
     public GameObject player;
     public float critChance;
     public Transform firePoint;
-    public bool done;
     public Slider ammoSlider;
     public ParticleSystem[] steam;
     public BigBall2D laser;

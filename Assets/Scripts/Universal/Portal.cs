@@ -14,6 +14,7 @@ public class Portal : MonoBehaviour
             player3D = other.gameObject;
             if (InputSystem.GetDevice<Keyboard>().eKey.wasPressedThisFrame)
             {
+                foreach (GunBase gun in FindObjectsOfType<GunBase>()) gun.done = true;
                 CharacterController2D playerCon = player2D.GetComponent<CharacterController2D>();
                 playerCon.lastMove = 1; 
                 SetStats(player3D.GetComponent<Stats>(), player2D.GetComponent<Stats>());
@@ -33,6 +34,7 @@ public class Portal : MonoBehaviour
             player2D = other.gameObject;
             if (InputSystem.GetDevice<Keyboard>().vKey.wasPressedThisFrame)
             {
+                foreach (GunBase gun in FindObjectsOfType<GunBase>()) gun.done = true;
                 SetStats(player2D.GetComponent<Stats>(), player3D.GetComponent<Stats>());
                 vCam3D.SetActive(true);
                 player3D.SetActive(true);

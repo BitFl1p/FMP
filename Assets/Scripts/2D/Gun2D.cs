@@ -15,7 +15,6 @@ public class Gun2D : GunBase
     public Explode2D explode;
     public float speed;
     public Transform firePoint;
-    public bool done = true;
     Animator anim;
     public int clipSize;
     int ammo;

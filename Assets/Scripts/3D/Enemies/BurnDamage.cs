@@ -12,8 +12,8 @@ public class BurnDamage : MonoBehaviour
     {
         damaged = false;
     }
-    private void OnCollisionEnter(Collision other) { Damage(other); }
-    private void OnCollisionStay(Collision other) { Damage(other); }
+    private void OnCollisionEnter(Collision other) { if (other.gameObject.tag == "Player") Damage(other); else if(other.gameObject.tag == "Enemy") Destroy(other.gameObject); }
+    private void OnCollisionStay(Collision other) { if (other.gameObject.tag == "Player") Damage(other); else if (other.gameObject.tag == "Enemy") Destroy(other.gameObject); }
 
     private void Update()
     {

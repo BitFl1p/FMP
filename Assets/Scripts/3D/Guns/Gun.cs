@@ -15,7 +15,6 @@ public class Gun : GunBase
     public ParticleSystem muzzle;
     public float speed;
     public Transform firePoint;
-    public bool done = true;
     public Animator anim;
     public int clipSize;
     int ammo;
