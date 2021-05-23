@@ -4,6 +4,7 @@ using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DeveloperConsoleBehaviour : MonoBehaviour
 {
@@ -32,21 +33,31 @@ public class DeveloperConsoleBehaviour : MonoBehaviour
             return developerConsole = new DeveloperConsole(prefix, commands);
         }
     }
-    private void OnLevelWasLoaded(int level)
-    {
-        Awake();
-    }
-    private void Start()
-    {
-        Awake();
-    }
-    private void OnEnable()
-    {
-        Awake();
-    }
     private void Awake()
     {
-        if(instance != null && instance != this)
+        OnLoaded();
+        SceneManager.sceneLoaded += OnLoaded;
+    }
+    void OnLoaded(Scene scene, LoadSceneMode mode)
+    {
+
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        uiCanvas = transform.GetChild(0).gameObject;
+        mainUI = GameObject.Find("Hud").gameObject;
+        inputField = transform.GetChild(0).GetChild(5).GetComponent<TMP_InputField>();
+        outputField = transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        uiCanvas.GetComponent<Canvas>().worldCamera = Camera.main;
+    }
+    void OnLoaded()
+    {
+
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;

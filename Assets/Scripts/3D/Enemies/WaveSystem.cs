@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -29,12 +30,18 @@ public class WaveSystem : MonoBehaviour
     [System.Serializable] public class Wave { public int[] values = new int[8]; }
     private void Awake()
     {
+        OnLoaded();
+        SceneManager.sceneLoaded += OnLoaded;
+    }
+    void OnLoaded(Scene scene, LoadSceneMode mode)
+    {
         count = spawnInterval;
         waveTimer = waveDelay;
     }
-    private void OnLevelWasLoaded(int level)
+    void OnLoaded()
     {
-        Awake();
+        count = spawnInterval;
+        waveTimer = waveDelay;
     }
     private void FixedUpdate()
     {
