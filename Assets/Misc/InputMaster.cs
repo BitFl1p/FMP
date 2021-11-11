@@ -172,7 +172,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""id"": ""ad599d63-5f86-4699-b398-adc9921b0681"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""NormalizeVector2"",
+                    ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""MouseLook"",
                     ""isComposite"": false,

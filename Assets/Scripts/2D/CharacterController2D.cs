@@ -44,7 +44,7 @@ public class CharacterController2D : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
     }
-    void FixedUpdate()
+    void Update()
     {
         speed = GetComponent<Stats>().moveSpeed;
         if (axis == "XY")

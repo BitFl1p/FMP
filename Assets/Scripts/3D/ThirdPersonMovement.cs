@@ -39,7 +39,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         input.Disable();
     }
-    private void FixedUpdate()
+    private void Update()
     {
         anim.SetBool("Grounded", grounded);
         Cursor.lockState = CursorLockMode.Locked;
